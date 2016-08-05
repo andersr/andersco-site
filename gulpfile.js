@@ -6,12 +6,18 @@ var
   DIST_WATCHED  = 'dist/**/*',
   HTML_FILES    = 'app/**/*.html';
   SCSS_FILES    = 'app/styles/**/*.scss',
-  SCRIPT_FILES  = 'app/scripts/**/*.js'   
-  CSS_FILES     = 'dist/styles'
+  SCRIPT_FILES  = 'app/scripts/**/*.js',
+  IMG_SRC_FILES = 'app/images/**/*.*',
+  IMG_FILES     = 'dist/images/',
+  FONT_SRC_FILES    = ['app/styles/vendor/bootstrap/fonts/**/*.*', 'app/styles/vendor/font-awesome/fonts/**/*.*'],
+  VENDOR_SCRIPT_FILES  = 'app/vendor/scripts/**/*.js',
+  CSS_FILES     = 'dist/styles/',
+  FONT_FILES     = 'dist/styles/fonts'
 ;
 // ****** PACKAGES ******
 var 
   gulp            = require('gulp'),
+  order           = require("gulp-order"),
   del             = require('del'),
   // wiredep         = require('wiredep').stream,
   jshint          = require('gulp-jshint'),
@@ -50,9 +56,20 @@ gulp.task('clean', function(done) {
 gulp.task('html', function() {
   return gulp
     .src(HTML_FILES)
-    // .pipe(wiredep())
     .pipe(cleanhtml())
     .pipe(gulp.dest(DIST_DIR))
+})
+
+gulp.task('images', function() {
+  return gulp
+    .src(IMG_SRC_FILES)
+    .pipe(gulp.dest(IMG_FILES))
+})
+
+gulp.task('fonts', function() {
+  return gulp
+    .src(FONT_SRC_FILES)
+    .pipe(gulp.dest(FONT_FILES))
 })
 
 gulp.task('lint', function() {
@@ -63,9 +80,16 @@ gulp.task('lint', function() {
 
 gulp.task('scripts',
   gulp.series('lint', function scriptsInternal() {
-    // var glob = mainBowerFiles('**/*.js')
-    // glob.push(SCRIPT_FILES)
-    return gulp.src(SCRIPT_FILES)
+    return gulp.src([ "app/vendor/scripts/jquery.js",
+        "app/vendor/scripts/bootstrap.js",
+        "app/vendor/scripts/freelancer.js",
+        SCRIPT_FILES])
+      .pipe(order([
+        'app/vendor/scripts/jquery.js',
+        'app/vendor/scripts/bootstrap.js',
+        'app/vendor/scripts/freelancer.js',
+        SCRIPT_FILES
+        ], { base: './' }))
       .pipe(sourcemaps.init())
       .pipe(concat('main.min.js'))
       .pipe(uglify())
@@ -73,6 +97,7 @@ gulp.task('scripts',
       .pipe(gulp.dest(DIST_SCRIPTS))
    })
 )
+
 
 gulp.task('styles', function() {
   return gulp
@@ -99,7 +124,7 @@ gulp.task('server', function(done) {
 
 // gulp.parallel('html', 'styles', 'scripts')
 
-gulp.task('default', gulp.series('clean',gulp.parallel('html', 'styles', 'scripts'), 'server', 
+gulp.task('default', gulp.series('clean',gulp.parallel('html', 'styles', 'fonts','images','scripts'), 'server', 
   function() {
     gulp.watch([HTML_FILES] , gulp.parallel('html'))
     gulp.watch([SCRIPT_FILES] , gulp.parallel('scripts'))
