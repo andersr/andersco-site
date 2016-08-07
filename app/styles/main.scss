@@ -1,12 +1,23 @@
-// @import "normalize";
-// @import "vendor/h5bp";
-// @import "variables";
-// @import "mixins";
-// @import "layout";
-// @import "theme/colors";
-@import "vendor/bootstrap/bootstrap";
-@import "vendor/font-awesome/font-awesome";
-@import "vendor/freelancer";
+@import "vendor/normalize";
+@import "vendor/h5bp";
+@import "variables";
+@import "helpers";
+@import "layout";
+@import "theme";
 
+
+
+// @import "theme/colors";
+// @import "vendor/bootstrap/bootstrap";
+// @import "vendor/font-awesome/font-awesome";
+// @import "vendor/freelancer";
+
+
+
+// #title {
+//  h1 {
+// 	margin-top:0;
+//  }
+// }
 
 

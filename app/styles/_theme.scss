@@ -1,0 +1,65 @@
+body {
+	font-family: $base-font-family;
+	font-size: $base-font-size;
+	color: $primary-text-color;
+}
+
+// .brand {
+
+// }
+
+h1 {
+		
+	// font-family: $brand-font-family;
+	font-size: 2.3em;
+		text-align: center;
+		font-weight: 300;
+		line-height: .9;
+		color: $primary-text-color;
+
+	.sub-heading {
+		font-size: 45%;
+		color:$secondary-text-color;
+	
+	}
+
+}
+
+h2 {
+	font-size: 1.1em;
+	margin-top:0;
+	margin-bottom: 0;
+	//font-weight:00;
+}
+
+p, ul {
+	line-height: 1.2;
+	font-size: 1.3em;
+}
+
+p {
+	margin-top:0;
+	margin-bottom: .75em;	
+}
+
+
+ul {
+	// line-height: 1.2;
+	// font-size: 1.3em;
+	margin-top:0;
+	margin-bottom: .75em;	
+}
+
+.list_unstyled {
+	padding-left: 0;
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+	color: $link-color;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}

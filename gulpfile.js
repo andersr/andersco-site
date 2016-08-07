@@ -66,11 +66,11 @@ gulp.task('images', function() {
     .pipe(gulp.dest(IMG_FILES))
 })
 
-gulp.task('fonts', function() {
-  return gulp
-    .src(FONT_SRC_FILES)
-    .pipe(gulp.dest(FONT_FILES))
-})
+// gulp.task('fonts', function() {
+//   return gulp
+//     .src(FONT_SRC_FILES)
+//     .pipe(gulp.dest(FONT_FILES))
+// })
 
 gulp.task('lint', function() {
    return gulp.src([SCRIPT_FILES])
@@ -124,7 +124,7 @@ gulp.task('server', function(done) {
 
 // gulp.parallel('html', 'styles', 'scripts')
 
-gulp.task('default', gulp.series('clean',gulp.parallel('html', 'styles', 'fonts','images','scripts'), 'server', 
+gulp.task('default', gulp.series('clean',gulp.parallel('html', 'styles','images','scripts'), 'server', 
   function() {
     gulp.watch([HTML_FILES] , gulp.parallel('html'))
     gulp.watch([SCRIPT_FILES] , gulp.parallel('scripts'))

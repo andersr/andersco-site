@@ -1,31 +1,35 @@
+/* apply a natural box layout model to all elements, but allowing components to change http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
 // --------------------------------
-// BASE LAYOUT
+// FULL HEIGHT VIEWPORT
 // --------------------------------
 html,body {
-  box-sizing: border-box;
   height:100%;
 }
 
-*, *:before, *:after { box-sizing: inherit; }
-
-body {
-  padding:0;
-  min-height: 100vh;
-}
+// body {
+//   padding:0;
+//   min-height: 100vh;
+// }
 
 #container {
+
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  overflow: auto;
-  padding: 1em 1.5em;
+
   margin: 0 auto;
+  padding:  $app-padding;
   max-width: $app-max-width;
-}
 
-#title {
- h1 {
-	margin-top:0;
- }
+  min-height: 100vh;
+  
+  overflow: auto;
+  
 }
-
