@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "gulp heroku:production"
   },
   "keywords": [],
   "author": "Anders Ramsay <anders@anders.co> (http://anders.co)",
   "license": "MIT",
+  "engines": {
+  "node": "6.2.2"
+  },
   "devDependencies": {
     "browser-sync": "^2.14.0",
     "del": "^2.2.1",

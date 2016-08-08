@@ -224,6 +224,9 @@ gulp.task('server', function(done) {
 })
 
 
+// gulp.task('heroku:production', ['libs',  'less', 'jade', 'js']);
+
+
 // gulp.parallel('html', 'styles', 'scripts')
 
 gulp.task('default', gulp.series('clean',gulp.parallel('html', 'styles','favicons', 'scripts'), 'server', 
