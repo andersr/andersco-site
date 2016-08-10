@@ -1,17 +1,17 @@
 require('dotenv').config();
+var path = require('path');
 
 var express = require('express');
- // var env = require('node-env-file');
 var basicAuth = require('basic-auth-connect');
 var app = express();
 // app.use(basicAuth('test', 'user'));
 app.use(basicAuth(process.env.NPM_CONFIG_BASIC_AUTH_USER, process.env.NPM_CONFIG_BASIC_AUTH_PWD));
 
-// set the port of our application
 // process.env.PORT lets the port be set by Heroku
 var port = process.env.PORT || 8080;
 
 // set the view engine to ejs
+app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
 
 // make express look in the public directory for assets (css/js/img)
@@ -25,5 +25,5 @@ app.get('/', function(req, res) {
 });
 
 app.listen(port, function() {
-	console.log('Our app is running on http://localhost:' + port);
+	console.log('App running at http://localhost:' + port);
 });

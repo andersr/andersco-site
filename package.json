@@ -10,9 +10,9 @@
   "engines": {
     "node": "6.2.2"
   },
-  "main": "server.js",
+  "main": "app/app.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node app/app.js"
   },
   "keywords": [],
   "author": "Anders Ramsay <anders@anders.co> (http://anders.co)",
