@@ -10,9 +10,9 @@
   "engines": {
     "node": "6.2.2"
   },
-  "main": "app/app.js",
+  "main": "main.js",
   "scripts": {
-    "start": "node app/app.js"
+    "start": "node main.js"
   },
   "keywords": [],
   "author": "Anders Ramsay <anders@anders.co> (http://anders.co)",
@@ -36,6 +36,7 @@
     "jshint": "^2.9.2",
     "jshint-stylish": "^2.2.0",
     "main-bower-files": "^2.13.1",
+    "require-dir": "^0.3.0",
     "wiredep": "^4.0.0"
   },
   "dependencies": {

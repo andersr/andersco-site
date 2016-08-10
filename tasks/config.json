@@ -1,0 +1,14 @@
+{
+	"paths": {
+		"views": {
+			"src": "src/views/**/*.ejs",
+			"dist": "dist/views",
+			"del": "dist/views/**/*.*"
+		},
+		"styles": {
+			"src": "src/styles/**/*.scss",
+			"dist": "dist/public/styles",
+			"del": "dist/public/styles/*.css"
+		}
+	}
+}
