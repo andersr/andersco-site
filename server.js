@@ -5,7 +5,7 @@ var express = require('express');
 var basicAuth = require('basic-auth-connect');
 var app = express();
 // app.use(basicAuth('test', 'user'));
-app.use(basicAuth(process.env.HTTP_BASIC_AUTH_USER, process.env.HTTP_BASIC_AUTH_PWD));
+app.use(basicAuth(process.env.NPM_CONFIG_BASIC_AUTH_USER, process.env.NPM_CONFIG_BASIC_AUTH_PWD));
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
