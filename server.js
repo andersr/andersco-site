@@ -1,5 +1,11 @@
+require('dotenv').config();
+
 var express = require('express');
+ // var env = require('node-env-file');
+var basicAuth = require('basic-auth-connect');
 var app = express();
+// app.use(basicAuth('test', 'user'));
+app.use(basicAuth(process.env.HTTP_BASIC_AUTH_USER, process.env.HTTP_BASIC_AUTH_PWD));
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
