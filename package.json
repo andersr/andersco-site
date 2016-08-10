@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "description": "anders.co website",
-"repository": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/andersr/andersco-site"
   },
   "engines": {
-    "node": "6.2.2",
-    "npm": "3.10.6"
+    "node": "6.2.2"
   },
   "main": "server.js",
   "scripts": {
@@ -18,9 +17,6 @@
   "keywords": [],
   "author": "Anders Ramsay <anders@anders.co> (http://anders.co)",
   "license": "MIT",
-  "engines": {
-    "node": "6.2.2"
-  },
   "devDependencies": {
     "browser-sync": "^2.14.0",
     "del": "^2.2.1",
@@ -44,6 +40,6 @@
   "dependencies": {
     "ejs": "^2.5.1",
     "express": "^4.14.0",
-    "connect-wwwhisper": "*"
+    "http-auth": "^2.4.4"
   }
 }
