@@ -9,11 +9,11 @@
   },
   "engines": {
     "node": "6.2.2",
-    "npm": "3.9.5"
+    "npm": "3.10.6"
   },
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node app/index.js"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "Anders Ramsay <anders@anders.co> (http://anders.co)",
