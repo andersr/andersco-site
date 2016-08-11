@@ -1,8 +1,9 @@
-var env = 'public/';
+var env = 'dist/';
 
 module.exports = {
 	paths: {
 		dist_dir: 'dist',
+		dist_files: 'dist/**/*.*',
 		views: {
 			src: 'src/views/**/*.ejs',
 			dist: 'dist/views',

@@ -19,6 +19,7 @@ gulp.task('styles:dist', function() {
       suffix: '.min'
     }))
     .pipe(gulp.dest(config.paths.styles.dist))
+
 })
 
 
