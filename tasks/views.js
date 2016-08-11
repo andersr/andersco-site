@@ -1,20 +1,14 @@
 var 
   gulp            = require('gulp'),
-  del             = require('del'),
+  config       = require('./config.json'),
   cleanhtml       = require('gulp-cleanhtml')
 ;
 
-var config       = require('./config.json');
-
-gulp.task('views:del', function() {
-  return del(config.paths.views.del);
-})
-
-gulp.task('views:clean', function() {
+gulp.task('views:dist', function() {
   return gulp
     .src(config.paths.views.src)
     .pipe(cleanhtml())
     .pipe(gulp.dest(config.paths.views.dist))
 })
 
-gulp.task('views', gulp.series('views:del', 'views:clean'));
+gulp.task('views', gulp.series('views:dist'));

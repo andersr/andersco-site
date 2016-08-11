@@ -1,17 +1,12 @@
 var 
   gulp            = require('gulp'),
   config          = require('./config.json'),
-  del             = require('del'),
   sourcemaps      = require('gulp-sourcemaps'),
   rename          = require('gulp-rename'),
   sass            = require('gulp-sass'),
   autoprefix      = require('gulp-autoprefixer'),
   cleanCSS        = require('gulp-clean-css')
 ;
-
-gulp.task('styles:del', function() {
-  return del(config.paths.styles.del);
-})
 
 gulp.task('styles:dist', function() {
   return gulp
@@ -26,4 +21,4 @@ gulp.task('styles:dist', function() {
     .pipe(gulp.dest(config.paths.styles.dist))
 })
 
-gulp.task('styles', gulp.series('styles:del', 'styles:dist'));
+gulp.task('styles', gulp.series('styles:dist'));
