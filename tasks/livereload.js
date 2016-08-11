@@ -1,17 +1,18 @@
-// var gulp      = require('gulp'),
+// var
+//   gulp        = require('gulp'),
 //   browsersync = require('browser-sync'),
 //   vss         = require('vinyl-source-stream'),
 //   vb          = require('vinyl-buffer'),
 //   vf          = require('vinyl-file'),
-//   config      = require('./config.json')
+//   config      = require('./config')
 // ;
-// // ,
-// //   opts        = gConfig.pluginOpts,
-// //   src         = gConfig.paths.sources,
-// //   dest        = gConfig.paths.destinations,
-//   /*
-//     start; creates local static livereload server using browser-sync.
-//   */
+// ,
+//   opts        = gConfig.pluginOpts,
+//   src         = gConfig.paths.sources,
+//   dest        = gConfig.paths.destinations,
+  /*
+    start; creates local static livereload server using browser-sync.
+  */
 //   start = function() {
 //     var server = browsersync.create();
 //     server.init(config.plugins.browserSync);

@@ -5,14 +5,7 @@ var
   config       = require('./tasks/config')
 ;
 
-gulp.task('default', 
-  gulp.series(
-    'del:dist_dir', 
-    gulp.parallel(
-      'styles', 
-      'views', 
-      'favicons'
-    )
-  )
-);
+gulp.task('watch', gulp.series('styles:watch'));
+
+gulp.task('default', gulp.series('del:dist_dir', gulp.parallel('styles', 'views', 'favicons'), 'watch'));
 
