@@ -1,6 +1,6 @@
 var 
   gulp            = require('gulp'),
-  config          = require('./config.json'),
+  config          = require('./config'),
   sourcemaps      = require('gulp-sourcemaps'),
   rename          = require('gulp-rename'),
   sass            = require('gulp-sass'),

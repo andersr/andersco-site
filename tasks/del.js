@@ -1,6 +1,6 @@
 var 
   gulp     = require('gulp'),
-  config   = require('./config.json'),
+  config   = require('./config'),
   del      = require('del')
 ;
 

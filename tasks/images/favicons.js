@@ -1,6 +1,6 @@
 var 
   gulp            = require('gulp'),
-  config          = require('../config.json'),
+  config          = require('../config'),
   inject = require('gulp-inject')
 ;
 
