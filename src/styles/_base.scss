@@ -1,0 +1,9 @@
+// NATURAL BOX MODEL
+// http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+// _____________________________________
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
