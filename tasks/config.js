@@ -1,20 +1,3 @@
-// update to use this model
-  // paths: {
-  //   base: env,
-  //   sources: {
-  //     docs     : 'src/pug/*.pug',
-  //     markup   : 'src/pug/**/*.pug',
-  //     overwatch: env + '**/*.{html,js,css}',
-  //     scripts  : 'src/js/**/*.js',
-  //     styles   : 'src/stylus/**/*.styl'
-  //   },
-  //   destinations: {
-  //     dist: './dist',
-  //     css : env + 'css/',
-  //     html: env,
-  //     js  : env + 'js/'
-  //   }
-  // }
 var env = 'public/';
 
 module.exports = {
