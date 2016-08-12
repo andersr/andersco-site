@@ -4,25 +4,18 @@ html,body {
   height:100%;
 }
 
-#container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
+.container {
   padding:  $app-padding;
   max-width: $app-max-width;
-  overflow: auto; 
 }
-
 
 // HELPERS
 // _____________________________________
-.layout__centered { 
+.centered { 
   margin: 0 auto;
 }
-.full-width {
-  width: 100%;
+.full-height {
+  min-height: 100vh;
+  overflow: auto; 
 }
-.align-centered {
-  text-align: centered;
-}
+
