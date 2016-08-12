@@ -19,7 +19,6 @@
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.14.0",
-    "connect-browser-sync": "^2.0.1",
     "del": "^2.2.1",
     "fs": "0.0.2",
     "gulp": "github:gulpjs/gulp#4.0",
@@ -27,11 +26,8 @@
     "gulp-clean-css": "^2.0.12",
     "gulp-cleanhtml": "^1.0.1",
     "gulp-concat": "^2.6.0",
-    "gulp-inject": "^4.1.0",
     "gulp-jshint": "^2.0.1",
-    "gulp-livereload": "^3.8.1",
     "gulp-nodemon": "^2.1.0",
-    "gulp-notify": "^2.2.0",
     "gulp-order": "^1.1.1",
     "gulp-real-favicon": "^0.2.1",
     "gulp-rename": "^1.2.2",
@@ -41,13 +37,8 @@
     "gulp-using": "^0.1.1",
     "jshint": "^2.9.2",
     "jshint-stylish": "^2.2.0",
-    "main-bower-files": "^2.13.1",
     "nodemon": "^1.10.0",
-    "require-dir": "^0.3.0",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-file": "^2.0.0",
-    "vinyl-source-stream": "^1.1.0",
-    "wiredep": "^4.0.0"
+    "require-dir": "^0.3.0"
   },
   "dependencies": {
     "basic-auth-connect": "^1.0.0",

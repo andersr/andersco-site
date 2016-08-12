@@ -1,17 +1,10 @@
-// var 
-//   browserSync = require("browser-sync").create('DevServer'),
-//   config      = require('./config')
-// ;
+var 
+  gulp         = require('gulp'),
+  config       = require('./_config'),
+  browserSync  = require('browser-sync').create()
+;
 
-// // .init starts the server
-// browserSync.init({
-//     server: config.paths.dist_dir
-// });
+gulp.task('browser-sync', function() {
+  browserSync.init(config.plugins.browserSync);
+});
 
-// // Now call methods on browserSync instead of the
-// // main browserSync module export
-// // browserSync.reload("*.html");
-
-// module.exports = {
-// 	browserSync: browserSync
-// }

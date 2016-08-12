@@ -1,7 +1,4 @@
-var env = 'dist/';
-
-module.exports = {
-	paths: {
+var paths = {
 		dist_dir: 'dist',
 		dist_files: 'dist/**/*.*',
 		views: {
@@ -24,16 +21,26 @@ module.exports = {
 				target: 'src/views/index.ejs'
 			}
 		}
-	},
+	};
+
+module.exports = {
+	paths: paths,
 	plugins: {
-		browserSync: {
-      port   : 4000,
-      server : {
-        baseDir: env
-      }
+			browserSync: {
+	    proxy: "localhost:3000",
+	    port: 5000, 
+	    files: [ 
+	      paths.dist_files 
+	    ],
+	    browser: 'google chrome',
+	    notify: true
+    },
+    nodemon: {
+      script: 'app.js',
+      ignore: [
+        'gulpfile.js',
+        'node_modules/'
+      ]
     }
 	}
 };
-
-
-	

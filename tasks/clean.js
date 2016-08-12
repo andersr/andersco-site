@@ -1,9 +1,9 @@
 var 
   gulp     = require('gulp'),
-  config   = require('./config'),
+  config   = require('./_config'),
   del      = require('del')
 ;
 
-gulp.task('del:dist_dir', function() {
+gulp.task('clean:dist_dir', function() {
   return del(config.paths.dist_dir);
 });

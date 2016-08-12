@@ -1,6 +1,6 @@
 var 
   gulp            = require('gulp'),
-  config          = require('./config'),
+  config          = require('./_config'),
   sourcemaps      = require('gulp-sourcemaps'),
   rename          = require('gulp-rename'),
   sass            = require('gulp-sass'),
@@ -27,4 +27,4 @@ gulp.task('styles:watch', function() {
   gulp.watch(config.paths.styles.src, gulp.series('styles:dist'));
 })
 
-gulp.task('styles', gulp.series('styles:dist'));
+// gulp.task('styles', gulp.series('styles:dist'));
