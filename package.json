@@ -13,7 +13,7 @@
   "main": "main.js",
   "scripts": {
     "start": "node app.js",
-    "deploy-staging": "git push heroku master"
+    "deploy-staging": "git push staging master"
   },
   "keywords": [],
   "author": "Anders Ramsay <anders@anders.co> (http://anders.co)",
