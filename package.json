@@ -13,7 +13,8 @@
   "main": "main.js",
   "scripts": {
     "start": "node app.js",
-    "deploy-staging": "git push staging master"
+    "deploy-staging": "git push staging master",
+    "deploy-prod": "git push production master"
   },
   "keywords": [],
   "author": "Anders Ramsay <anders@anders.co> (http://anders.co)",
