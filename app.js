@@ -2,8 +2,9 @@ require('dotenv').config();
 var path = require('path');
 var express = require('express');
 var app = express();
+var env = process.env.NODE_ENV;
 
-if(app.get('env') == 'staging'){
+if(env == 'staging'){
   var basicAuth = require('basic-auth-connect');
   app.use(basicAuth(process.env.NPM_CONFIG_BASIC_AUTH_USER, process.env.NPM_CONFIG_BASIC_AUTH_PWD));
 }
