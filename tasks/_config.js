@@ -11,6 +11,12 @@ var paths = {
 			dist: 'dist/public/styles',
 			del: 'dist/public/styles/*.css'
 		},
+		scripts: {
+			all: 'src/scripts/**/*.js',
+			dev: 'src/scripts/*.js',
+			vendor: 'src/scripts/vendor/*.js',
+			dist: 'dist/public/scripts'
+		},
 	  favicons: {
 			files: {
 	      src: 'src/images/favicons/dist/files/*.*',
