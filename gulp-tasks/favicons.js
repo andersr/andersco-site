@@ -1,6 +1,6 @@
 var 
   gulp     = require('gulp'),
-  config   = require('../_config')
+  config   = require('./_config')
 ;
 
 gulp.task('favicons:dist', function() {
