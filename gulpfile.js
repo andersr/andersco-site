@@ -7,7 +7,8 @@ var
 
 gulp.task('clean', gulp.parallel('clean:dist_dir'));
 
-gulp.task('dist', gulp.parallel('styles:dist', 'scripts:dist', 'views:dist', 'favicons:dist'));
+
+gulp.task('dist', gulp.parallel('styles:dist', 'scripts:dist', 'views:dist'));
 
 gulp.task('watch', gulp.parallel('styles:watch', 'scripts:watch', 'views:watch'));
 

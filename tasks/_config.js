@@ -13,8 +13,8 @@ var paths = {
 		},
 		scripts: {
 			all: 'src/scripts/**/*.js',
-			dev: 'src/scripts/*.js',
-			vendor: 'src/scripts/vendor/*.js',
+			dev: 'src/scripts/dev/**/*.js',
+			vendor: 'src/scripts/vendor/**/*.js',
 			dist: 'dist/public/scripts'
 		},
 	  favicons: {
