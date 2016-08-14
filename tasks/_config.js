@@ -3,13 +3,11 @@ var paths = {
 		dist_files: 'dist/**/*.*',
 		views: {
 			src: 'src/views/**/*.ejs',
-			dist: 'dist/views',
-			del: 'dist/views/**/*.*'
+			dist: 'dist/views'
 		},
 		styles: {
 			src: 'src/styles/**/*.scss',
-			dist: 'dist/public/styles',
-			del: 'dist/public/styles/*.css'
+			dist: 'dist/public/styles'
 		},
 		scripts: {
 			all: 'src/scripts/**/*.js',

@@ -6,12 +6,6 @@ var
   sourcemaps      = require('gulp-sourcemaps')
 ;
 
-//load vendor scripts first, don't minify
-
-// gulp.task('scripts:vendor', function() {
-//   return gulp.src(config.paths.scripts.vendor)
-// })
-
 gulp.task('scripts:dist', function() {
   return gulp.src([config.paths.scripts.vendor, config.paths.scripts.dev])
     .pipe(sourcemaps.init())
@@ -26,6 +20,11 @@ gulp.task('scripts:watch', function() {
 })
 
 
+//load vendor scripts first, don't minify
+
+// gulp.task('scripts:vendor', function() {
+//   return gulp.src(config.paths.scripts.vendor)
+// })
 
 
 // gulp.task('scripts',
