@@ -3,7 +3,9 @@ var
   config          = require('./_config'),
   concat          = require('gulp-concat'),
   uglify          = require('gulp-uglify'),
-  sourcemaps      = require('gulp-sourcemaps')
+  sourcemaps      = require('gulp-sourcemaps'),
+  jshint          = require('gulp-jshint'),
+  jshintStylish   = require('jshint-stylish')
 ;
 
 gulp.task('scripts:dist', function() {
@@ -15,7 +17,19 @@ gulp.task('scripts:dist', function() {
     .pipe(gulp.dest(config.paths.scripts.dist))
 })
 
+gulp.task('scripts:lint', function() {
+    return gulp.src(config.paths.scripts.dev)
+    .pipe(jshint())
+    .pipe(jshint.reporter(jshintStylish))
+})
+
 gulp.task('scripts:watch', function(done) {
-  gulp.watch(config.paths.scripts.all, gulp.series('scripts:dist'));
+  gulp.watch(config.paths.scripts.all, gulp.series('scripts:lint','scripts:dist'));
   done();
 })
+
+// gulp.task('scripts:lint', function() {
+//     return gulp.src(config.paths.scripts.src)
+//     .pipe(jshint())
+//     .pipe(jshint.reporter(jshintStylish))
+// })

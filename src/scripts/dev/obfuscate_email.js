@@ -19,12 +19,12 @@ $(function() {
 
    for (var i=0; i<options.coded.length; i++) {
       if (options.key.indexOf(options.coded.charAt(i))==-1) {
-        ltr = options.coded.charAt(i)
-        address += (ltr)
+        ltr = options.coded.charAt(i);
+        address += (ltr);
       }
       else {     
-        ltr = (options.key.indexOf(options.coded.charAt(i))-shift+options.key.length) % options.key.length
-        address += (options.key.charAt(ltr))
+        ltr = (options.key.indexOf(options.coded.charAt(i))-shift+options.key.length) % options.key.length;
+        address += (options.key.charAt(ltr));
       }
     }
     return address;
