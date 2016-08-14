@@ -10,34 +10,39 @@ $(function() {
   	key:  "wmS20BDlarV8QdAMbC1jXqUgHLzhfvRts7KG3ZWcx5EoIOkeP4Tp6FuNYJin9y"
   };
 
-  function obfuscateEmail(options){
-
-  	var 
+  function getEmailAddress(options){
+    var 
      shift=options.coded.length,
      address="",
-     mailto,
-     ltr,
-     $link = $(options.id)
+     ltr
    ;
 
    for (var i=0; i<options.coded.length; i++) {
-	    if (options.key.indexOf(options.coded.charAt(i))==-1) {
-	      ltr = options.coded.charAt(i)
-	      address += (ltr)
-	    }
-	    else {     
-	      ltr = (options.key.indexOf(options.coded.charAt(i))-shift+options.key.length) % options.key.length
-	      address += (options.key.charAt(ltr))
-	    }
-	  }
-
-    mailto = "mailto:"+address;
-
-    $link = $(options.id);
-    $link.attr('href',mailto).text(address);
-
+      if (options.key.indexOf(options.coded.charAt(i))==-1) {
+        ltr = options.coded.charAt(i)
+        address += (ltr)
+      }
+      else {     
+        ltr = (options.key.indexOf(options.coded.charAt(i))-shift+options.key.length) % options.key.length
+        address += (options.key.charAt(ltr))
+      }
+    }
+    return address;
   }
 
-  obfuscateEmail(andersco);
+
+  function createEmailLink(options){
+
+    var 
+      address    = getEmailAddress(options),
+      linkText   = options.linkText || address,
+      $link      = $(options.id),
+      mailto     = "mailto:"+address
+    ;
+
+    $link.attr('href',mailto).text(linkText);
+  }
+
+  createEmailLink(andersco);
 
 });
