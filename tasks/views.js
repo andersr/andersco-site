@@ -15,4 +15,4 @@ gulp.task('views:watch', function() {
   gulp.watch(config.paths.views.src, gulp.series('views:dist'));
 })
 
-gulp.task('views', gulp.series('views:dist'));
+// gulp.task('views', gulp.series('views:dist'));
