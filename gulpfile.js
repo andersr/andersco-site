@@ -5,12 +5,11 @@ var
   config       = require('./tasks/_config')
 ;
 
-gulp.task('clean', gulp.parallel('clean:dist_dir'));
 
+
+gulp.task('clean', gulp.parallel('clean:dist_dir'));
 
 gulp.task('dist', gulp.parallel('styles:dist', 'scripts:dist', 'views:dist'));
 
-gulp.task('watch', gulp.parallel('styles:watch', 'scripts:watch', 'views:watch'));
-
-gulp.task('default', gulp.series('clean', 'dist', 'server', gulp.parallel('watch', 'browser-sync')));
+gulp.task('default', gulp.series('clean', 'dist', 'server', 'browser-sync:init', gulp.parallel('watch')));
 

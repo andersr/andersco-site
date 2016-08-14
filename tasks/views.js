@@ -11,8 +11,9 @@ gulp.task('views:dist', function() {
     .pipe(gulp.dest(config.paths.views.dist))
 })
 
-gulp.task('views:watch', function() {
+gulp.task('views:watch', function(done) {
   gulp.watch(config.paths.views.src, gulp.series('views:dist'));
+  done();
 })
 
 // gulp.task('views', gulp.series('views:dist'));

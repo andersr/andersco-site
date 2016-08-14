@@ -43,7 +43,8 @@ module.exports = {
       script: 'app.js',
       ignore: [
         'gulpfile.js',
-        'node_modules/'
+        'node_modules/',
+        '/tasks'
       ]
     }
 	}

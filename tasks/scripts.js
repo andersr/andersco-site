@@ -15,8 +15,9 @@ gulp.task('scripts:dist', function() {
     .pipe(gulp.dest(config.paths.scripts.dist))
 })
 
-gulp.task('scripts:watch', function() {
+gulp.task('scripts:watch', function(done) {
   gulp.watch(config.paths.scripts.all, gulp.series('scripts:dist'));
+  done();
 })
 
 

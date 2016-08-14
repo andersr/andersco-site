@@ -23,8 +23,9 @@ gulp.task('styles:dist', function() {
 })
 
 
-gulp.task('styles:watch', function() {
+gulp.task('styles:watch', function(done) {
   gulp.watch(config.paths.styles.src, gulp.series('styles:dist'));
+  done();
 })
 
 // gulp.task('styles', gulp.series('styles:dist'));
