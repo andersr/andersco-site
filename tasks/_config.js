@@ -48,5 +48,9 @@ module.exports = {
         'node_modules/'
       ]
     }
+	},
+    uglify: {
+      license: true
+    }
 	}
 };

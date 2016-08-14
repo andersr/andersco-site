@@ -1,30 +1,40 @@
+/*! Email obfuscator script 2.1 by Tim Williams, Andrew Moulden, converted to jquery, ttp://www.jottings.com/obfuscator/ */
+
 $(function() {
-    console.log( "ready!" );
 
-  //   var
-	 //    coded = "ca@XrLnqI.pN",
-	 //    key = "wmS20BDlarV8QdAMbC1jXqUgHLzhfvRts7KG3ZWcx5EoIOkeP4Tp6FuNYJin9y",
-	 //    shift=coded.length,
-	 //    node = document.getElementById("anderco-contact"),
-	 //    a = document.createElement("a")
-	 //    link=""
-  //   ;
+    var andersco = {
+    	id: "#andersco-mailto",
+    	coded:  "ca@XrLnqI.pN",
+    	key:  "wmS20BDlarV8QdAMbC1jXqUgHLzhfvRts7KG3ZWcx5EoIOkeP4Tp6FuNYJin9y"
+    };
 
-  // for (var i=0; i<coded.length; i++) {
-  //   if (key.indexOf(coded.charAt(i))==-1) {
-  //     ltr = coded.charAt(i)
-  //     link += (ltr)
-  //   }
-  //   else {     
-  //     ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
-  //     link += (key.charAt(ltr))
-  //   }
-  // }
+    function obfuscateEmail(options){
 
-  //  $('#andersco-link').attr('href',link).text(link);
+    	var 
+	     shift=options.coded.length,
+	     address="",
+	     mailto,
+	     $link = $(options.id)
+	   ;
+
+	   for (var i=0; i<options.coded.length; i++) {
+		    if (options.key.indexOf(options.coded.charAt(i))==-1) {
+		      ltr = options.coded.charAt(i)
+		      address += (ltr)
+		    }
+		    else {     
+		      ltr = (options.key.indexOf(options.coded.charAt(i))-shift+options.key.length) % options.key.length
+		      address += (options.key.charAt(ltr))
+		    }
+		  }
+
+      mailto = "mailto:"+address;
+
+      $link = $(options.id);
+      $link.attr('href',mailto).text(address);
+
+    }
+
+    obfuscateEmail(andersco);
+
 });
-
-// var a = document.createElement('a');
-// $(a).attr('href','index.html').attr('id','xyz').addClass('example');
-
-// .attr('id','xyz').addClass('example')
