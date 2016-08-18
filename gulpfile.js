@@ -1,4 +1,4 @@
-var 
+var
   gulp         = require('gulp'),
   requireDir   = require('require-dir'),
   taskDir      = "./gulp-tasks",
@@ -8,6 +8,6 @@ var
 
 gulp.task('clean', gulp.parallel('clean:dist_dir'));
 
-gulp.task('dist', gulp.parallel('styles:dist', 'scripts:lint', 'scripts:dist', 'views:dist'));
+gulp.task('dist', gulp.parallel('styles:dist', 'scripts:lint', 'scripts:dist', 'views:dist', 'favicons:dist'));
 
 gulp.task('default', gulp.series('clean', 'dist', 'server', 'browser-sync:init', gulp.parallel('watch')));
