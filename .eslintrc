@@ -22,7 +22,7 @@
     "no-console" : 0,
     "id-length": [2, {
       "min": 2,
-      "exceptions": ["x","v","T"],
+      "exceptions": ["i","x","v","T"],
     }],
   },
   "env": {
