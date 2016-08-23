@@ -4,14 +4,14 @@ $(function() {
 
 	'use strict';
 
-  var andersco = {
+  const andersco = {
   	id: "#andersco-mailto",
   	coded:  "ca@XrLnqI.pN",
   	key:  "wmS20BDlarV8QdAMbC1jXqUgHLzhfvRts7KG3ZWcx5EoIOkeP4Tp6FuNYJin9y"
   };
 
   function getEmailAddress(options){
-    var 
+    let
      shift=options.coded.length,
      address="",
      ltr
@@ -22,7 +22,7 @@ $(function() {
         ltr = options.coded.charAt(i);
         address += (ltr);
       }
-      else {     
+      else {
         ltr = (options.key.indexOf(options.coded.charAt(i))-shift+options.key.length) % options.key.length;
         address += (options.key.charAt(ltr));
       }
@@ -33,7 +33,7 @@ $(function() {
 
   function createEmailLink(options){
 
-    var 
+    var
       address    = getEmailAddress(options),
       linkText   = options.linkText || address,
       $link      = $(options.id),

@@ -1,35 +1,29 @@
-var 
-  gulp            = require('gulp'),
-  config          = require('./_config'),
-  concat          = require('gulp-concat'),
-  uglify          = require('gulp-uglify'),
-  sourcemaps      = require('gulp-sourcemaps'),
-  jshint          = require('gulp-jshint'),
-  jshintStylish   = require('jshint-stylish')
-;
+var gulp = require('gulp')
+var config = require('./_config')
+var babel = require('gulp-babel')
+var concat = require('gulp-concat')
+var uglify = require('gulp-uglify')
+var sourcemaps = require('gulp-sourcemaps')
+var eslint = require('gulp-eslint')
+var lintReporter = require('eslint-friendly-formatter')
 
-gulp.task('scripts:dist', function() {
+gulp.task('scripts:dist', function () {
   return gulp.src([config.paths.scripts.vendor, config.paths.scripts.dev])
     .pipe(sourcemaps.init())
+    .pipe(babel())
     .pipe(concat('main.min.js'))
     .pipe(uglify())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(config.paths.scripts.dist))
 })
 
-gulp.task('scripts:lint', function() {
-    return gulp.src(config.paths.scripts.dev)
-    .pipe(jshint())
-    .pipe(jshint.reporter(jshintStylish))
+gulp.task('scripts:lint', function () {
+  return gulp.src(config.paths.scripts.dev)
+    .pipe(eslint())
+    .pipe(eslint.format(lintReporter))
 })
 
-gulp.task('scripts:watch', function(done) {
-  gulp.watch(config.paths.scripts.all, gulp.series('scripts:lint','scripts:dist'));
-  done();
+gulp.task('scripts:watch', function (done) {
+  gulp.watch(config.paths.scripts.all, gulp.series('scripts:lint', 'scripts:dist'))
+  done()
 })
-
-// gulp.task('scripts:lint', function() {
-//     return gulp.src(config.paths.scripts.src)
-//     .pipe(jshint())
-//     .pipe(jshint.reporter(jshintStylish))
-// })
