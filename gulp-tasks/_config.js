@@ -32,12 +32,13 @@ module.exports = {
 	plugins: {
 			browserSync: {
 	    proxy: "localhost:3000",
-	    port: 5000, 
-	    files: [ 
-	      paths.dist_files 
+	    port: 5000,
+	    files: [
+	      paths.dist_files
 	    ],
 	    browser: 'google chrome',
-	    notify: true
+	    notify: true,
+			open: false
     },
     nodemon: {
       script: 'app.js',
