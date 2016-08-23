@@ -37,7 +37,12 @@ module.exports = {
 	      paths.dist_files
 	    ],
 	    browser: 'google chrome',
-	    notify: false,
+	    notify: {
+				styles: {
+          top: 'auto',
+        bottom: '0'
+      }
+	  },
 			open: false
     },
     nodemon: {
@@ -49,4 +54,4 @@ module.exports = {
       ]
     }
 	}
-};
+}

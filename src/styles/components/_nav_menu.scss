@@ -1,5 +1,8 @@
 .nav-menu {
   position:fixed;
+  padding: 0;
+  background: transparent;
+  border:none;
 
   &.top-right-corner {
     top: $nav_menu_position_top;

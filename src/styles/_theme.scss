@@ -11,7 +11,7 @@ body {
 
 
 // HEADINGS
-h1 {	
+h1 {
 	font-size: $h1-font-size;
 	color: $secondary-text-color;
 	text-align: center;
@@ -56,16 +56,14 @@ p {
 	font-size: $p-font-size;
 	line-height: $p-line-height;
 	margin-top:0;
-	margin-bottom: .75em;	
+	margin-bottom: .75em;
 }
 
-
-// CONTENT
 ul {
 	line-height: 1.2;
 	font-size: 1.3em;
 	margin-top:0;
-	margin-bottom: .75em;	
+	margin-bottom: .75em;
 }
 
 
@@ -79,5 +77,7 @@ a {
 	}
 }
 
-
-
+// ICONS
+i {
+	color: $link-color;
+}
