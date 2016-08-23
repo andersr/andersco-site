@@ -17,7 +17,7 @@
     }],
     "semi": [
       2,
-      "always"
+      "never"
     ],
     "no-console" : 0,
     "id-length": [2, {
