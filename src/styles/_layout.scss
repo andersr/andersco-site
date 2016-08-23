@@ -1,21 +1,30 @@
-// FULL HEIGHT LAYOUT
+// FULL HEIGHT CONTENT BLOCK LAYOUT
 // _____________________________________
-html,body {
-  height:100%;
-}
+// html,body {
+//   height:100%;
+//   margin: 0;
+// }
 
-.container {
-  padding:  $app-padding;
-  max-width: $app-max-width;
+.content-block-container {
+  min-height: 98vh;
+
+  .content-block {
+    padding:  $app-padding;
+    max-width: $app-max-width;
+    margin: 0 auto;
+
+    h1 {
+      margin-top: 0;
+    }
+  }
 }
 
 // HELPERS
 // _____________________________________
-.centered { 
-  margin: 0 auto;
-}
-.full-height {
-  min-height: 100vh;
-  overflow: auto; 
-}
-
+// .centered {
+//   margin: 0 auto;
+// }
+// .full-height {
+//   min-height: 100vh;
+//   overflow: auto;
+// }
