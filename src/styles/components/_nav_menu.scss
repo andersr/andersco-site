@@ -1,0 +1,9 @@
+.nav-menu {
+  position:fixed;
+
+  &.top-right-corner {
+    top: $nav_menu_position_top;
+    right: $nav_menu_position_right;
+  }
+
+}

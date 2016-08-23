@@ -7,3 +7,18 @@
 @import "layout";
 @import "lists";
 @import "theme";
+
+//COMPONENTS
+@import "components/nav_menu";
+
+.nav_menu {
+  position:fixed;
+  top: 20px;
+  right: 20px;
+
+  // &.top-right-corner {
+  //   top: $nav_menu_position_top;
+  //   right: $nav_menu_position_right;
+  // }
+
+}
