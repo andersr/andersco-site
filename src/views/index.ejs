@@ -52,7 +52,7 @@
         </div>
     </div>
   </div>
-<nav id="c-menu--slide-right" class="c-menu c-menu--slide-right">
+<nav id="c-menu--slide-right" class="c-menu  c-menu--slide-right">
   <button class="c-menu__close">Close Menu &rarr;</button>
   <ul class="c-menu__items">
     <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
@@ -62,8 +62,7 @@
     <li class="c-menu__item"><a href="#" class="c-menu__link">Contact</a></li>
   </ul>
 </nav>
-<div id="c-mask" class="c-mask"></div>
-
+<div class="mask"></div>
 <script src="scripts/main.min.js"></script>
 <script type="text/javascript">
 /**
@@ -73,7 +72,7 @@
     wrapper: '#o-wrapper',
     type: 'slide-right',
     menuOpenerClass: '.c-button',
-    maskId: '#c-mask'
+    maskClass:'.mask'
   });
 
   var slideRightBtn = document.querySelector('#c-button--slide-right');
