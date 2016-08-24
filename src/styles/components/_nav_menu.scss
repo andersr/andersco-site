@@ -1,33 +1,29 @@
-.nav-menu-open-btn {
-  position:fixed;
-  padding: 0;
-  //TODO: icon-btn mixin
-  background: transparent;
-  border:none;
-  outline: none;
-
-  &.top-right-corner {
-    top: $nav_menu_position_top;
-    right: $nav_menu_position_right;
-  }
-}
-
-
-.nav-menu {
-  background-color: white;
-  position: fixed;
-  z-index: 200;
-  transition: transform 0.3s;
-  overflow-y: scroll;
-
-  &.slide-right {
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    transform: translateX(100%);
-  }
-}
+// .nav-menu-open-btn {
+//   position:fixed;
+//   padding: 0;
+//
+//   &.top-right-corner {
+//     top: $nav_menu_position_top;
+//     right: $nav_menu_position_right;
+//   }
+// }
+//
+//
+// .nav-menu {
+//   background-color: white;
+//   position: fixed;
+//   z-index: 200;
+//   transition: transform 0.3s;
+//   overflow-y: scroll;
+//
+//   &.slide-right {
+//     top: 0;
+//     right: 0;
+//     width: 100%;
+//     height: 100%;
+//     transform: translateX(100%);
+//   }
+// }
 
 
 

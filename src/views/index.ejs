@@ -20,8 +20,9 @@
   <meta name="theme-color" content="#e64a19">
 </head>
 <body>
-  <div class="nav-menu-container">
-  <button class="nav-menu-open-btn top-right-corner" alt="Nav Menu" title="Nav Menu"><i class="mdi mdi-menu mdi-36px"></i><span class="sr-only">Nav Menu</span></button>
+  <div id="o-wrapper" class="o-wrapper">
+  <!-- <div class="nav-menu-container"> -->
+    <button id="c-button--slide-right" class="btn btn--icon nav-menu-open-btn top-right-corner" alt="Nav Menu" title="Nav Menu"><i class="mdi mdi-menu mdi-36px"></i><span class="sr-only">Nav Menu</span></button>
     <div class="content-block-container">
       <div class="content-block">
         <h1>anders<span class="co">co</span><br>&nbsp;<span class="h1--inline-heading">design / development / coaching</span></h1>
@@ -51,10 +52,8 @@
         </div>
     </div>
   </div>
-<div class="mask"></div><!-- /c-mask -->
-
-<nav class="nav-menu">
-  <button class="nav-menu-close">Close Menu &rarr;</button>
+<nav id="c-menu--slide-right" class="c-menu c-menu--slide-right">
+  <button class="c-menu__close">Close Menu &rarr;</button>
   <ul class="c-menu__items">
     <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
     <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
@@ -62,24 +61,27 @@
     <li class="c-menu__item"><a href="#" class="c-menu__link">Work</a></li>
     <li class="c-menu__item"><a href="#" class="c-menu__link">Contact</a></li>
   </ul>
-</nav><!-- /c-menu slide-right -->
+</nav>
+<div id="c-mask" class="c-mask"></div>
 
 <script src="scripts/main.min.js"></script>
 <script type="text/javascript">
 /**
- * Slide left instantiation and action.
- */
-var myMenu = new Menu()
-//   myMenu.open()
-//
-var menuBtn = document.querySelector('.nav-menu-open-btn')
-  // console.log('menubtn', menuBtn)
-// //
-menuBtn.addEventListener('click', function (e) {
-  // console.log('click menu')
-  e.preventDefault
-  myMenu.open()
-})
+   * Slide right instantiation and action.
+   */
+  var slideRight = new Menu({
+    wrapper: '#o-wrapper',
+    type: 'slide-right',
+    menuOpenerClass: '.c-button',
+    maskId: '#c-mask'
+  });
+
+  var slideRightBtn = document.querySelector('#c-button--slide-right');
+
+  slideRightBtn.addEventListener('click', function(e) {
+    e.preventDefault;
+    slideRight.open();
+  });
 
 </script>
   <script>
