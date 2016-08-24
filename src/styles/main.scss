@@ -1,6 +1,7 @@
 @import "config/layout";
 @import "config/colors";
 @import "config/text";
+@import "config/z_indexes";
 
 @import "vendor/normalize";
 @import "base";
@@ -10,7 +11,7 @@
 @import "theme";
 
 //VENDOR
-@import "vendor/nav_menu/main";
+// @import "vendor/nav_menu/main";
 
 //COMPONENTS
 @import "components/btn";

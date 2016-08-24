@@ -83,6 +83,7 @@
     this.body.classList.add('has-active-menu');
     // this.wrapper.classList.add('has-' + this.options.type);
     this.menu.classList.add('is-active');
+    this.menu.classList.add('c-menu__close');
     this.mask.classList.add('is-active');
     this.disableMenuOpeners();
   };
