@@ -1,0 +1,27 @@
+// Flex Column
+@mixin flex-column {
+  display: flex;
+  flex-flow: column;
+}
+
+// FLEX ROW
+@mixin flex-row {
+  display: flex;
+  flex-flow: row nowrap;
+
+  &.flex-centered {
+  	 justify-content: center;
+  }
+  &.flex-vertical-middle {
+  	align-items: center;
+  }
+  &.flex-vertical-baseline {
+    align-items: baseline;
+  }
+}
+
+// Layout
+
+// .flex-main-content {
+//   flex: 1;
+// }
