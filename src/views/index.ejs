@@ -8,7 +8,7 @@
 
   <title>AndersCo - UX Design, Development, Agile Coaching</title>
   <link rel="stylesheet" href="//cdn.materialdesignicons.com/1.7.12/css/materialdesignicons.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Yrsa:300,400" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.min.css">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
@@ -20,36 +20,54 @@
   <meta name="theme-color" content="#e64a19">
 </head>
 <body>
-  <div class="content-block-container">
-    <div class="content-block">
-      <p>Hi, I'm a Front-End Developer and UX Designer based in Brooklyn, NY.</p>
-    </div>
-  </div>
-    <div class="content-block-container">
-      <div class="content-block">
-        <h1>anders<span class="co">co</span><br>&nbsp;<span class="h1--inline-heading">design / development / coaching</span></h1>
-        <p>Hi, I'm a Developer, Designer, and Agile Coach based in Brooklyn, NY.</p>
-        <h2>Recent Projects</h2>
-        <ul class="list--unstyled">
-        <li><a href="https://github.com/deckd/web_app">Deckd</a></li>
-        <li><a href="https://github.com/logd/v1_app">Logd</a></li>
-        <li><a href="https://github.com/CodeChron/morem-ipsum-app">Mipsum Ipsum</a></li>
-        </ul>
-        <h2>More About Me</h2>
-        <ul class="list--unstyled">
-        <li><a href="http://www.andersramsay.com/">AndersRamsay.com</a></li>
-        <li><a href="http://coderchronicles.org/">CoderChronicles.org</a></li>
-        <li><a href="https://github.com/CodeChron/">Github</a></li>
-        <li><a href="https://www.linkedin.com/in/andersramsay">LinkedIn</a></li>
-        <li><a href="https://drive.google.com/file/d/0B5PHy2Bpzqc0aGo3R1V2REpBaWc/view?usp=sharing">Resum&eacute;</a></li>
-        </ul>
-        <h2>Contact Me</h2>
-        <p><a href="#" id="andersco-mailto"></a><noscript>Please turn on Javascript to see my email address.</noscript></p>
-        <p>Thanks for stopping by!</p>
-        <p>-Anders</p>
-      </div>
-    </div>
+    <span class="brand-pill top-left-corner-fixed">a</span>
+    <button id="c-button--slide-right" class="nav-menu-btn top-right-corner-fixed"><i class="mdi mdi-menu"></i></button>
+    <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right">
+      <button class="c-menu__close">Close Menu &rarr;</button>
+      <ul class="c-menu__items">
+        <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
+        <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
+        <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
+        <li class="c-menu__item"><a href="#" class="c-menu__link">Work</a></li>
+        <li class="c-menu__item"><a href="#" class="c-menu__link">Contact</a></li>
+      </ul>
+    </nav>
+    <div id="c-mask" class="mask"></div>
+
 <script src="scripts/main.min.js"></script>
+<script>
+  var slideRight = new Menu({
+    wrapper: '#o-wrapper',
+    type: 'slide-right',
+    menuOpenerClass: '.c-button',
+    maskId: '#c-mask'
+  });
+
+// console.log(slideRight)
+
+  var slideRightBtn = document.querySelector('#c-button--slide-right');
+  slideRightBtn.addEventListener('click', function(e) {
+    e.preventDefault;
+    slideRight.open();
+  });
+
+
+
+
+  // var slideRightBtn = document.getElementById('c-button--slide-right');
+  // if(slideRightBtn){
+  //   slideRightBtn.addEventListener('click', function(e) {
+  //     e.preventDefault;
+  //     slideRight.open();
+  //   });
+  // }
+
+  // slideRightBtn.addEventListener('click', function(e) {
+  //   e.preventDefault;
+  //   slideRight.open();
+  // });
+
+</script>
   <script>
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
       function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;

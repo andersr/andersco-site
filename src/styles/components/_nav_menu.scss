@@ -6,14 +6,6 @@ $menu-height: 60px;
 // NAV MENU
 // _____________________________________
 .nav-menu-btn {
-  position:fixed;
-  padding: 0;
-  top: $nav_menu_position_top;
-  right: $nav_menu_position_right;
-  // &.top-right-corner {
-  //   top: $nav_menu_position_top;
-  //   right: $nav_menu_position_right;
-  // }
   &.nav-menu-btn--open {
     z-index: $z-index-nav-menu-open;
   }

@@ -11,14 +11,15 @@
 @import 'utils/mixins';
 
 // Vendor
-
+// @import 'vendor/font-awesome/scss/icons';
 
 //COMPONENTS
 @import 'components/btn';
+@import 'components/badge';
+@import 'components/content_block';
 @import 'components/nav_menu';
 @import 'components/mask';
 
 // Theme
-@import 'layout';
-@import 'lists';
+@import 'theme/brand';
 @import 'theme';
