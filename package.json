@@ -55,5 +55,13 @@
     "ejs": "^2.5.1",
     "express": "^4.14.0",
     "octicons": "^4.4.0"
-  }
+  },
+  "standard": {
+    "ignore": [
+    "/dist/",
+    "/src/scripts/vendor/",
+    "**/*.min.js",
+    "/tmp"
+  ]
+}
 }
