@@ -65,15 +65,14 @@
    */
   Menu.prototype._initEvents = function() {
     // Event for clicks on the close button inside the menu.
-    for (var i = 0; i < this.closeMenu.length; i++) {
-      this.closeMenu[i].addEventListener('click', function(e) {
-        e.preventDefault();
+
+  for (var i = 0; i < this.closeMenu.length; i++) {
+    this.closeMenu[i].addEventListener('click', function(e) {
+    //  e.preventDefault();
         this.close();
       }.bind(this));
    }
 
-
-    // Event for clicks on the mask.
     this.mask.addEventListener('click', function(e) {
       e.preventDefault();
       this.close();

@@ -23,16 +23,6 @@
   <div id="o-wrapper" class="o-wrapper">
     <span class="brand-pill top-left-corner-fixed">a</span>
     <button id="c-button--slide-right" class="nav-menu-btn top-right-corner-fixed"><i class="mdi mdi-menu"></i></button>
-    <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right">
-      <button class="c-menu__close">Close Menu &rarr;</button>
-      <ul class="c-menu__items">
-        <li class="c-menu__item"><a href="#home" class="c-menu__link c-menu__close">Home</a></li>
-        <li class="c-menu__item"><a href="#about" class="c-menu__link c-menu__close">About</a></li>
-        <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
-        <li class="c-menu__item"><a href="#" class="c-menu__link">Work</a></li>
-        <li class="c-menu__item"><a href="#" class="c-menu__link">Contact</a></li>
-      </ul>
-    </nav>
     <div class="content-block-container" id="home">
       <div class="content-block">
         <p>Hi, I'm Anders Ramsay, a Front-End Developer and UX Designer based in Brooklyn, NY.</p>
@@ -64,6 +54,16 @@
       </div>
     <div id="c-mask" class="mask"></div>
 </div>
+<nav id="c-menu--slide-right" class="c-menu c-menu--slide-right">
+  <button class="c-menu__close">Close Menu &rarr;</button>
+  <ul class="c-menu__items">
+    <li class="c-menu__item"><a href="#home" class="c-menu__link c-menu__close">Home</a></li>
+    <li class="c-menu__item"><a href="#about" class="c-menu__link c-menu__close">About</a></li>
+    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
+    <li class="c-menu__item"><a href="#" class="c-menu__link">Work</a></li>
+    <li class="c-menu__item"><a href="#" class="c-menu__link">Contact</a></li>
+  </ul>
+</nav>
 <script src="scripts/main.min.js"></script>
 <script>
   var slideRight = new Menu({
