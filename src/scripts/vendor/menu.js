@@ -1,5 +1,7 @@
 /* eslint-disable */
 
+// A somewhat upated version of Slide-Push-Menus by @callmenick  src: https://github.com/callmenick/Slide-Push-Menus/
+
 (function(window) {
 
   'use strict';
