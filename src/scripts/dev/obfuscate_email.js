@@ -1,4 +1,4 @@
-/*! Email obfuscator script 2.1 by Tim Williams, Andrew Moulden, converted to jquery, ttp://www.jottings.com/obfuscator/ */
+/*! Email obfuscator script 2.1 by Tim Williams, Andrew Moulden, converted to jquery, http://www.jottings.com/obfuscator/ */
 
 $(function () {
   'use strict'
@@ -10,12 +10,12 @@ $(function () {
   }
 
   function getEmailAddress (options) {
-    let
+    var
       shift = options.coded.length,
       address = '',
       ltr
 
-    for (let i = 0; i < options.coded.length; i++) {
+    for (var i = 0; i < options.coded.length; i++) {
       if (options.key.indexOf(options.coded.charAt(i)) === -1) {
         ltr = options.coded.charAt(i)
         address += (ltr)
@@ -28,7 +28,7 @@ $(function () {
   }
 
   function createEmailLink (options) {
-    let
+    var
       address = getEmailAddress(options),
       linkText = options.linkText || address,
       $link = $(options.id),
