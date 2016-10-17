@@ -52,6 +52,7 @@
     "dotenv": "^2.0.0",
     "ejs": "^2.5.1",
     "express": "^4.14.0",
+    "nodemailer": "^2.6.4",
     "octicons": "^4.4.0"
   },
   "standard": {
