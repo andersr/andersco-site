@@ -5,19 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="description" content="Anders Ramsay's freelance and consulting website.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>AndersCo - UX Design, Development, Agile Coaching</title>
   <link rel="stylesheet" href="//cdn.materialdesignicons.com/1.7.12/css/materialdesignicons.min.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.min.css">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#e64a19">
-  <meta name="msapplication-TileColor" content="#2d89ef">
-  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-  <meta name="theme-color" content="#e64a19">
+  <% include /partials/_favicon %>
 </head>
 <body>
   <div id="o-wrapper" class="o-wrapper">
@@ -54,16 +46,7 @@
       </div>
     <div id="c-mask" class="mask"></div>
 </div>
-<nav id="c-menu--slide-right" class="c-menu c-menu--slide-right">
-  <button class="c-menu__close">Close Menu &rarr;</button>
-  <ul class="c-menu__items">
-    <li class="c-menu__item"><a href="#home" class="c-menu__link c-menu__close">Home</a></li>
-    <li class="c-menu__item"><a data-scroll href="#about" class="c-menu__link c-menu__close">About</a></li>
-    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
-    <li class="c-menu__item"><a href="#" class="c-menu__link">Work</a></li>
-    <li class="c-menu__item"><a href="#" class="c-menu__link">Contact</a></li>
-  </ul>
-</nav>
+ <% include /partials/_nav_menu %>
 <script src="scripts/main.min.js"></script>
 <script>
   var slideRight = new Menu({
@@ -81,13 +64,6 @@
 
 smoothScroll.init();
 </script>
-  <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-76354540-1','auto');ga('send','pageview');
-  </script>
+<% include /partials/_ga %>
 </body>
 </html>
