@@ -49,10 +49,12 @@
   },
   "dependencies": {
     "basic-auth-connect": "^1.0.0",
+    "body-parser": "^1.15.2",
     "dotenv": "^2.0.0",
     "ejs": "^2.5.1",
     "express": "^4.14.0",
     "nodemailer": "^2.6.4",
+    "nodemailer-mailgun-transport": "^1.2.2",
     "octicons": "^4.4.0"
   },
   "standard": {
