@@ -4,22 +4,22 @@
 <p>Email me: <a href="#" id="andersco-mailto"></a><noscript>Please turn on Javascript to see my email address.</noscript></p>
 <p>Or use this form</p>
 <div class="row">
-  <form class="col s12"  method="POST" id="contactForm">
+  <form class="col s12 handle-disable-submit"  method="POST" id="contactForm">
     <div class="row">
       <div class="input-field col s12">
-        <input id="name" name="name" type="text" class="validate">
+        <input id="name" name="name" type="text" class="validate required_field">
         <label for="name">Name</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input id="email" name="email" type="email" class="validate">
+        <input id="email" name="email" type="email" class="validate required_field">
         <label for="email">Email</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <textarea id="message" name="message" class="materialize-textarea"></textarea>
+        <textarea id="message" name="message" class="materialize-textarea required_field"></textarea>
         <label for="message">Write something...</label>
       </div>
 </div>

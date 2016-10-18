@@ -2,7 +2,7 @@
 
 (function () {
 
-  function init(){
+  function handleSubmit(){
     $('#submitButton').click(submitButtonHandler)
   }
 
@@ -24,14 +24,13 @@
           // console.log(JSON.stringify(data))
         }
       })
+      .fail(function() {
+       console.log('jquery post error')
+      })
   }
 
-  // function postSuccessHandler (jsonData) {
-  //   console.log('success: ', jsonData)
-  // }
-
 //init on document ready
-$(document).ready(init)
+$(document).ready(handleSubmit)
 })()
 
 // evt.stopPropagation()
