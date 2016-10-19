@@ -8,6 +8,7 @@
 
   function submitButtonHandler (evt) {
       evt.preventDefault()
+      var $errorMessage = $('#error-messages')
       var data = {}
 					data.name = $('#name').val()
 					data.email =  $('#email').val()
@@ -16,17 +17,23 @@
       //make the AJAX call
       $.post({
         url: '/mail',
-        type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(data),
-        success: function () {
-          console.log('success')
+        success: function ( data ) {
+          // console.log('success')
+          if (data) {
+            $errorMessage.text(data.error)
+            //console.log('success data: ', data)
+          }
           // console.log(JSON.stringify(data))
         }
       })
       .fail(function() {
        console.log('jquery post error')
       })
+      // .done(function( data ) {
+      //   console.log( "done data: " , data)
+      // }
   }
 
 //init on document ready

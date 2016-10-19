@@ -5,30 +5,24 @@
 <p>Or use this form</p>
 <div class="row">
   <form class="col s12 handle-disable-submit"  method="POST" id="contactForm">
-   <% if(errors.length > 0) { %>
-    <div class="row">
-     <ul>
-       <% for(var i=0; i < errors.length; i++) { %>
-         <li><%= error %></li>
-       <% } %>
-     </ul>
-     </div>
-   <% } %>
+
+    <div id="error-messages"></div>
+
     <div class="row">
       <div class="input-field col s12">
-        <input id="name" name="name" type="text" class="validate required_field">
+        <input id="name" name="name" type="text" class="validate">
         <label for="name">Name</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input id="email" name="email" type="email" class="validate required_field">
+        <input id="email" name="email" type="email" class="validate">
         <label for="email">Email</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <textarea id="message" name="message" class="materialize-textarea required_field"></textarea>
+        <textarea id="message" name="message" class="materialize-textarea"></textarea>
         <label for="message">Write something...</label>
       </div>
 </div>

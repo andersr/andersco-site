@@ -50,13 +50,18 @@
   "dependencies": {
     "basic-auth-connect": "^1.0.0",
     "body-parser": "^1.15.2",
+    "connect-flash": "^0.1.1",
     "dotenv": "^2.0.0",
     "ejs": "^2.5.1",
     "email-validator": "^1.0.7",
     "express": "^4.14.0",
+    "express-flash": "0.0.2",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.14.1",
     "nodemailer": "^2.6.4",
     "nodemailer-mailgun-transport": "^1.2.2",
-    "octicons": "^4.4.0"
+    "octicons": "^4.4.0",
+    "req-flash": "0.0.3"
   },
   "standard": {
     "ignore": [

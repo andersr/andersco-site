@@ -1,7 +1,40 @@
 require('dotenv').config()
 var path = require('path')
 var express = require('express')
+var session = require('express-session')
+var bodyParser = require('body-parser')
+// var flash = require('req-flash')
 var app = express()
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false
+}))
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: true }
+}))
+
+// Session-persisted message middleware
+
+app.use(function(req, res, next){
+  var err = req.session.error
+  var msg = req.session.success
+  delete req.session.error
+  delete req.session.success
+  res.locals.message = ''
+  if (err) res.locals.message = '<p class="msg error"> Test' + err + '</p>'
+  if (msg) res.locals.message = '<p class="msg success">' + msg + '</p>'
+  next()
+});
+
+// app.use(flash())
+// app.use(function (req, res, next) {
+//   res.locals.error_messages = req.flash('error_messages')
+//   next()
+// })
 
 var port = process.env.PORT || 3000
 var env = process.env.NODE_ENV
@@ -11,14 +44,19 @@ if (env === 'staging') {
   app.use(basicAuth(process.env.NPM_CONFIG_BASIC_AUTH_USER, process.env.NPM_CONFIG_BASIC_AUTH_PWD))
 }
 
-
 // FORMS
-app.locals.errors = []
-var bodyParser = require('body-parser')
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true
-}))
 
+
+app.use(function(req, res, next){
+  var err = req.session.error;
+  var msg = req.session.success;
+  delete req.session.error;
+  delete req.session.success;
+  res.locals.message = '';
+  if (err) res.locals.message = '<p class="msg error">' + err + '</p>';
+  if (msg) res.locals.message = '<p class="msg success">' + msg + '</p>';
+  next();
+});
 
 // MAIL
 var nodemailer = require('nodemailer')
@@ -36,38 +74,53 @@ app.set('views', path.join(__dirname, '/dist/views'))
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/dist/public'))
 
-app.post('/mail', function(req, res) {
-  res.setHeader('Content-Type', 'application/json')
-  // console.log('body: ', req.body)
-  var data = {
-    email: req.body.email,
-    name: req.body.name ,
-    message: req.body.message
-  }
-
-  // check if required fields have values
-  // check if email is valid
-
-
-  nodemailerMailgun.sendMail({
-    from: data.email,
-    to: process.env.MAILGUN_SEND_TO,
-    subject: 'Message from ' + data.name ,
-    text: data.message
-  }, function (err, info) {
-    if (err) {
-      console.log('Error: ' + err);
-    }
-    else {
-      console.log('Response: ' + info);
-    }
-  })
-  res.end()
+app.get('/', function (req, res) {
+  res.render('index')
 })
 
 
-app.get('/', function (req, res) {
-  res.render('index')
+// app.get('/', function (req, res) {
+//   res.render('index', { messages: req.flash('info') })
+// })
+
+app.post('/mail', function (req, res) {
+  // res.setHeader('Content-Type', 'application/json')
+  // console.log('body: ', req.body)
+  req.session.error = 'Test error'
+  // var data = {
+  //   email: req.body.email,
+  //   name: req.body.name ,
+  //   message: req.body.message
+  // }
+  var messages = {
+    error: 'My Error'
+  }
+  // res.send()
+   res.send(messages)
+
+  if(req.body.name === ''){
+    // console.log('name is empty')
+    // req.flash('info', 'Test message')
+    // app.locals.errors.push('Name cannot be empty')
+  } else {
+    // app.locals.errors = []
+  }
+  // res.render('error', { errors: app.locals.errors })
+
+  // nodemailerMailgun.sendMail({
+  //   from: data.email,
+  //   to: process.env.MAILGUN_SEND_TO,
+  //   subject: 'Message from ' + data.name ,
+  //   text: data.message
+  // }, function (err, info) {
+  //   if (err) {
+  //     console.log('Error: ' + err);
+  //   }
+  //   else {
+  //     console.log('Response: ' + info);
+  //   }
+  // })
+  // res.end()
 })
 
 app.listen(port, function () {
