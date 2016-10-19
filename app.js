@@ -2,6 +2,7 @@ require('dotenv').config()
 var path = require('path')
 var express = require('express')
 var app = express()
+
 var port = process.env.PORT || 3000
 var env = process.env.NODE_ENV
 
@@ -12,6 +13,7 @@ if (env === 'staging') {
 
 
 // FORMS
+app.locals.errors = []
 var bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true
@@ -36,12 +38,22 @@ app.use(express.static(__dirname + '/dist/public'))
 
 app.post('/mail', function(req, res) {
   res.setHeader('Content-Type', 'application/json')
-  console.log('body: ', req.body)
+  // console.log('body: ', req.body)
+  var data = {
+    email: req.body.email,
+    name: req.body.name ,
+    message: req.body.message
+  }
+
+  // check if required fields have values
+  // check if email is valid
+
+
   nodemailerMailgun.sendMail({
-    from: req.body.email,
+    from: data.email,
     to: process.env.MAILGUN_SEND_TO,
-    subject: 'Message from ' + req.body.name ,
-    text: req.body.message
+    subject: 'Message from ' + data.name ,
+    text: data.message
   }, function (err, info) {
     if (err) {
       console.log('Error: ' + err);

@@ -52,6 +52,7 @@
     "body-parser": "^1.15.2",
     "dotenv": "^2.0.0",
     "ejs": "^2.5.1",
+    "email-validator": "^1.0.7",
     "express": "^4.14.0",
     "nodemailer": "^2.6.4",
     "nodemailer-mailgun-transport": "^1.2.2",
