@@ -49,12 +49,15 @@ app.get('/', function (req, res) {
 
 app.post('/mail', function (req, res) {
   // res.setHeader('Content-Type', 'application/json')
-  console.log('body: ', req.body)
+  // console.log('body: ', req.body)
   var data = {
     email: req.body.email,
     name: req.body.name,
     message: req.body.message
   }
+
+  console.log('data.email: ', data.email,  emailValidator.validate(data.email))
+
   var errors = []
   function isEmpty (str) {
     return str === ''
@@ -65,7 +68,7 @@ app.post('/mail', function (req, res) {
   if(isEmpty(data.message)) {
     errors.push('message')
   }
-  if(isEmpty(data.email) || emailValidator.validate(data.email)) {
+  if(isEmpty(data.email) || !emailValidator.validate(data.email)) {
     errors.push('email')
   }
 
@@ -73,22 +76,22 @@ app.post('/mail', function (req, res) {
     res.send(errors)
   } else {
     console.log('sending mail... ')
-    // nodemailerMailgun.sendMail({
-    //   from: data.email,
-    //   to: process.env.MAILGUN_SEND_TO,
-    //   subject: 'Message from ' + data.name ,
-    //   text: data.message
-    // }, function (err, info) {
-    //   if (err) {
-    //     console.log('Error: ' + err);
-    //   }
-    //   else {
-    //     console.log('Response: ' + info);
-    //   }
-    // })
+    nodemailerMailgun.sendMail({
+      from: data.email,
+      to: process.env.MAILGUN_SEND_TO,
+      subject: 'Message from ' + data.name ,
+      text: data.message
+    }, function (err, info) {
+      if (err) {
+        console.log('Error: ' + err);
+      }
+      else {
+        console.log('Response: ' + info);
+      }
+    })
 
   }
-  // res.end()
+  res.end()
 })
 
 app.listen(port, function () {
