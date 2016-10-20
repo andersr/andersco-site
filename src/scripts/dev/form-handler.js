@@ -1,45 +1,62 @@
-// src: https://github.com/kevinchisholm/handling-POST-requests-with-express-and-node.js
-
-(function () {
-
-  function handleSubmit(){
-    $('#submitButton').click(submitButtonHandler)
+(function ($) {
+  'use strict'
+  var $contactForm
+  var MESSAGES = {
+    errors: {
+      'name': 'Please enter a name',
+      'email': 'Please enter a valid email',
+      'message': 'Please enter a message'
+    }
   }
 
-  function submitButtonHandler (evt) {
-      evt.preventDefault()
-      var $errorMessage = $('#error-messages')
-      var data = {}
-					data.name = $('#name').val()
-					data.email =  $('#email').val()
-          data.message =  $('#message').val()
+  $(function () {
+    $contactForm = {
+      name: $('#name'),
+      email: $('#email'),
+      message: $('#message'),
+      submit: $('#submitButton')
+    }
+    $contactForm.submit.on('click', handleSubmit)
+  })
 
-      //make the AJAX call
-      $.post({
-        url: '/mail',
-        contentType: 'application/json',
-        data: JSON.stringify(data),
-        success: function ( data ) {
-          // console.log('success')
-          if (data) {
-            $errorMessage.text(data.error)
-            //console.log('success data: ', data)
-          }
-          // console.log(JSON.stringify(data))
+  function postData (data, options) {
+    $.post({
+      url: options.url,
+      contentType: 'application/json',
+      data: JSON.stringify(data),
+      success: function (response) {
+        // console.log('response: ', response)
+        if (response) {
+          displayErrors(response)
         }
-      })
-      .fail(function() {
-       console.log('jquery post error')
-      })
-      // .done(function( data ) {
-      //   console.log( "done data: " , data)
-      // }
+      }
+    })
+    .fail(function () {
+      console.log('post data error')
+    })
   }
 
-//init on document ready
-$(document).ready(handleSubmit)
-})()
+  function displayErrors (response) {
+    // console.log(response)
+    for(var i = 0; i < response.length; i++) {
+      $contactForm[response[i]].after(MESSAGES.errors[response[i]])
+    }
+  }
 
+  function handleSubmit (e) {
+    e.preventDefault()
+    var data = {
+      name: $contactForm.name.val(),
+      email: $contactForm.email.val(),
+      message: $contactForm.message.val()
+    }
+    var options = {
+      url: '/mail'
+    }
+    postData(data, options)
+  }
+
+})(jQuery)
 // evt.stopPropagation()
 
 // $('#post-results-container').fadeOut()

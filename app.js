@@ -1,14 +1,17 @@
 require('dotenv').config()
 var path = require('path')
 var express = require('express')
+var expressValidator = require('express-validator')
 var session = require('express-session')
 var bodyParser = require('body-parser')
-// var flash = require('req-flash')
+var emailValidator = require("email-validator")
 var app = express()
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false
 }))
+
+app.use(expressValidator())
 
 app.use(session({
   secret: 'keyboard cat',
@@ -17,25 +20,6 @@ app.use(session({
   cookie: { secure: true }
 }))
 
-// Session-persisted message middleware
-
-app.use(function(req, res, next){
-  var err = req.session.error
-  var msg = req.session.success
-  delete req.session.error
-  delete req.session.success
-  res.locals.message = ''
-  if (err) res.locals.message = '<p class="msg error"> Test' + err + '</p>'
-  if (msg) res.locals.message = '<p class="msg success">' + msg + '</p>'
-  next()
-});
-
-// app.use(flash())
-// app.use(function (req, res, next) {
-//   res.locals.error_messages = req.flash('error_messages')
-//   next()
-// })
-
 var port = process.env.PORT || 3000
 var env = process.env.NODE_ENV
 
@@ -43,20 +27,6 @@ if (env === 'staging') {
   var basicAuth = require('basic-auth-connect')
   app.use(basicAuth(process.env.NPM_CONFIG_BASIC_AUTH_USER, process.env.NPM_CONFIG_BASIC_AUTH_PWD))
 }
-
-// FORMS
-
-
-app.use(function(req, res, next){
-  var err = req.session.error;
-  var msg = req.session.success;
-  delete req.session.error;
-  delete req.session.success;
-  res.locals.message = '';
-  if (err) res.locals.message = '<p class="msg error">' + err + '</p>';
-  if (msg) res.locals.message = '<p class="msg success">' + msg + '</p>';
-  next();
-});
 
 // MAIL
 var nodemailer = require('nodemailer')
@@ -69,7 +39,6 @@ var auth = {
 }
 var nodemailerMailgun = nodemailer.createTransport(mailgun(auth))
 
-
 app.set('views', path.join(__dirname, '/dist/views'))
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/dist/public'))
@@ -78,48 +47,47 @@ app.get('/', function (req, res) {
   res.render('index')
 })
 
-
-// app.get('/', function (req, res) {
-//   res.render('index', { messages: req.flash('info') })
-// })
-
 app.post('/mail', function (req, res) {
   // res.setHeader('Content-Type', 'application/json')
-  // console.log('body: ', req.body)
-  req.session.error = 'Test error'
-  // var data = {
-  //   email: req.body.email,
-  //   name: req.body.name ,
-  //   message: req.body.message
-  // }
-  var messages = {
-    error: 'My Error'
+  console.log('body: ', req.body)
+  var data = {
+    email: req.body.email,
+    name: req.body.name,
+    message: req.body.message
   }
-  // res.send()
-   res.send(messages)
+  var errors = []
+  function isEmpty (str) {
+    return str === ''
+  }
+  if(isEmpty(data.name)) {
+    errors.push('name')
+  }
+  if(isEmpty(data.message)) {
+    errors.push('message')
+  }
+  if(isEmpty(data.email) || emailValidator.validate(data.email)) {
+    errors.push('email')
+  }
 
-  if(req.body.name === ''){
-    // console.log('name is empty')
-    // req.flash('info', 'Test message')
-    // app.locals.errors.push('Name cannot be empty')
+  if(errors.length > 0){
+    res.send(errors)
   } else {
-    // app.locals.errors = []
-  }
-  // res.render('error', { errors: app.locals.errors })
+    console.log('sending mail... ')
+    // nodemailerMailgun.sendMail({
+    //   from: data.email,
+    //   to: process.env.MAILGUN_SEND_TO,
+    //   subject: 'Message from ' + data.name ,
+    //   text: data.message
+    // }, function (err, info) {
+    //   if (err) {
+    //     console.log('Error: ' + err);
+    //   }
+    //   else {
+    //     console.log('Response: ' + info);
+    //   }
+    // })
 
-  // nodemailerMailgun.sendMail({
-  //   from: data.email,
-  //   to: process.env.MAILGUN_SEND_TO,
-  //   subject: 'Message from ' + data.name ,
-  //   text: data.message
-  // }, function (err, info) {
-  //   if (err) {
-  //     console.log('Error: ' + err);
-  //   }
-  //   else {
-  //     console.log('Response: ' + info);
-  //   }
-  // })
+  }
   // res.end()
 })
 
