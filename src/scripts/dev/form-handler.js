@@ -40,37 +40,27 @@ $(function () {
       el.on('keyup', handleKeyup)
   })
 
-  function errorClass (name) {
-    return '.' + name + '-error'
-  }
+  function errorClass (name) { return '.' + name + '-error' }
+  function inputIsEmpty (el) { return utils.isEmpty($(el).val()) }
+  function emailIsInvalid (el) { return !utils.isEmail($(el).val()) }
 
   function handleKeyup () {
-    if ($contactForm[this.name].wasInvalid && $(this).val().trim().length > 0) {
-      $(errorClass(this.name)).hide()
+    if ($contactForm[this.name].wasInvalid) {
+      if((this.name === 'email' && !emailIsInvalid(this)) || !inputIsEmpty(this)) {
+        $(errorClass(this.name)).hide()
+      }
     }
   }
 
   function handleBlur () {
-    if(this.name === 'email') {
-       validateEmail(this)
-    } else {
-      validateText(this)
+    if((this.name === 'email' && emailIsInvalid(this)) || inputIsEmpty(this)) {
+      $contactForm[this.name].wasInvalid = true
+      showErrorMessage(this)
     }
   }
 
-  function validateText (el) {
-    var isEmpty = utils.isEmpty($(el).val())
-    if(isEmpty){
-      $contactForm[el.name].wasInvalid = true
-      $(errorClass(el.name)).text(MESSAGES.errors[el.name]).show()
-    }
-  }
-  function validateEmail (el) {
-    var validEmail = utils.isEmail($(el).val())
-    if(!validEmail) {
-      $contactForm[el.name].wasInvalid = true
-      $(errorClass(el.name)).text(MESSAGES.errors[el.name]).show()
-    }
+  function showErrorMessage (el) {
+    $(errorClass(el.name)).text(MESSAGES.errors[el.name]).show()
   }
 
   function postData (data, options, handleResponse) {
