@@ -6,29 +6,29 @@
       'name': 'Please enter a name',
       'email': 'Please enter a valid email',
       'message': 'Please enter a message'
-    }
+    },
+    confirmation: 'Thank you for contacting me!'
   }
 
   $(function () {
     $contactForm = {
+      form: $('#contactForm'),
       name: $('#name'),
       email: $('#email'),
       message: $('#message'),
-      submit: $('#submitButton')
+      submit: $('#submitButton'),
+      alerts: $('#alerts')
     }
     $contactForm.submit.on('click', handleSubmit)
   })
 
-  function postData (data, options) {
+  function postData (data, options, handleResponse) {
     $.post({
       url: options.url,
       contentType: 'application/json',
       data: JSON.stringify(data),
       success: function (response) {
-        // console.log('response: ', response)
-        if (response) {
-          displayErrors(response)
-        }
+        handleResponse(response)
       }
     })
     .fail(function () {
@@ -36,10 +36,9 @@
     })
   }
 
-  function displayErrors (response) {
-    // console.log(response)
-    for(var i = 0; i < response.length; i++) {
-      $contactForm[response[i]].after(MESSAGES.errors[response[i]])
+  function displayErrors (errors) {
+    for(var i = 0; i < errors.length; i++) {
+      $contactForm[errors[i]].after(MESSAGES.errors[errors[i]])
     }
   }
 
@@ -53,9 +52,24 @@
     var options = {
       url: '/mail'
     }
-    postData(data, options)
+    // display 'sending msg' w/timeout
+    //   var result =
+    postData(data, options, function (response) {
+      // console.log('response: ', response)
+      if (response.errors.length > 0) {
+        displayErrors(response.errors)
+      } else {
+        // console.log('response.messageSent: ', response.messageSent)
+        $contactForm.name.val('')
+        $contactForm.email.val('')
+        $contactForm.message.val('')
+        $contactForm.alerts.text(MESSAGES.confirmation)
+        setTimeout(function () {
+          $contactForm.alerts.empty()
+        }, 5000)
+      }
+    })
   }
-
 })(jQuery)
 // evt.stopPropagation()
 

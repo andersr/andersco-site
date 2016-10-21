@@ -4,7 +4,9 @@ var express = require('express')
 var expressValidator = require('express-validator')
 var session = require('express-session')
 var bodyParser = require('body-parser')
+// var flash = require('connect-flash')
 var emailValidator = require("email-validator")
+var sendMail = require('./server/sendMail')
 var app = express()
 
 app.use(bodyParser.json())
@@ -19,6 +21,11 @@ app.use(session({
   saveUninitialized: false,
   cookie: { secure: true }
 }))
+// app.use(flash())
+// app.use(function (req, res, next) {
+//    res.locals.messages = req.flash()
+//   next()
+// })
 
 var port = process.env.PORT || 3000
 var env = process.env.NODE_ENV
@@ -27,17 +34,6 @@ if (env === 'staging') {
   var basicAuth = require('basic-auth-connect')
   app.use(basicAuth(process.env.NPM_CONFIG_BASIC_AUTH_USER, process.env.NPM_CONFIG_BASIC_AUTH_PWD))
 }
-
-// MAIL
-var nodemailer = require('nodemailer')
-var mailgun = require('nodemailer-mailgun-transport')
-var auth = {
-  auth: {
-    api_key: process.env.MAILGUN_API,
-    domain: process.env.MAILGUN_DOMAIN
-  }
-}
-var nodemailerMailgun = nodemailer.createTransport(mailgun(auth))
 
 app.set('views', path.join(__dirname, '/dist/views'))
 app.set('view engine', 'ejs')
@@ -48,7 +44,7 @@ app.get('/', function (req, res) {
 })
 
 app.post('/mail', function (req, res) {
-  // res.setHeader('Content-Type', 'application/json')
+  res.setHeader('Content-Type', 'application/json')
   // console.log('body: ', req.body)
   var data = {
     email: req.body.email,
@@ -56,48 +52,97 @@ app.post('/mail', function (req, res) {
     message: req.body.message
   }
 
-  console.log('data.email: ', data.email,  emailValidator.validate(data.email))
+  var response = {
+    errors: [],
+    messageSent: false
+  }
 
-  var errors = []
   function isEmpty (str) {
     return str === ''
   }
   if(isEmpty(data.name)) {
-    errors.push('name')
+    response.errors.push('name')
   }
   if(isEmpty(data.message)) {
-    errors.push('message')
+    response.errors.push('message')
   }
   if(isEmpty(data.email) || !emailValidator.validate(data.email)) {
-    errors.push('email')
+    response.errors.push('email')
   }
-
-  if(errors.length > 0){
-    res.send(errors)
+  if(response.errors.length > 0){
+    res.send(response)
   } else {
-    console.log('sending mail... ')
-    nodemailerMailgun.sendMail({
-      from: data.email,
-      to: process.env.MAILGUN_SEND_TO,
-      subject: 'Message from ' + data.name ,
-      text: data.message
-    }, function (err, info) {
-      if (err) {
-        console.log('Error: ' + err);
-      }
-      else {
-        console.log('Response: ' + info);
+    sendMail(data, function (messageSent) {
+      // console.log('messageSent:', messageSent)
+      if(messageSent) {
+        response.messageSent = messageSent
+        // console.log('Response: ', response )
+        res.send(response)
+      } else {
+        console.log('Mail send error')
       }
     })
-
   }
-  res.end()
 })
 
 app.listen(port, function () {
   console.log('App running at http://localhost:' + port)
 })
 
+// function sendMail (data) {
+//   var MAILGUN_QUEUED = 'queued'
+//   var messageSent = false
+//
+//   nodemailerMailgun.sendMail({
+//     from: data.email,
+//     to: process.env.MAILGUN_SEND_TO,
+//     subject: 'Message from ' + data.name ,
+//   text: data.message
+//   }, function (err, info) {
+//     if (err) {
+//       console.log('Error: ' + err);
+//     } else {
+//       console.log('info.message: ', info.message)
+//       if(info.message.toLowerCase().indexOf(MAILGUN_QUEUED) >= 0) {
+//         console.log('server: message sent ')
+//         messageSent = true
+//       }
+//     }
+//   })
+//   return messageSent
+// }
+
+// if(mailSent) {
+//   console.log('mailSent responded true')
+//   // res.render('/', { msg: 'Message sent!' })
+//   // response.confirmation = 'message sent!'
+//   //  req.flash('msg', 'Message sent!')
+//   // res.send(response)
+// } else {
+//   console.log('sendMail failed')
+// }
+//     }
+//   }
+// })
+// console.log('sending mail... ')
+// var MAILGUN_QUEUED = 'queued'
+// nodemailerMailgun.sendMail({
+//   from: data.email,
+//   to: process.env.MAILGUN_SEND_TO,
+//   subject: 'Message from ' + data.name ,
+//   text: data.message
+// }, function (err, info) {
+//   if (err) {
+//     console.log('Error: ' + err);
+//   }
+//   else {
+//     console.log('info.message: ', info.message)
+//     if(info.message.toLowerCase().indexOf(MAILGUN_QUEUED) >= 0) {
+//       console.log('server: message sent ')
+//       response.confirmation = 'message sent!'
+//     }
+//   }
+// })
     // nodemailerMailgun.sendMail({
     //   from: 'myemail@example.com',
     //   to: 'anders@anders.co', // An array if you have multiple recipients.
