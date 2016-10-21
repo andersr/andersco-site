@@ -9,6 +9,9 @@ var emailValidator = require("email-validator")
 var sendMail = require('./server/sendMail')
 var app = express()
 
+// var honeypot = require('honeypot')
+// var pot = new honeypot(process.env.HONEYPOT_KEY)
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false
 }))
@@ -49,37 +52,43 @@ app.post('/mail', function (req, res) {
   var data = {
     email: req.body.email,
     name: req.body.name,
-    message: req.body.message
+    message: req.body.message,
+    honeypot: req.body.honeypot
   }
-
-  var response = {
+  var result = {
     errors: [],
-    messageSent: false
+    messageSent: false,
+    spam: false
   }
-
   function isEmpty (str) {
     return str === ''
   }
-  if(isEmpty(data.name)) {
-    response.errors.push('name')
-  }
-  if(isEmpty(data.message)) {
-    response.errors.push('message')
-  }
-  if(isEmpty(data.email) || !emailValidator.validate(data.email)) {
-    response.errors.push('email')
-  }
-  if(response.errors.length > 0){
-    res.send(response)
+  if(!isEmpty(data.honeypot)) {
+    result.spam = true
+    res.send(result)
+    // res.end()
   } else {
-    sendMail(data, function (messageSent) {
-      if(messageSent) {
-        response.messageSent = messageSent
-        res.send(response)
-      } else {
-        console.log('Mail send error')
-      }
-    })
+    if(isEmpty(data.name)) {
+      result.errors.push('name')
+    }
+    if(isEmpty(data.message)) {
+      result.errors.push('message')
+    }
+    if(isEmpty(data.email) || !emailValidator.validate(data.email)) {
+      result.errors.push('email')
+    }
+    if(result.errors.length > 0){
+      res.send(result)
+    } else {
+      sendMail(data, function (messageSent) {
+        if(messageSent) {
+          result.messageSent = messageSent
+          res.send(result)
+        } else {
+          console.log('Mail send error')
+        }
+      })
+    }
   }
 })
 

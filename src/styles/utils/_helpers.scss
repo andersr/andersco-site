@@ -19,9 +19,12 @@
   top: $corner-fixed-offset;
   right: $corner-fixed-offset;
 }
-
 .align-center {
   text-align: center;
+}
+.off-screen {
+  position: absolute;
+  left: -999em;
 }
 
 // Lists

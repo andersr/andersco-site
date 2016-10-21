@@ -18,6 +18,9 @@ $(function () {
       error: $('.message-error'),
       wasInvalid: false
     },
+    honeypot: {
+      el: $('#mainEmail')
+    },
     submit: $('#submitButton'),
     alerts: $('#alerts')
   }
@@ -82,12 +85,25 @@ $(function () {
       $contactForm[errors[i]].error.text(MESSAGES.errors[errors[i]]).show()
     }
   }
+
+  function clearFormFields () {
+    $.each([
+      $contactForm.name.el,
+      $contactForm.email.el,
+      $contactForm.message.el,
+      $contactForm.honeypot.el
+    ],
+      function (i, el) {
+        el.val('')
+    })
+  }
   function handleSubmit (e) {
     e.preventDefault()
     var data = {
       name: $contactForm.name.el.val(),
       email: $contactForm.email.el.val(),
-      message: $contactForm.message.el.val()
+      message: $contactForm.message.el.val(),
+      honeypot: $contactForm.honeypot.el.val()
     }
     var options = {
       url: '/mail'
@@ -96,9 +112,7 @@ $(function () {
       if (response.errors.length > 0) {
         displayErrors(response.errors)
       } else {
-        $contactForm.name.el.val('')
-        $contactForm.email.el.val('')
-        $contactForm.message.el.val('')
+        clearFormFields()
         $contactForm.alerts.text(MESSAGES.confirmation)
         setTimeout(function () {
           $contactForm.alerts.empty()
