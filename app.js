@@ -45,7 +45,7 @@ app.get('/', function (req, res) {
 
 app.post('/mail', function (req, res) {
   res.setHeader('Content-Type', 'application/json')
-  // console.log('body: ', req.body)
+  console.log('body: ', req.body)
   var data = {
     email: req.body.email,
     name: req.body.name,
