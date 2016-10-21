@@ -31,16 +31,16 @@ $(function () {
     confirmation: 'Thank you for contacting me!'
   }
 
-  //EVENTS
+  // Events
   $contactForm.submit.on('click', handleSubmit)
-  $contactForm.name.el.on('blur', handleBlur)
-  $contactForm.name.el.on('keyup', handleKeyup)
-  $contactForm.email.el.on('blur', handleBlur)
-  $contactForm.email.el.on('keyup', handleKeyup)
-  $contactForm.message.el.on('blur', handleBlur)
-  $contactForm.message.el.on('keyup', handleKeyup)
+  $.each(
+    [$contactForm.name.el, $contactForm.email.el, $contactForm.message.el],
+    function (i, el) {
+      el.on('blur', handleBlur)
+      el.on('keyup', handleKeyup)
+  })
 
-  function errorClass(name){
+  function errorClass (name) {
     return '.' + name + '-error'
   }
 
@@ -90,8 +90,6 @@ $(function () {
   function displayErrors (errors) {
     for(var i = 0; i < errors.length; i++) {
       $contactForm[errors[i]].error.text(MESSAGES.errors[errors[i]]).show()
-      // after(
-      //   $errorMessage.text(MESSAGES.errors[errors[i]]))
     }
   }
   function handleSubmit (e) {
