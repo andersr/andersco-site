@@ -4,6 +4,7 @@ var express = require('express')
 var expressValidator = require('express-validator')
 var session = require('express-session')
 var bodyParser = require('body-parser')
+// var utils = require('./server/utils')
 // var flash = require('connect-flash')
 var emailValidator = require("email-validator")
 var sendMail = require('./server/sendMail')
@@ -43,6 +44,7 @@ app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/dist/public'))
 
 app.get('/', function (req, res) {
+  res.locals.currentYear = new Date().getFullYear()
   res.render('index')
 })
 
