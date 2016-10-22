@@ -15,6 +15,10 @@ var paths = {
 			vendor: 'src/scripts/vendor/**/*.js',
 			dist: 'dist/public/scripts'
 		},
+		images: {
+			src: ['src/images/**/*.*', '!src/images/favicons'],
+			dist: 'dist/public/images'
+		},
 	  favicons: {
 			files: {
 	      src: 'src/images/favicons/dist/files/*.*',
