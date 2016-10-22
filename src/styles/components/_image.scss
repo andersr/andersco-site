@@ -5,3 +5,25 @@
 .image-outline {
   border: 1px solid $color-gray-7;
 }
+.floated-image {
+  margin: 1.5em;
+}
+
+
+// $break-small: 320px;
+$break-large: 700px;
+
+.resp-img-float-right {
+  text-align: center;
+  float: none;
+  margin: 1.5em 0;
+
+  @media screen and (min-width: $break-large) {
+    text-align: inherit;
+    img {
+      float: right;
+      margin: 0 0 1.5em 1.5em;
+    }
+
+  }
+}
