@@ -2,13 +2,17 @@
 body {
 	color: $primary-color;
 }
+// HELPERS
+.secondary-color {
+	color: $secondary-color;
+}
 
 // HEADINGS
 h1 {
-	color: $secondary-color;
+	// color: $secondary-color;
 }
 h2 {
-	color: $secondary-color;
+	// color: $secondary-color;
 }
 
 
@@ -21,6 +25,7 @@ a {
 i {
 	color:$accent-color;
 }
+
 
 
 // .co {
