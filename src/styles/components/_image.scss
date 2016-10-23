@@ -1,24 +1,20 @@
-.resp-image {
+.img--responsive {
   max-width:100%;
   height: auto;
 }
-.image-outline {
+.img--outline {
   border: 1px solid $color-gray-7;
 }
-.floated-image {
+.img--floated {
   margin: 1.5em;
 }
 
-
-// $break-small: 320px;
-$break-large: 700px;
-
-.resp-img-float-right {
+.img--responsive--loat-right {
   text-align: center;
   float: none;
   margin: 1.5em 0;
 
-  @media screen and (min-width: $break-large) {
+  @media screen and (min-width: $breakpoint-tablet) {
     text-align: inherit;
     img {
       float: right;
