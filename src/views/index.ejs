@@ -6,21 +6,23 @@
   <meta name="description" content="Anders Ramsay's freelance and consulting website.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AndersCo - UX Design, Development, Agile Coaching</title>
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-
   <link rel="stylesheet" href="//cdn.materialdesignicons.com/1.7.12/css/materialdesignicons.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.min.css">
-  <% include /partials/_favicons %>
+  <% include /partials/head/_favicons %>
 </head>
 <body>
   <div id="o-wrapper" class="o-wrapper">
-    <span class="brand-pill top-left-corner-fixed"><a data-scroll href="#">a</a></span>
+    <span class="pill brand-pill top-left-corner-fixed"><a data-scroll href="#">a</a></span>
     <button id="c-button--slide-right" class="nav-menu-btn top-right-corner-fixed"><i class="mdi mdi-menu"></i></button>
-    <div class="content-block-container" id="home">
+    <!-- <div class="content-block-container" id="home">
       <div class="content-block">
-       <% include /partials/_home %>
+       <% include /partials/_styleguide %>
+      </div>
+    </div> -->
+    <div class="content-block-container" id="welcome">
+      <div class="content-block">
+       <% include /partials/_welcome %>
       </div>
     </div>
     <div class="content-block-container" id="about">

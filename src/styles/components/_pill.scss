@@ -1,0 +1,13 @@
+.pill {
+  // TODO: update to pill remains circular regardless of font size
+  border-radius: 50%;
+  color: $secondary-color;
+  background-color: $accent-color;
+}
+
+.brand-pill {
+  padding:.1em .25em .3em .25em;
+  z-index: $z-index-brand-pill;
+  font-size: $brand-font-size;
+  line-height: $brand-font-line-height;
+}

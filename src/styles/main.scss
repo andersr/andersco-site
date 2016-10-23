@@ -1,26 +1,38 @@
-// Config
-@import 'config/layout';
-@import 'config/colors';
-@import 'config/text';
-@import 'config/z_indexes';
+@import 'variables';
+
+// Utils
+@import 'utils/helpers';
+@import 'utils/mixins';
+// @import 'vendor/modular-scale/modular-scale';
+// $ms-base: 1em;
+// $ms-ratio: $golden;
+// @debug ms-list($start, $end, $ms-base, $ms-ratio);
 
 // Core
 @import 'vendor/normalize';
-@import 'base';
-@import 'utils/helpers';
-@import 'utils/mixins';
-
-// Vendor
-// @import 'vendor/font-awesome/scss/icons';
+@import 'layout';
+@import 'text';
+@import 'colors';
 
 //COMPONENTS
-@import 'components/btn';
-@import 'components/image';
 @import 'components/badge';
+@import 'components/btn';
 @import 'components/content_block';
-@import 'components/nav_menu';
+@import 'components/image';
+@import 'components/list';
 @import 'components/mask';
+@import 'components/nav_menu';
+@import 'components/pill';
 
-// Theme
-@import 'theme/brand';
-@import 'theme';
+
+// @keyframes fadeIn {
+//   to {
+//     opacity: 1;
+//   }
+// }
+//
+// .hero {
+//   animation-name: fadeIn;
+//   animation-duration: 2s;
+//   animation-delay: 100ms;
+// }

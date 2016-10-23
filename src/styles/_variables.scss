@@ -1,0 +1,55 @@
+// LAYOUT
+$app-max-width: 30em;
+$app-padding: 1em 2em;
+$corner-fixed-offset: .5em;
+$breakpoint-tablet: 31.25em;
+$breakpoint-desktop: 62.5em;
+
+// COLOR PALETTE (src: http://www.materialui.co/colors)
+$color-gray-10:#FAFAFA; //lightest
+$color-gray-9:#F5F5F5;
+$color-gray-8:#EEEEEE;
+$color-gray-7:#E0E0E0;
+$color-gray-6:#BDBDBD;
+$color-gray-5:#9E9E9E;
+$color-gray-4:#757575;
+$color-gray-3:#616161;
+$color-gray-2:#424242;
+$color-gray-1:#212121; //darkest
+$primary-color: #000000;
+$secondary-color:  #E64A19;
+$accent-color: $color-gray-7;
+
+// Links
+$link-color: $secondary-color;
+
+// FONTS
+// $base-font-family: 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
+// $base-font-size: 1.3em;
+// $base-line-height: 1em;
+
+// $font-ratio: 1.618;
+
+// $font-size-tablet: 1.4em;
+// $base-font-size-desktop: 1.6em;
+
+$brand-font-size: 1.8em;
+$brand-font-line-height: .7em;
+// $p-font-size: 1.2em;
+// $p-line-height: 1.3em;
+$h1-font-size: 2.3em;
+$h2-font-size: 1.2em;
+
+// COLORS
+// $base-text-color: $primary-color;
+
+// NAV MENU
+$nav_menu_position_top: 20px;
+$nav_menu_position_right: $nav_menu_position_top;
+
+// Z-INDEXES
+$z-index-brand-pill: 50;
+$z-index-nav-menu-open: 50;
+$z-index-mask: 100;
+$z-index-nav-menu: 200;
+$z-index-nav-menu-close: 250;
