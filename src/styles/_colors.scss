@@ -12,7 +12,14 @@ h1 {
 	// color: $secondary-color;
 }
 h2 {
-	// color: $secondary-color;
+  color:	$meta-content-color;
+	a {
+		color: inherit;
+	}
+}
+
+.meta-content {
+	color: $meta-content-color;
 }
 
 
@@ -23,7 +30,7 @@ a {
 
 // ICONS
 i {
-	color:$accent-color;
+	color: $meta-content-color;
 }
 
 

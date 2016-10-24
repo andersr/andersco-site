@@ -1,3 +1,8 @@
+.img--thumbnail {
+  width:12em;
+  height: auto;
+}
+
 .img--responsive {
   max-width:100%;
   height: auto;
@@ -9,7 +14,7 @@
   margin: 1.5em;
 }
 
-.img--responsive--loat-right {
+.img--responsive--float-right {
   text-align: center;
   float: none;
   margin: 1.5em 0;
@@ -20,6 +25,5 @@
       float: right;
       margin: 0 0 1.5em 1.5em;
     }
-
   }
 }

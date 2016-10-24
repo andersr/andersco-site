@@ -1,0 +1,43 @@
+ul.grid {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  img {
+    width: 100%;
+  }
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 0.4em;
+  }
+
+  .grid-item {
+    display: flex;
+    padding: 0.5em;
+    width: 100%;
+    max-width: $breakpoint-tablet;
+  }
+  @media all and (min-width: $breakpoint-tablet) {
+  .grid-item {
+    width: 50%;
+  }
+}
+
+  .grid-item--content {
+    background-color: $color-gray-8;
+    //border: 1px solid $accent-color;
+    border-radius: .35em;
+    display: flex;
+    flex-direction: column;
+   padding: 1em;
+    width: 100%;
+
+    p {
+	    flex: 1 0 auto;
+     }
+  }
+}

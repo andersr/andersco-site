@@ -1,8 +1,8 @@
 // LAYOUT
-$app-max-width: 30em;
+$app-max-width: 40em;
 $app-padding: 1em 2em;
 $corner-fixed-offset: .5em;
-$breakpoint-tablet: 31.25em;
+$breakpoint-tablet: 40em;
 $breakpoint-desktop: 62.5em;
 
 // COLOR PALETTE (src: http://www.materialui.co/colors)
@@ -18,6 +18,7 @@ $color-gray-2:#424242;
 $color-gray-1:#212121; //darkest
 $primary-color: #000000;
 $secondary-color:  #E64A19;
+$meta-content-color: $color-gray-5;
 $accent-color: $color-gray-7;
 
 // Links
