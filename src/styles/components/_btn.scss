@@ -1,13 +1,30 @@
 .btn {
   cursor: pointer;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  border: 0;
+  background: none;
+  box-shadow:none;
+  max-width: $breakpoint-tablet;
 
   &:focus {
     outline: none;
   }
 
   &:disabled {
-    opacity: 0.3;
+    opacity: 0.2;
     cursor: not-allowed;
+  }
+
+  &.btn--large {
+    padding: 0.75em;
+    font-size: 1.25rem;
+  }
+
+  &.btn--submit {
+    background-color: $secondary-color;
+    color: white;
   }
 }
 
@@ -20,26 +37,3 @@
   border:none;
   outline: none;
 }
-
-// .c-buttons {
-//   margin-bottom: 48px;
-//   text-align: center;
-// }
-//
-// .c-button {
-//   display: inline-block;
-//   margin: 4px;
-//   padding: 12px 24px;
-//   color: $color--theme;
-//
-//   font-size: $font-size--small;
-//   border: solid 2px $color--theme;
-//   box-shadow: none;
-//   border-radius: none;
-//   -webkit-appearance: none;
-//   -moz-appearance: none;
-//   appearance: none;
-//   cursor: pointer;
-// }
-//
-//

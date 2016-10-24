@@ -1,40 +1,35 @@
-<h2>contact</h2>
-<p>Email me: <a href="#" id="andersco-mailto"></a><noscript>Please turn on Javascript to see my email address.</noscript></p>
-<p>Or use this form</p>
-<div id="alerts"></div>
-<div class="row">
-  <form class="col s12 handle-disable-submit"  method="POST" id="contactForm">
+<h1>Contact</h1>
+<div id="alerts" class="row alert alert--info" style="display:none"></div>
+<p class="row">Please complete this form or email me at <a href="#" id="andersco-mailto">&nbsp;</a>.</p>
+  <form class="handle-disable-submit"  method="POST" id="contactForm">
     <div class="off-screen">
         <input id="mainEmail" type="email">
         <label for="mainEmail">Leave this field blank</label>
     </div>
     <div class="row">
-      <div class="input-field col s12">
-        <input id="name" name="name" type="text" class="validate required_field">
-        <label for="name">Name</label>
-        <div class="name-error"></div>
+      <div class="input-field">
+          <label for="name">Name</label>
+        <input id="name" name="name" type="text" class="required_field">
+        <div class="name-error  secondary-color"></div>
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s12">
-        <input id="email" name="email" type="email" class="validate required_field">
+      <div class="input-field">
         <label for="email">Email</label>
-        <div class="email-error"></div>
+        <input id="email" name="email" type="email" class="required_field">
+        <div class="email-error secondary-color"></div>
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s12">
+      <div class="input-field">
+        <label for="message">Message</label>
         <textarea id="message" name="message" class="materialize-textarea required_field"></textarea>
-        <label for="message">Write something...</label>
-        <div class="message-error"></div>
+        <div class="message-error secondary-color"></div>
       </div>
 </div>
 <div class="row">
-I am not a robot
-</div>
-<div class="row">
-<button id="submitButton" class="btn waves-effect waves-light" type="submit" name="action">Submit
-  <i class="material-icons right">Send</i>
+<button id="submitButton" class="btn btn--large btn--submit" type="submit" name="action">
+  Send
 </button>
 </div>
   </form>

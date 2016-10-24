@@ -11,6 +11,7 @@
 @import 'colors';
 
 //COMPONENTS
+@import 'components/alert';
 @import 'components/badge';
 @import 'components/btn';
 @import 'components/content_block';
@@ -21,7 +22,8 @@
 @import 'components/nav_menu';
 @import 'components/pill';
 
-
+// VENDOR
+@import 'vendor/materialize-src/sass/materialize'
 // @keyframes fadeIn {
 //   to {
 //     opacity: 1;

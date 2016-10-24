@@ -86,16 +86,22 @@ $(function () {
     }
   }
 
-  function clearFormFields () {
+  function disableSubmit () {
+     $contactForm.submit.attr('disabled', 'disabled')
+  }
+
+  function clearFormFields (cb) {
     $.each([
-      $contactForm.name.el,
-      $contactForm.email.el,
-      $contactForm.message.el,
-      $contactForm.honeypot.el
+      $contactForm.name,
+      $contactForm.email,
+      $contactForm.message,
+      $contactForm.honeypot
     ],
-      function (i, el) {
-        el.val('')
+      function (i, element) {
+        element.el.val('')
+        if(element.wasInvalid) element.wasInvalid = false
     })
+    cb()
   }
   function handleSubmit (e) {
     e.preventDefault()
@@ -112,11 +118,12 @@ $(function () {
       if (response.errors.length > 0) {
         displayErrors(response.errors)
       } else {
-        clearFormFields()
-        $contactForm.alerts.text(MESSAGES.confirmation)
+        clearFormFields(disableSubmit)
+        $contactForm.alerts.fadeIn('slow').text(MESSAGES.confirmation)
         setTimeout(function () {
-          $contactForm.alerts.empty()
+          $contactForm.alerts.fadeOut('slow')
         }, 5000)
+
       }
     })
   }
