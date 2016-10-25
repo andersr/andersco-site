@@ -1,5 +1,52 @@
 .navbar {
-  @include flex-row;
-  align-items: center;
-  height: $navbar-height;
+  // width: 100%;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: nowrap;
+  align-items: center;   //vertical middle
+
+  background-color: white;
+  height: 4em;
+
+  transition: all 0.25s linear;
+  &.drop-shadow {
+    transition: all 0.25s linear;
+    box-shadow: 0 3px 5px $drop-shadow;
+  }
+
+  &.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .brand {
+    width: 1.5em;
+  }
+  .main-content {
+    flex: 1;
+  }
+  .header-nav {
+    display: none;
+  }
+  .mobile-nav {
+    display: block;
+  }
+
+  @media all and (min-width: $breakpoint-tablet) {
+    .mobile-nav {
+      display: none;
+    }
+    .header-nav {
+      display: block;
+      @include list--inline(1em);
+      text-align: right;
+
+      li.active {
+        background-color: blue;
+      }
+    }
+  }
+
 }

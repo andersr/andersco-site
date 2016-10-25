@@ -4,11 +4,16 @@
 @import 'utils/helpers';
 @import 'utils/mixins';
 
+// VENDOR
+// @import 'vendor/materialize-src/sass/materialize'
+
 // Core
 @import 'vendor/normalize';
 @import 'layout';
 @import 'text';
 @import 'colors';
+
+
 
 //COMPONENTS
 @import 'components/alert';
@@ -19,11 +24,11 @@
 @import 'components/list';
 @import 'components/grid';
 @import 'components/mask';
+@import 'components/navbar';
 @import 'components/nav_menu';
 @import 'components/pill';
 
-// VENDOR
-@import 'vendor/materialize-src/sass/materialize'
+
 // @keyframes fadeIn {
 //   to {
 //     opacity: 1;
@@ -34,4 +39,19 @@
 //   animation-name: fadeIn;
 //   animation-duration: 2s;
 //   animation-delay: 100ms;
+// }
+
+// .foo {
+//   // @include list--inline;
+//   list-style-type: none;
+//   display: inline;
+// }
+// .nav {
+//   // @include list--inline;
+//   list-style-type: none;
+//
+//   li {
+//     display: inline;
+//   }
+//
 // }

@@ -8,7 +8,29 @@ html {
   box-sizing: inherit;
 }
 
-
 .app-container {
   padding:1em;
 }
+
+
+// FLEX ROW
+// @mixin flex-row {
+//   display: flex;
+//   flex-flow: row nowrap;
+//
+//   &.flex-centered {
+//   	 justify-content: center;
+//   }
+//   &.flex-vertical-middle {
+//   	align-items: center;
+//   }
+//   &.flex-vertical-baseline {
+//     align-items: baseline;
+//   }
+//
+//   .flex-main-content {
+//     flex: 1;
+//   }
+// }
+
+// Layout
