@@ -25,7 +25,7 @@
   }
   .header-nav {
     display: none;
-    transition: all 1s linear;
+    transition: all .25s linear;
     @include list--inline(1em);
     text-align: right;
 
@@ -41,9 +41,5 @@
     .mobile-nav {
       display: none;
     }
-    // .header-nav {
-    //   display: none;
-    //
-    // }
   }
 }
