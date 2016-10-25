@@ -9,10 +9,6 @@
   height: 4em;
 
   transition: all 0.25s linear;
-  &.drop-shadow {
-    transition: all 0.25s linear;
-    box-shadow: 0 3px 5px $drop-shadow;
-  }
 
   &.fixed-top {
     position: fixed;
@@ -28,6 +24,7 @@
     flex: 1;
   }
   .header-nav {
+    transition: all 1s linear;
     display: none;
   }
   .mobile-nav {
@@ -39,7 +36,7 @@
       display: none;
     }
     .header-nav {
-      display: block;
+      display: none;
       @include list--inline(1em);
       text-align: right;
 
@@ -48,5 +45,9 @@
       }
     }
   }
+}
 
+.drop-shadow {
+  transition: all 0.25s linear;
+  box-shadow: 0 3px 5px $drop-shadow;
 }
