@@ -36,6 +36,16 @@ header {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  background-color: transparent;
   pointer-events: none;
+
+  .pill, .mobile-nav{
+    pointer-events: auto;
+  }
+
+  .center-block {
+    flex: 1;
+    background-color: transparent;
+      // pointer-events: none;
+  }
+
 }
