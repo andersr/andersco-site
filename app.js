@@ -1,35 +1,27 @@
 require('dotenv').config()
 var path = require('path')
+var helmet = require('helmet')
 var express = require('express')
-var expressValidator = require('express-validator')
-var session = require('express-session')
+// var expressValidator = require('express-validator')
+// var session = require('express-session')
 var bodyParser = require('body-parser')
-// var utils = require('./server/utils')
-// var flash = require('connect-flash')
 var emailValidator = require("email-validator")
 var sendMail = require('./server/sendMail')
 var app = express()
-
-// var honeypot = require('honeypot')
-// var pot = new honeypot(process.env.HONEYPOT_KEY)
+// app.use(helmet())
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false
 }))
 
-app.use(expressValidator())
+// app.use(expressValidator())
 
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: false,
-  cookie: { secure: true }
-}))
-// app.use(flash())
-// app.use(function (req, res, next) {
-//    res.locals.messages = req.flash()
-//   next()
-// })
+// app.use(session({
+//   secret: 'keyboard cat',
+//   resave: false,
+//   saveUninitialized: false,
+//   cookie: { secure: true }
+// }))
 
 var port = process.env.PORT || 3000
 var env = process.env.NODE_ENV
@@ -48,16 +40,9 @@ app.get('/', function (req, res) {
   res.render('index')
 })
 
-// Wild card redirect to root
-app.use(function(req, res) {
-  res.status(400);
-  res.redirect('/');
-});
-
-
 app.post('/mail', function (req, res) {
-  res.setHeader('Content-Type', 'application/json')
-  // console.log('body: ', req.body)
+  console.log('req: ', req.body)
+  // res.end()
   var data = {
     email: req.body.email,
     name: req.body.name,
@@ -75,7 +60,6 @@ app.post('/mail', function (req, res) {
   if(!isEmpty(data.honeypot)) {
     result.spam = true
     res.send(result)
-    // res.end()
   } else {
     if(isEmpty(data.name)) {
       result.errors.push('name')
@@ -89,17 +73,24 @@ app.post('/mail', function (req, res) {
     if(result.errors.length > 0){
       res.send(result)
     } else {
-      sendMail(data, function (messageSent) {
-        if(messageSent) {
-          result.messageSent = messageSent
-          res.send(result)
-        } else {
-          console.log('Mail send error')
-        }
-      })
+      console.log('send mail: ', data)
+      // sendMail(data, function (messageSent) {
+      //   if(messageSent) {
+      //     result.messageSent = messageSent
+      //     res.send(result)
+      //   } else {
+      //     console.log('Mail send error')
+      //   }
+      // })
     }
   }
 })
+
+// Wild card redirect to root
+// app.use(function(req, res) {
+//   res.status(400);
+//   res.redirect('/');
+// });
 
 app.listen(port, function () {
   console.log('App running at http://localhost:' + port)

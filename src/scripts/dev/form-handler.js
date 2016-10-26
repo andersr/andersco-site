@@ -67,12 +67,14 @@ $(function () {
   }
 
   function postData (data, options, handleResponse) {
+    //console.log('data: ', data, 'url: ', options.url)
     $.post({
       url: options.url,
       contentType: 'application/json',
       data: JSON.stringify(data),
       success: function (response) {
-        handleResponse(response)
+        console.log('got response: ', response)
+        //handleResponse(response)
       }
     })
     .fail(function () {
