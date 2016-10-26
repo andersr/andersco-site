@@ -1,3 +1,5 @@
+
+// UNUSED
 .navbar {
   // width: 100%;
   display: flex;
@@ -8,7 +10,10 @@
   background-color: transparent;
   height: 4em;
 
-  transition: all 0.25s linear;
+  // Allow for clicking 'through to elements below the header'
+  pointer-events: none;
+
+  // transition: all 0.25s linear;
 
   &.fixed-top {
     position: fixed;
@@ -20,9 +25,9 @@
   .brand {
     width: 1.5em;
   }
-  .main-content {
-    flex: 1;
-  }
+  // .main-content {
+  //   flex: 1;
+  // }
 
   .mobile-nav {
     display: block;
