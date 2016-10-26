@@ -48,6 +48,13 @@ app.get('/', function (req, res) {
   res.render('index')
 })
 
+// Wild card redirect to root
+app.use(function(req, res) {
+  res.status(400);
+  res.redirect('/');
+});
+
+
 app.post('/mail', function (req, res) {
   res.setHeader('Content-Type', 'application/json')
   // console.log('body: ', req.body)
