@@ -23,15 +23,26 @@
   .main-content {
     flex: 1;
   }
+
+  .section-header {
+    li {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+
+  }
   .header-nav {
     display: none;
     transition: all .25s linear;
     @include list--inline(1em);
     text-align: right;
 
-    li.active {
-      background-color: blue;
-    }
+    // li.active {
+    //   background-color: blue;
+    // }
   }
   .mobile-nav {
     display: block;

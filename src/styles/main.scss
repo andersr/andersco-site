@@ -13,8 +13,6 @@
 @import 'text';
 @import 'colors';
 
-
-
 //COMPONENTS
 @import 'components/alert';
 @import 'components/badge';
@@ -27,31 +25,3 @@
 @import 'components/navbar';
 @import 'components/nav_menu';
 @import 'components/pill';
-
-
-// @keyframes fadeIn {
-//   to {
-//     opacity: 1;
-//   }
-// }
-//
-// .hero {
-//   animation-name: fadeIn;
-//   animation-duration: 2s;
-//   animation-delay: 100ms;
-// }
-
-// .foo {
-//   // @include list--inline;
-//   list-style-type: none;
-//   display: inline;
-// }
-// .nav {
-//   // @include list--inline;
-//   list-style-type: none;
-//
-//   li {
-//     display: inline;
-//   }
-//
-// }

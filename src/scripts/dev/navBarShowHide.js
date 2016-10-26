@@ -2,7 +2,6 @@
   $(function () {
     'use strict'
 
-
     var $navBar = $('.navbar')
     var $headerNav = $('.header-nav')
     var $topContent = $('.top-content')
