@@ -5,7 +5,7 @@
   flex-wrap: nowrap;
   align-items: center;   //vertical middle
 
-  background-color: white;
+  background-color: transparent;
   height: 4em;
 
   transition: all 0.25s linear;
@@ -24,33 +24,33 @@
     flex: 1;
   }
 
-  .section-header {
-    li {
-      display: none;
-
-      &.active {
-        display: block;
-      }
-    }
-
-  }
-  .header-nav {
-    display: none;
-    transition: all .25s linear;
-    @include list--inline(1em);
-    text-align: right;
-
-    // li.active {
-    //   background-color: blue;
-    // }
-  }
   .mobile-nav {
     display: block;
   }
 
-  @media all and (min-width: $breakpoint-tablet) {
-    .mobile-nav {
-      display: none;
-    }
-  }
+  // @media all and (min-width: $breakpoint-tablet) {
+  //   .mobile-nav {
+  //     display: none;
+  //   }
+  // }
 }
+
+// .section-header {
+//   li {
+//     display: none;
+//
+//     &.active {
+//       display: block;
+//     }
+//   }
+// }
+// .header-nav {
+//   display: none;
+//   transition: all .25s linear;
+//   @include list--inline(1em);
+//   text-align: right;
+//
+//   // li.active {
+//   //   background-color: blue;
+//   // }
+// }
