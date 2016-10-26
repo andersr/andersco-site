@@ -496,15 +496,17 @@
 			anchor = document.body;
 
 			// Save or create the ID as a data attribute and remove it (prevents scroll jump)
-			var id = anchor.id ? anchor.id : 'smooth-scroll-top';
+			var id = anchor.id ? anchor.id : 'back-to-top';
 			anchor.setAttribute( 'data-scroll-id', id );
 			anchor.id = '';
 
 			// If no hash change event will happen, fire manually
 			// Otherwise, update the hash
 			if ( root.location.hash.substring(1) === id ) {
+			//console.log('hash change')
 				hashChangeHandler();
 			} else {
+				//console.log('root')
 				root.location.hash = id;
 			}
 
