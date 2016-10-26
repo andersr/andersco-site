@@ -6,48 +6,20 @@
   <meta name="description" content="Anders Ramsay's freelance and consulting website.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AndersCo - UX Design, Development, Agile Coaching</title>
-  <!--[if IE]>
+  <% include /partials/head/_favicons %>
+  <!--[if lt IE 9]>
   <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+  <![endif]-->
   <link rel="stylesheet" href="//cdn.materialdesignicons.com/1.7.12/css/materialdesignicons.min.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-  <link rel="stylesheet" href="styles/main.min.css">
-  <% include /partials/head/_favicons %>
 </head>
 <body>
   <div id="o-wrapper" class="o-wrapper app-container">
-     <% include /partials/_navbar %>
-    <!-- <div class="content-block-container" id="home">
-      <div class="content-block">
-       <% include /partials/_styleguide %>
-      </div>
-    </div> -->
-    <div class="content-block-container" id="welcome">
-      <div class="content-block">
-       <% include /partials/_welcome %>
-      </div>
-    </div>
-    <div class="content-block-container" id="about">
-      <div class="content-block">
-       <% include /partials/_about %>
-      </div>
-    </div>
-    <div class="content-block-container" id="projects">
-      <div class="content-block">
-       <% include /partials/_projects %>
-      </div>
-    </div>
-    <div class="content-block-container" id="contact">
-      <div class="content-block">
-       <% include /partials/_contact %>
-      </div>
-    </div>
-    <% include /partials/_footer %>
-    <div id="c-mask" class="mask"></div>
+ <% include /partials/_contact %>
+ <div id="c-mask" class="mask"></div>
 </div>
- <% include /partials/_nav_menu %>
+<% include /partials/_nav_menu %>
  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 <script src="scripts/main.min.js"></script>
 <script>
   var slideRight = new Menu({
@@ -63,13 +35,8 @@
     slideRight.open();
   });
 
-smoothScroll.init();
-gumshoe.init()
-// gumshoe.init({
-//   offset: 0, // Distance in pixels
-//   activeClass: 'scrollspy-active'
-// });
+  smoothScroll.init();
 </script>
-<% include /partials/_ga %>
+ <% include /partials/_ga %>
 </body>
 </html>

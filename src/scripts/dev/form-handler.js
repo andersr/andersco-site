@@ -73,8 +73,8 @@ $(function () {
       contentType: 'application/json',
       data: JSON.stringify(data),
       success: function (response) {
-        console.log('got response: ', response)
-        //handleResponse(response)
+        // console.log('got response: ', response)
+        handleResponse(response)
       }
     })
     .fail(function () {

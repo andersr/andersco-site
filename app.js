@@ -8,7 +8,7 @@ var bodyParser = require('body-parser')
 var emailValidator = require("email-validator")
 var sendMail = require('./server/sendMail')
 var app = express()
-// app.use(helmet())
+app.use(helmet())
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false
@@ -41,7 +41,8 @@ app.get('/', function (req, res) {
 })
 
 app.post('/mail', function (req, res) {
-  console.log('req: ', req.body)
+  res.setHeader('Content-Type', 'application/json')
+  // console.log('req: ', req.body)
   // res.end()
   var data = {
     email: req.body.email,
@@ -73,15 +74,15 @@ app.post('/mail', function (req, res) {
     if(result.errors.length > 0){
       res.send(result)
     } else {
-      console.log('send mail: ', data)
-      // sendMail(data, function (messageSent) {
-      //   if(messageSent) {
-      //     result.messageSent = messageSent
-      //     res.send(result)
-      //   } else {
-      //     console.log('Mail send error')
-      //   }
-      // })
+      // console.log('send mail: ', data)
+      sendMail(data, function (messageSent) {
+        if(messageSent) {
+          result.messageSent = messageSent
+          res.send(result)
+        } else {
+          console.log('Mail send error')
+        }
+      })
     }
   }
 })
