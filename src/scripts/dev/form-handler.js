@@ -124,7 +124,7 @@ $(function () {
         $contactForm.alerts.fadeIn('slow').text(MESSAGES.confirmation)
         setTimeout(function () {
           $contactForm.alerts.fadeOut('slow')
-        }, 5000)
+        }, 4000)
 
       }
     })
