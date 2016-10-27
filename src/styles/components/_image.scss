@@ -1,29 +1,15 @@
-.img--thumbnail {
-  width:12em;
+img.profile-image {
+  border-radius: 50%;
+  max-width:15em;
   height: auto;
-}
-
-.img--responsive {
-  max-width:100%;
-  height: auto;
-}
-.img--outline {
-  border: 1px solid $color-gray-7;
-}
-.img--floated {
-  margin: 1.5em;
-}
-
-.img--responsive--float-right {
   text-align: center;
   float: none;
   margin: 1.5em 0;
 
   @media screen and (min-width: $breakpoint-tablet) {
     text-align: inherit;
-    img {
-      float: right;
-      margin: 0 0 1.5em 1.5em;
-    }
+    float: right;
+    margin: -.5em 0 1.5em 1.5em;
   }
+
 }
