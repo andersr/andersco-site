@@ -7,12 +7,11 @@ $base-font-size: 1.3em;
 // $ratio: 1.618;
 html { font-size: $base-font-size; }
 h1 {
-	font-size: 2.92rem;
+	font-size: 2.5rem;
 	margin-bottom:0.25em;
 }
 h2 {
-	// text-align: center;
-	font-size: 1.95rem;
+	font-size: 1.25rem;
 	margin-bottom:0.5em;
 }
 h3 {
@@ -21,8 +20,8 @@ h3 {
 }
 p {
 	font-size: 1rem;
-	margin-top:0.5rem;
-	margin-bottom:0.5rem;
+	margin-top: $p-margin-top;
+	margin-bottom:$p-margin-bottom;
 }
 .small-text, .secondary-text { font-size: 0.667rem; }
 

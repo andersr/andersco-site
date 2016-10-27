@@ -12,12 +12,14 @@
 @import 'layout';
 @import 'text';
 @import 'colors';
+@import 'effects';
 
 //COMPONENTS
 @import 'components/alert';
 @import 'components/badge';
 @import 'components/btn';
 @import 'components/content_block';
+
 @import 'components/image';
 @import 'components/list';
 @import 'components/grid';
@@ -46,4 +48,9 @@ header {
     background-color: transparent;
       // pointer-events: none;
   }
+}
+
+// prevent icons from appearing above other content
+.mdi:before {
+  display: initial;
 }

@@ -1,6 +1,6 @@
 // LAYOUT
-$app-max-width: 40em;
-$app-padding: 1em 2em;
+$content-max-width: 45em;
+$content-block-padding: 1em;
 $corner-fixed-offset: .5em;
 $breakpoint-tablet: 40em;
 $breakpoint-desktop: 62.5em;
@@ -34,6 +34,9 @@ $drop-shadow: rgba(0,0,0,0.2);
 
 // $font-size-tablet: 1.4em;
 // $base-font-size-desktop: 1.6em;
+$p-margin-bottom: 0.5rem;
+$p-margin-top: $p-margin-bottom;
+
 
 $brand-font-size: 1.8em;
 $brand-font-line-height: .7em;

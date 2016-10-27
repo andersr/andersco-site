@@ -1,8 +1,10 @@
 .list {
-	line-height: 1.2;
-	font-size: 1.3em;
+	list-style: none;
 	margin-top:0;
-	margin-bottom: .75em;
+	margin-left: 0;
+	padding-left: 1em;
+	margin-bottom: $p-margin-bottom;
+	text-indent: -1em;
 }
 
 

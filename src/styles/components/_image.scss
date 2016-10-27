@@ -1,12 +1,13 @@
 img.profile-image {
   border-radius: 50%;
-  max-width:15em;
+  max-width:10em;
   height: auto;
-  text-align: center;
+  // text-align: center;
   float: none;
-  margin: 1.5em 0;
+  margin: 1em 0;
 
   @media screen and (min-width: $breakpoint-tablet) {
+    max-width: 15em;
     text-align: inherit;
     float: right;
     margin: -.5em 0 1.5em 1.5em;

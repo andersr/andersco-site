@@ -1,12 +1,33 @@
 .content-block-container {
-  min-height: 98vh;
-  @include flex-column;
-  justify-content: center;
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  justify-content: flex-start;
   align-items: center;
 
   .content-block {
-    flex:.25;
-    padding: $app-padding;
-    max-width: $app-max-width;
+
+    padding:$content-block-padding;
+
+    h1 {
+      text-align: center;
+    }
+  }
+  &.content-block-vertical-middle {
+    justify-content: center;
+
+    .content-block {
+       flex:.25;
+    }
+  }
+  @media screen and (min-width: $breakpoint-tablet) {
+    .content-block {
+      padding-left: $content-block-padding + 5em;
+      padding-right: $content-block-padding + 5em;
+      max-width: $content-max-width;
+      h1 {
+        text-align: left;
+      }
+    }
   }
 }
