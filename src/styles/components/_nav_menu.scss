@@ -7,14 +7,14 @@
   transition: transform 0.3s;
 
   .menu-header {
-    padding:0.35rem .15rem
-    0.25rem 0.5rem;
+    padding:.45rem;
     background-color:white;
     @include flex-row();
   }
 
   section {
     padding: 0.75rem;
+    padding-bottom: .9rem;
     background-color: white;
   }
 }

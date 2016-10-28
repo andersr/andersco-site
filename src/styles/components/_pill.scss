@@ -1,6 +1,6 @@
 .brand-pill {
   border-radius: 50%;
-  transition: background-color .5s ease;
+  transition: background-color .5s linear;
   background-color: $gray-transparent-bg;
 
   padding:.25rem;

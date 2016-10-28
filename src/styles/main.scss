@@ -33,9 +33,12 @@
   display: initial;
 }
 hr {
-  margin: 0;
+  margin:0;
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid $color-gray-7;
+  border-top: 1px solid $color-gray-6;
+}
+.link--icon:hover {
+  text-decoration: none;
 }

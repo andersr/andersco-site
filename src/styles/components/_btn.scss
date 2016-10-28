@@ -1,3 +1,32 @@
+.btn--icon {
+  background: none;
+  padding: 0.25rem;
+  appearance: none;
+  box-shadow: none;
+  border:none;
+  outline: none;
+  cursor: pointer;
+
+  // prevent background color flash on touch
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+  &.btn--white-bg {
+    padding: 0.35rem 0.25rem 0.15rem 0.25rem;
+    background-color: $color-white-transparent;
+    border-radius: 5px;
+  }
+
+  &:focus {
+    background-color:inherit;
+  }
+
+  // Add after over-riding for touch devices
+  // &:hover {
+  //   background-color: $btn--hover;
+  //   border-radius: 5px;
+  // }
+}
+
 // .btn {
 //   cursor: pointer;
 //   width: 100%;
@@ -30,25 +59,3 @@
 // html.touch *:hover {
 //   pointer-events: none !important;
 // }
-
-.btn--icon {
-  background: none;
-  padding: 0.25rem;
-  appearance: none;
-  box-shadow: none;
-  border:none;
-  outline: none;
-  cursor: pointer;
-
-  &.btn--white-bg {
-    padding: 0.35rem 0.25rem 0.15rem 0.25rem;
-    background-color: $color-white-transparent;
-    border-radius: 5px;
-  }
-
-  // Add after over-riding for touch devices
-  // &:hover {
-  //   background-color: $btn--hover;
-  //   border-radius: 5px;
-  // }
-}
