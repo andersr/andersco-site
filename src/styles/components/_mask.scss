@@ -9,13 +9,13 @@
   height: 0;
   background-color: #000;
   opacity: 0;
-  transition: opacity 0.3s, width 0s 0.3s, height 0s 0.3s;
+  transition: opacity 0.4s, width 0s 0.3s, height 0s 0.3s;
 
   &.is-active {
     width: 100%;
     height: 100%;
     opacity: 0.2;
-    transition: opacity 0.3s;
+    transition: opacity 0.4s;
   }
 
 }

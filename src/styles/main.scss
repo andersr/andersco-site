@@ -1,8 +1,7 @@
 @import 'variables';
 
 // Utils
-@import 'utils/helpers';
-@import 'utils/mixins';
+@import 'helpers';
 
 // VENDOR
 @import 'vendor/materialize-src/sass/materialize';
@@ -32,4 +31,11 @@
 // prevent icons from appearing above other content
 .mdi:before {
   display: initial;
+}
+hr {
+  margin: 0;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid $color-gray-7;
 }

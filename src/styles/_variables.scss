@@ -25,6 +25,7 @@ $accent-color: $color-gray-7;
 $link-color: $secondary-color;
 $drop-shadow: rgba(0,0,0,0.2);
 $gray-transparent-bg: rgba(223, 221, 221, 0.3);
+$color-white-transparent: rgba(251, 251, 251, 0.6);
 
 // FONTS
 // $base-font-family: 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -50,6 +51,10 @@ $h2-font-size: 1.2em;
 // $base-text-color: $primary-color;
 
 // NAV MENU
+$nav-menu-break-point: 320px;
+$nav-menu-width: 200px;
+$nav-menu-height: 60px;
+
 $nav_menu_position_top: 20px;
 $nav_menu_position_right: $nav_menu_position_top;
 

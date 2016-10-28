@@ -34,3 +34,16 @@
 .round {
 	border-radius: 50%;
 }
+
+// FLEX ROW
+@mixin flex-row($vertical-align: center) {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: $vertical-align;
+}
+
+// Layout
+
+.flex-main-content {
+  flex: 1;
+}

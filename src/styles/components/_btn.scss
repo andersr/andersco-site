@@ -33,12 +33,18 @@
 
 .btn--icon {
   background: none;
-  padding: 0.35rem 0.25rem 0.15rem 0.25rem;
+  padding: 0.25rem;
   appearance: none;
   box-shadow: none;
   border:none;
   outline: none;
   cursor: pointer;
+
+  &.btn--white-bg {
+    padding: 0.35rem 0.25rem 0.15rem 0.25rem;
+    background-color: $color-white-transparent;
+    border-radius: 5px;
+  }
 
   // Add after over-riding for touch devices
   // &:hover {

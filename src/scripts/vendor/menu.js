@@ -55,7 +55,7 @@
     this.wrapper = document.querySelector(this.options.wrapper);
     this.mask = document.querySelector(this.options.maskClass);
     this.menu = document.querySelector('#c-menu--' + this.options.type);
-    this.closeMenu = this.menu.querySelectorAll('.c-menu__close');
+    this.closeMenu = this.menu.querySelectorAll('a, button');
     this.menuOpeners = document.querySelectorAll(this.options.menuOpenerClass);
     this._initEvents();
   };
