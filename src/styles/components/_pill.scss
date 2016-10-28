@@ -1,13 +1,23 @@
-.pill {
-  // TODO: update to pill remains circular regardless of font size
-  border-radius: 50%;
-  color: $secondary-color;
-  background-color: $accent-color;
-}
-
 .brand-pill {
-  padding:.1em .25em .3em .25em;
+  border-radius: 50%;
+  transition: background-color .5s ease;
+  background-color: $gray-transparent-bg;
+
+  padding:.25rem;
+  padding-bottom: .5rem;
+
   z-index: $z-index-brand-pill;
   font-size: $brand-font-size;
   line-height: $brand-font-line-height;
+
+  a {
+    color: lighten($secondary-color, 30%);
+  }
+  &:hover {
+    background-color: darken($gray-transparent-bg, 30%);
+    a {
+        color:$secondary-color;
+        text-decoration: none;
+    }
+  }
 }
