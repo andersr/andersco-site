@@ -3,8 +3,8 @@
   transition: background-color .5s linear;
   background-color: $gray-transparent-bg;
 
-  padding:.25rem;
-  padding-bottom: .5rem;
+  padding:.35rem .35rem .65rem .35rem;
+  // padding-bottom: .5rem;
 
   z-index: $z-index-brand-pill;
   font-size: $brand-font-size;

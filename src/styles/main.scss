@@ -23,7 +23,7 @@
 @import 'components/list';
 @import 'components/grid';
 @import 'components/mask';
-//@import 'components/navbar';
+@import 'components/navbar';
 @import 'components/nav_menu';
 @import 'components/pill';
 
@@ -41,4 +41,9 @@ hr {
 }
 .link--icon:hover {
   text-decoration: none;
+}
+
+.icon--text:before {
+ vertical-align: baseline;
+ letter-spacing: -0.250rem;
 }

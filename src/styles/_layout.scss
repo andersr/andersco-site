@@ -9,30 +9,11 @@ html {
 }
 
 .app-container {
-  padding: $content-block-padding;
+  padding: $app-padding;
   @media only screen and (min-width: $breakpoint-tablet) {
     padding: $content-block-padding * 2;
   }
 }
-
-.app-header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  @include flex-row();
-  justify-content: space-between;
-  padding: 0.25rem 0.5rem 0 0.75rem;
-  @media only screen and (min-width: $breakpoint-tablet) {
-    padding: 0.5rem 0.75rem 0 1rem;
-  }
-
-
-  // .center-block {
-  //   // flex: 1;
-  //   background-color: transparent;
-  // }
-}
-
 
 // FLEX ROW
 // @mixin flex-row {
