@@ -27,13 +27,23 @@
 //     color: white;
 //   }
 // }
+// html.touch *:hover {
+//   pointer-events: none !important;
+// }
 
 .btn--icon {
   background: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  padding: 0.25rem;
+  padding-bottom: 0.15rem;
   appearance: none;
   box-shadow: none;
   border:none;
   outline: none;
+  cursor: pointer;
+
+  // Add after over-riding for touch devices
+  // &:hover {
+  //   background-color: $btn--hover;
+  //   border-radius: 5px;
+  // }
 }

@@ -28,27 +28,6 @@
 @import 'components/nav_menu';
 @import 'components/pill';
 
-header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  padding-top: 1em;
-  padding-right: 2em;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-  pointer-events: none;
-
-  .pill, .mobile-nav{
-    pointer-events: auto;
-  }
-  .center-block {
-    flex: 1;
-    background-color: transparent;
-      // pointer-events: none;
-  }
-}
 
 // prevent icons from appearing above other content
 .mdi:before {

@@ -9,16 +9,16 @@
 }
 
 // Layout
-.top-left-corner-fixed {
-  position: fixed;
-  top: $corner-fixed-offset;
-  left: $corner-fixed-offset;
-}
-.top-right-corner-fixed {
-  position: fixed;
-  top: $corner-fixed-offset;
-  right: $corner-fixed-offset;
-}
+// .top-left-corner-fixed {
+//   position: fixed;
+//   top: $corner-fixed-offset;
+//   left: $corner-fixed-offset;
+// }
+// .top-right-corner-fixed {
+//   position: fixed;
+//   top: $corner-fixed-offset;
+//   right: $corner-fixed-offset;
+// }
 .align--center {
   text-align: center;
 }

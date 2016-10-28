@@ -9,7 +9,29 @@ html {
 }
 
 .app-container {
-  padding: 1em;
+  padding: $content-block-padding;
+}
+
+html {
+    // overflow-y: scroll;
+    // overflow-y: overlay;
+}
+
+.app-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: $content-block-padding;
+  // padding-right: $content-block-padding;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  .center-block {
+    // flex: 1;
+    background-color: transparent;
+  }
 }
 
 

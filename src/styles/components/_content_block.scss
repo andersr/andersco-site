@@ -7,7 +7,7 @@
 
   .content-block {
 
-    padding:$content-block-padding;
+    padding: $content-block-padding;
 
     h1 {
       text-align: center;
@@ -22,8 +22,8 @@
   }
   @media screen and (min-width: $breakpoint-tablet) {
     .content-block {
-      padding-left: $content-block-padding + 5em;
-      padding-right: $content-block-padding + 5em;
+      padding-left: $content-block-padding + 5rem;
+      padding-right: $content-block-padding + 5rem;
       max-width: $content-max-width;
       h1 {
         text-align: left;
