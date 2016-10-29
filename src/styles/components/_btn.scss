@@ -1,6 +1,5 @@
 .btn--icon {
   background: none;
-  padding: 0.25rem;
   appearance: none;
   box-shadow: none;
   border:none;
@@ -11,9 +10,8 @@
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 
   &.btn--white-bg {
-    padding: 0.35rem 0.25rem 0.15rem 0.25rem;
     background-color: $color-white-transparent;
-    border-radius: 5px;
+    border-radius: .313rem;
   }
 
   &:focus {

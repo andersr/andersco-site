@@ -3,20 +3,21 @@
   flex-flow: column;
   min-height: 100vh;
   align-items: center;
-  // justify-content: flex-start;
+  padding: 0 ($app-padding + 1.5rem);
+  padding-top: $navbar-height - 2rem;
 
-  &.content-hero-container {
+  &.hero-container {
     justify-content: center;
-    padding: 0 1rem;
+    padding-bottom: 20vh;
+  }
 
+  .hero-content {
     p {
       font-size: $hero-font-size;
     }
   }
 
   .main-content {
-    padding: 0 1rem;
-    padding-top:1rem;
     flex: 1;
     h1 {
       text-align: center;
@@ -25,9 +26,9 @@
 
   @media screen and (min-width: $breakpoint-tablet) {
     .main-content {
-      padding-top:2rem;
-      // padding-left: $content-block-padding + 5rem;
-      // padding-right: $content-block-padding + 5rem;
+
+      padding-left: $app-padding + 1rem;
+      padding-right:  $app-padding + 1rem;
       max-width: $content-max-width;
       h1 {
         text-align: left;
@@ -35,12 +36,3 @@
     }
   }
 }
-
-
-// .content-block {
-//   padding: $content-block-padding;
-//
-//   h1 {
-//     text-align: center;
-//   }
-// }

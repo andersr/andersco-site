@@ -8,45 +8,12 @@
   overflow:hidden;
 }
 
-// Layout
-// .top-left-corner-fixed {
-//   position: fixed;
-//   top: $corner-fixed-offset;
-//   left: $corner-fixed-offset;
-// }
-// .top-right-corner-fixed {
-//   position: fixed;
-//   top: $corner-fixed-offset;
-//   right: $corner-fixed-offset;
-// }
-.align--center {
-  text-align: center;
-}
-.float--right {
-  float:right;
-}
-.off-screen {
-  position: absolute;
-  left: -999em;
-}
+
 
 // Styling
 .round {
 	border-radius: 50%;
 }
-
-// FLEX ROW
-@mixin flex-row($vertical-align: center) {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: $vertical-align;
+.light-border {
+  border: 1px solid $color-gray-8;
 }
-
-// Layout
-
-.flex-main-content {
-  flex: 1;
-}
-// .flex-half {
-//   flex: 0.5;
-// }

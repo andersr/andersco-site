@@ -2,22 +2,50 @@
   position: fixed;
   width: 100%;
   top: 0;
+  height: $navbar-height;
   @include flex-row();
   justify-content: space-between;
+  padding: .35rem .5rem 0 .5rem;
 
-  padding: 0.35rem 0.75rem 0 0.75rem;
+  .icon--menu {
+    margin-top: .25rem;
 
-  .right-col {
-    padding-top: .25rem;
+    button {
+      padding: 0.15rem 0.15rem 0 0.25rem;
+    }
   }
 
   @media only screen and (min-width: $breakpoint-tablet) {
     padding: 0.5rem 0.75rem 0 1rem;
   }
-
-
   // .center-block {
   //   // flex: 1;
   //   background-color: transparent;
   // }
+}
+
+
+.brand-pill {
+  border-radius: 50%;
+  transition: background-color .5s linear;
+  background-color: $gray-transparent-bg;
+  padding:.35rem .35rem .65rem .35rem;
+  z-index: $z-index-brand-pill;
+  font-size: $brand-font-size;
+  line-height: $brand-font-line-height;
+
+  // @media screen and (min-width: $breakpoint-tablet) {
+  //   margin-top: .25rem;
+  // }
+
+  a {
+    color: lighten($secondary-color, 30%);
+  }
+  &:hover {
+    background-color: darken($gray-transparent-bg, 30%);
+    a {
+        color:$secondary-color;
+        text-decoration: none;
+    }
+  }
 }
