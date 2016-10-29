@@ -1,6 +1,9 @@
 (function () {
 $(function () {
   'use strict'
+  var $flashMessage = $('.flash-message')
+  var scrollPosition = $(document).scrollTop()
+  var $formInputs = $(".form :input")
   var $contactForm = {
     form: $('#contactForm'),
     name: {
@@ -31,8 +34,16 @@ $(function () {
       'email': 'Please enter a valid email',
       'message': 'Please enter a message'
     },
-    confirmation: 'Thank you for contacting me!'
+    confirmation: 'Thank you for contacting me!',
+    sendError: 'Sorry, there was a problem sending this message. Try again?'
   }
+
+  // var $testBtn = $('#testBtn')
+  //
+  // $testBtn.click(function (e) {
+  //   e.preventDefault()
+  //   displayFlashMessage('This is much longer tes test Test message')
+  // })
 
   // Events
   $contactForm.submit.on('click', handleSubmit)
@@ -60,6 +71,16 @@ $(function () {
       $contactForm[this.name].wasInvalid = true
       showErrorMessage(this)
     }
+    // console.log('form inputs: ', $formInputs)
+    //
+    // $formInputs.each(function(){
+    //   $(this).is(':focus') //<-- Should return all input elements in that specific form.
+    // });
+    //
+    // // if($formInputs.not(":focus")){
+    // //   $(document).scrollTop(scrollPosition)
+    // // }
+
   }
 
   function showErrorMessage (el) {
@@ -67,18 +88,20 @@ $(function () {
   }
 
   function postData (data, options, handleResponse) {
-    //console.log('data: ', data, 'url: ', options.url)
     $.post({
       url: options.url,
       contentType: 'application/json',
       data: JSON.stringify(data),
       success: function (response) {
-        // console.log('got response: ', response)
         handleResponse(response)
       }
     })
     .fail(function () {
       console.log('post data error')
+      var response = {
+        messageSent: false
+      }
+      handleResponse(response)
     })
   }
 
@@ -92,7 +115,11 @@ $(function () {
      $contactForm.submit.attr('disabled', 'disabled')
   }
 
-  function clearFormFields (cb) {
+  function displayFlashMessage (msg) {
+    $flashMessage.text(msg).show()
+  }
+
+  function resetForm (cb) {
     $.each([
       $contactForm.name,
       $contactForm.email,
@@ -101,12 +128,18 @@ $(function () {
     ],
       function (i, element) {
         element.el.val('')
-        if(element.wasInvalid) element.wasInvalid = false
+        if(element.wasInvalid) {
+          element.wasInvalid = false
+        }
     })
     cb()
+    // $contactForm.submit.attr('disabled', 'disabled').text('Send')
+    // displayFlashMessage(MESSAGES.confirmation)
   }
   function handleSubmit (e) {
     e.preventDefault()
+    $contactForm.submit.attr('disabled', 'disabled').text('Sending...')
+
     var data = {
       name: $contactForm.name.el.val(),
       email: $contactForm.email.el.val(),
@@ -117,15 +150,18 @@ $(function () {
       url: '/mail'
     }
     postData(data, options, function (response) {
-      if (response.errors.length > 0) {
+      if (response.messageSent === false) {
+        displayFlashMessage(MESSAGES.sendError)
+        $contactForm.submit.removeAttr('disabled', 'disabled').text('Send')
+        $(document).scrollTop(scrollPosition)
+      } else if(response.errors.length > 0) {
         displayErrors(response.errors)
       } else {
-        clearFormFields(disableSubmit)
-        $contactForm.alerts.fadeIn('slow').text(MESSAGES.confirmation)
-        setTimeout(function () {
-          $contactForm.alerts.fadeOut('slow')
-        }, 4000)
-
+        resetForm(function () {
+          $contactForm.submit.attr('disabled', 'disabled').text('Send')
+          displayFlashMessage(MESSAGES.confirmation)
+          $(document).scrollTop(scrollPosition)
+        })
       }
     })
   }

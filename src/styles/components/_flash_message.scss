@@ -1,0 +1,43 @@
+$msg-height: 2.5rem;
+$top-offset: 0.5rem;
+$offScreen: -150%;
+
+.flash-message {
+  position: fixed;
+  top: $top-offset;
+  left: 3rem;
+  right: 3rem;
+  opacity:0;
+  padding: .5rem;
+  border-radius: 0.25em;
+  z-index: 1000;
+  background-color: $secondary-color;
+  color: white;
+  box-shadow: -2px 2px 2px 0px rgba(0,0,0,0.3);
+  animation: fadeInOutFromTop 3s ease;
+  transform: translateY($offScreen);
+  text-align: center;
+  font-size: .8rem;
+}
+
+@keyframes fadeInOutFromTop {
+  0% {
+    opacity: 0;
+  }
+  10% {
+      opacity: 1;
+  }
+  15% {
+    transform: translateY($top-offset);
+  }
+  85% {
+    transform: translateY($top-offset);
+  }
+  90% {
+      opacity: 1;
+  }
+  100% {
+    transform: translateY($offScreen);
+    opacity: 0;
+  }
+}

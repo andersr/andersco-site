@@ -72,13 +72,18 @@ app.post('/mail', function (req, res) {
     if(result.errors.length > 0){
       res.send(result)
     } else {
+      // result.messageSent = false
+      // res.send(result)
       sendMail(data, function (messageSent) {
-        if(messageSent) {
-          result.messageSent = messageSent
-          res.send(result)
-        } else {
-          console.log('Mail send error')
-        }
+        // res.send(result)
+        result.messageSent = messageSent
+        res.send(result)
+        // if(messageSent) {
+        //   result.messageSent = messageSent
+        //   res.send(result)
+        // } else {
+        //   console.log('Server mail send error')
+        // }
       })
     }
   }
