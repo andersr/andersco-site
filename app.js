@@ -70,21 +70,12 @@ app.post('/mail', function (req, res) {
     if(isEmpty(data.email) || !emailValidator.validate(data.email)) {
       result.errors.push('email')
     }
-    if(result.errors.length > 0){
+    if(result.errors.length > 0) {
       res.send(result)
     } else {
-      // result.messageSent = false
-      // res.send(result)
       sendMail(data, function (messageSent) {
-        // res.send(result)
         result.messageSent = messageSent
         res.send(result)
-        // if(messageSent) {
-        //   result.messageSent = messageSent
-        //   res.send(result)
-        // } else {
-        //   console.log('Server mail send error')
-        // }
       })
     }
   }
