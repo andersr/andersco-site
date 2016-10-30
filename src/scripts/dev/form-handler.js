@@ -85,12 +85,12 @@ $(function () {
       contentType: 'application/json',
       data: JSON.stringify(data),
       success: function (response) {
-       console.log('post data response: ', response)
+      //  console.log('post data response: ', response)
         handleResponse(response)
       }
     })
     .fail(function () {
-      console.log('post data error')
+      // console.log('post data error')
       var response = {
         messageSent: false
       }

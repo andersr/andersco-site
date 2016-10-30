@@ -7,7 +7,7 @@ var config = {
     domain: process.env.MAILGUN_DOMAIN
   }
 }
-console.log('mailgun config: ', config)
+// console.log('mailgun config: ', config)
 
 var nodemailerMailgun = nodemailer.createTransport(mailgun(config))
 
