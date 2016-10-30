@@ -18,7 +18,7 @@ module.exports = function sendMail (data, result) {
     text: data.message
   }, function (err, info) {
     if (err) {
-      console.log('Error: ' + err)
+      console.log('Mailgun error: ' + err)
       result(messageSent)
     } else {
       messageSent = info.message.toLowerCase().indexOf(MAILGUN_QUEUED) >= 0

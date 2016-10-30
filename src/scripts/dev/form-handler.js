@@ -2,8 +2,8 @@
 $(function () {
   'use strict'
   var $flashMessage = $('.flash-message')
-  var scrollPosition = $(document).scrollTop()
-  var $formInputs = $(".form :input")
+  // var scrollPosition = $(document).scrollTop()
+  // var $formInputs = $(".form :input")
   var $contactForm = {
     form: $('#contactForm'),
     name: {
@@ -37,14 +37,6 @@ $(function () {
     confirmation: 'Thank you for contacting me!',
     sendError: 'Sorry, there was a problem sending this message. Try again?'
   }
-
-  // var $testBtn = $('#testBtn')
-  //
-  // $testBtn.click(function (e) {
-  //   e.preventDefault()
-  //   displayFlashMessage('This is much longer tes test Test message')
-  // })
-
   // Events
   $contactForm.submit.on('click', handleSubmit)
   $.each(
@@ -93,6 +85,7 @@ $(function () {
       contentType: 'application/json',
       data: JSON.stringify(data),
       success: function (response) {
+       console.log('post data response: ', response)
         handleResponse(response)
       }
     })
@@ -133,8 +126,6 @@ $(function () {
         }
     })
     cb()
-    // $contactForm.submit.attr('disabled', 'disabled').text('Send')
-    // displayFlashMessage(MESSAGES.confirmation)
   }
   function handleSubmit (e) {
     e.preventDefault()
@@ -153,17 +144,27 @@ $(function () {
       if (response.messageSent === false) {
         displayFlashMessage(MESSAGES.sendError)
         $contactForm.submit.removeAttr('disabled', 'disabled').text('Send')
-        $(document).scrollTop(scrollPosition)
+        // $(document).scrollTop(scrollPosition)
       } else if(response.errors.length > 0) {
         displayErrors(response.errors)
       } else {
         resetForm(function () {
           $contactForm.submit.attr('disabled', 'disabled').text('Send')
           displayFlashMessage(MESSAGES.confirmation)
-          $(document).scrollTop(scrollPosition)
+          // $(document).scrollTop(scrollPosition)
         })
       }
     })
   }
 })
 })()
+
+// $contactForm.submit.attr('disabled', 'disabled').text('Send')
+// displayFlashMessage(MESSAGES.confirmation)
+
+// var $testBtn = $('#testBtn')
+//
+// $testBtn.click(function (e) {
+//   e.preventDefault()
+//   displayFlashMessage('This is much longer tes test Test message')
+// })
