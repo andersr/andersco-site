@@ -2,6 +2,27 @@
 $(function () {
   'use strict'
   var $flashMessage = $('.flash-message')
+  var $flashMessageText = $flashMessage.find('.message')
+
+  function displayFlashMessage (msg) {
+    $flashMessageText.text(msg)
+    $flashMessage.show()
+  }
+
+  // $contactForm.submit.attr('disabled', 'disabled').text('Send')
+  // displayFlashMessage(MESSAGES.confirmation)
+
+  // var $testBtn = $('#testBtn')
+  // 
+  // $testBtn.click(function (e) {
+  //   e.preventDefault()
+  //   displayFlashMessage('This is much longer tes test Test message')
+  // })
+
+  // console.log('$flashMessage: ', $flashMessage)
+  //
+  // console.log('$flashMessageText: ', $flashMessageText)
+
   // var scrollPosition = $(document).scrollTop()
   // var $formInputs = $(".form :input")
   var $contactForm = {
@@ -105,11 +126,7 @@ $(function () {
   }
 
   function disableSubmit () {
-     $contactForm.submit.attr('disabled', 'disabled')
-  }
-
-  function displayFlashMessage (msg) {
-    $flashMessage.text(msg).show()
+    $contactForm.submit.attr('disabled', 'disabled')
   }
 
   function resetForm (cb) {
@@ -158,13 +175,3 @@ $(function () {
   }
 })
 })()
-
-// $contactForm.submit.attr('disabled', 'disabled').text('Send')
-// displayFlashMessage(MESSAGES.confirmation)
-
-// var $testBtn = $('#testBtn')
-//
-// $testBtn.click(function (e) {
-//   e.preventDefault()
-//   displayFlashMessage('This is much longer tes test Test message')
-// })
