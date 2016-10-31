@@ -6,7 +6,7 @@
   <meta name="description" content="Anders Ramsay's freelance and consulting website.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Anders Ramsay - Designing and Building Digital Products</title>
-  <% include /partials/head/_favicons %>
+  <% include ./partials/head/_favicons %>
   <!--[if lt IE 9]>
   <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -15,36 +15,36 @@
   <link rel="stylesheet" href="styles/main.min.css">
 </head>
 <body>
-  <% include /partials/_navbar %>
+  <% include ./partials/_navbar %>
   <div id="o-wrapper" class="o-wrapper">
     <div class="app-container">
   <div class="content-block-container hero-container" id="welcome">
     <div class="hero-content">
-     <% include /partials/_welcome %>
+     <% include ./partials/_welcome %>
     </div>
   </div>
   <div class="content-block-container" id="about">
     <div class="main-content">
-     <% include /partials/_about %>
+     <% include ./partials/_about %>
     </div>
   </div>
   <div class="content-block-container" id="projects">
     <div class="main-content">
-     <% include /partials/_projects %>
+     <% include ./partials/_projects %>
     </div>
   </div>
   <div class="content-block-container last-content-block narrow-content-block" id="contact">
     <div class="main-content">
-       <% include /partials/_contact %>
+       <% include ./partials/_contact %>
     </div>
   </div>
 
  <div id="c-mask" class="mask"></div>
  </div>
-   <% include /partials/_footer %>
+   <% include ./partials/_footer %>
 </div>
 <div class="flash-message" style="display:none;"><span class="message">Test message</span></div>
-<% include /partials/_nav_menu %>
+<% include ./partials/_nav_menu %>
  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script src="scripts/main.min.js"></script>
 <script>
@@ -64,6 +64,6 @@
 
   smoothScroll.init();
 </script>
- <% include /partials/_ga %>
+ <% include ./partials/_ga %>
 </body>
 </html>
