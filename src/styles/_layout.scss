@@ -9,10 +9,10 @@ html {
 }
 
 .app-container {
-  padding: $app-padding;
-  @media only screen and (min-width: $breakpoint-tablet) {
-    padding: $content-block-padding * 2;
-  }
+  // padding: $app-padding;
+  // @media only screen and (min-width: $breakpoint-tablet) {
+  //   padding: $content-block-padding * 2;
+  // }
 }
 
 // FLEX ROW
@@ -48,6 +48,9 @@ html {
 .off-screen {
   position: absolute;
   left: -999em;
+}
+.bottom-padding {
+  padding-bottom: 1rem;
 }
 // .flex-half {
 //   flex: 0.5;

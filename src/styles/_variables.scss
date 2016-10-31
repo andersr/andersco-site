@@ -1,11 +1,14 @@
 // LAYOUT
 $app-padding:  0.5rem;
-$content-max-width: 35rem;
+$content-max-width: 30rem;
 $content-block-padding: 0.5rem;
 $navbar-height: 4rem;
 
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 62.5em;
+
+// IMAGES
+// $img-max-width: 25rem;
 
 // COLOR PALETTE (src: http://www.materialui.co/colors)
 $color-gray-10:#FAFAFA; //lightest
@@ -26,7 +29,7 @@ $accent-color: $color-gray-7;
 // Links
 $link-color: $secondary-color;
 $drop-shadow: rgba(0,0,0,0.2);
-$gray-transparent-bg: rgba(223, 221, 221, 0.3);
+$gray-transparent-bg: rgba(212, 205, 205, 0.3);
 $color-white-transparent: rgba(251, 251, 251, 0.6);
 
 // FONTS

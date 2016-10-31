@@ -18,12 +18,12 @@ h1 {
  }
 }
 h2 {
-	font-size: 1.15rem;
+	font-size: 1rem;
 	font-weight: 600;
-	margin-bottom:0.5em;
+	//margin-bottom:0.25em;
 	@media all and (min-width: $breakpoint-tablet) {
-		font-size: 1.5rem;
-		margin-bottom:0.75em;
+		font-size: 1.25rem;
+		margin-bottom:0.5em;
  }
 }
 h3 {
@@ -31,7 +31,7 @@ h3 {
 	margin-bottom: 0;
 }
 p {
-	font-size: .8rem;
+	// font-size: .8rem;
 	margin-top: $p-margin-top;
 	margin-bottom:$p-margin-bottom;
 }
