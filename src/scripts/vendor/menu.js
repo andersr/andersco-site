@@ -1,4 +1,5 @@
 /* eslint-disable */
+/*! Slide-Push-Menus by @callmenick https://github.com/callmenick/Slide-Push-Menus/ */
 
 (function(window) {
 
@@ -54,7 +55,7 @@
     this.wrapper = document.querySelector(this.options.wrapper);
     this.mask = document.querySelector(this.options.maskClass);
     this.menu = document.querySelector('#c-menu--' + this.options.type);
-    this.closeBtn = this.menu.querySelector('.c-menu__close');
+    this.closeMenu = this.menu.querySelectorAll('a, button');
     this.menuOpeners = document.querySelectorAll(this.options.menuOpenerClass);
     this._initEvents();
   };
@@ -64,12 +65,14 @@
    */
   Menu.prototype._initEvents = function() {
     // Event for clicks on the close button inside the menu.
-    this.closeBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      this.close();
-    }.bind(this));
 
-    // Event for clicks on the mask.
+  for (var i = 0; i < this.closeMenu.length; i++) {
+    this.closeMenu[i].addEventListener('click', function(e) {
+    //  e.preventDefault();
+        this.close();
+      }.bind(this));
+   }
+
     this.mask.addEventListener('click', function(e) {
       e.preventDefault();
       this.close();
@@ -81,7 +84,7 @@
    */
   Menu.prototype.open = function() {
     this.body.classList.add('has-active-menu');
-    // this.wrapper.classList.add('has-' + this.options.type);
+    this.wrapper.classList.add('has-' + this.options.type);
     this.menu.classList.add('is-active');
     this.menu.classList.add('c-menu__close');
     this.mask.classList.add('is-active');

@@ -1,49 +1,80 @@
-// FULL HEIGHT CONTENT BLOCK LAYOUT
+// NATURAL BOX MODEL
+// http://www.paulirish.com/2012/box-sizing-border-box-ftw/
 // _____________________________________
-// html,body {
-//   height:100%;
-//   margin: 0;
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.app-container {
+  // padding: $app-padding;
+  // @media only screen and (min-width: $breakpoint-tablet) {
+  //   padding: $content-block-padding * 2;
+  // }
+}
+
+// FLEX ROW
+@mixin flex-row($vertical-align: center) {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: $vertical-align;
+}
+
+// Layout
+
+.flex-main-content {
+  flex: 1;
+}
+
+// Layout
+// .top-left-corner-fixed {
+//   position: fixed;
+//   top: $corner-fixed-offset;
+//   left: $corner-fixed-offset;
+// }
+// .top-right-corner-fixed {
+//   position: fixed;
+//   top: $corner-fixed-offset;
+//   right: $corner-fixed-offset;
+// }
+.align--center {
+  text-align: center;
+}
+.float--right {
+  float:right;
+}
+.off-screen {
+  position: absolute;
+  left: -999em;
+}
+.bottom-padding {
+  padding-bottom: 1rem;
+}
+// .flex-half {
+//   flex: 0.5;
 // }
 
 
-.content-block-container {
-  min-height: 98vh;
-
-  .content-block {
-    padding:  $app-padding;
-    max-width: $app-max-width;
-    margin: 0 auto;
-
-    h1 {
-      margin-top: 0;
-    }
-  }
-}
-
-
-
-// .nav-menu {
-//   background-color: white;
-//   position: fixed;
-//   z-index: 200;
-//   transition: transform 0.3s;
-//   overflow-y: scroll;
+// FLEX ROW
+// @mixin flex-row {
+//   display: flex;
+//   flex-flow: row nowrap;
 //
-//   &.slide-right {
-//     top: 0;
-//     right: 0;
-//     width: 100%;
-//     height: 100%;
-//     transform: translateX(100%);
+//   &.flex-centered {
+//   	 justify-content: center;
+//   }
+//   &.flex-vertical-middle {
+//   	align-items: center;
+//   }
+//   &.flex-vertical-baseline {
+//     align-items: baseline;
+//   }
+//
+//   .flex-main-content {
+//     flex: 1;
 //   }
 // }
 
-// HELPERS
-// _____________________________________
-// .centered {
-//   margin: 0 auto;
-// }
-// .full-height {
-//   min-height: 100vh;
-//   overflow: auto;
-// }
+// Layout

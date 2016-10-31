@@ -1,0 +1,38 @@
+<h1>Contact</h1>
+<p>Please complete this form or email me at <a href="#" id="andersco-mailto" target="_top">&nbsp;</a>.</p>
+  <form class="form handle-disable-submit"  method="POST" id="contactForm">
+    <div class="off-screen">
+        <input id="mainEmail" type="email">
+        <label for="mainEmail">Leave this field blank</label>
+    </div>
+    <div class="row">
+      <div class="input-field input-field--first">
+          <label for="name">Name</label>
+        <input id="name" name="name" type="text" class="required_field"  tabindex="1" autocapitalize="on" autocorrect="off">
+        <div class="name-error  secondary-color"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" class="required_field"  tabindex="2">
+        <div class="email-error secondary-color"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" class="materialize-textarea required_field"  tabindex="3"></textarea>
+        <div class="message-error secondary-color"></div>
+      </div>
+ </div>
+ <div class="row">
+   <button id="submitButton" class="btn btn-large btn--submit" type="submit" disabled>
+    Send
+   </button>
+  <!-- <button id="testBtn" class="btn btn-large btn--submit">
+    Test
+  </button> -->
+  </div>
+  </form>
+<!-- </div> -->

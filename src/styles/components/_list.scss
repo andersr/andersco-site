@@ -1,0 +1,56 @@
+.list {
+	list-style: none;
+	margin:0;
+	// padding:0;
+	padding-left: 1em;
+	text-indent: -1em;
+}
+
+
+@mixin list--no-bullets {
+	padding-left: 0;
+	list-style-type: none;
+}
+.list--no-bullets {
+	@include list--no-bullets
+}
+
+
+@mixin list--inline($spacing:0.5em) {
+	list-style-type: none;
+  li {
+    display: inline;
+		margin-right: $spacing;
+  }
+}
+.list--inline {
+  @include list--inline()
+	li {
+
+		&::after {
+			padding-left: .5em;
+			content:'/';
+			padding-right: .5em;
+		}
+	}
+}
+.list--inline--divider {
+	$spacing: 0.8rem;
+	list-style-type: none;
+	li {
+		  display: inline;
+			margin-right:$spacing / 2;
+
+			&::after {
+				padding-left:$spacing / 2;
+				content:'/';
+			}
+			&:last-child {
+			 margin-right:0;
+
+				&::after {
+					content:'';
+				}
+			}
+	  }
+}

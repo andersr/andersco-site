@@ -1,45 +1,59 @@
-.btn {
-  cursor: pointer;
-
-  &:focus {
-    outline: none;
-  }
-
-  &:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-  }
-}
-
 .btn--icon {
   background: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   box-shadow: none;
   border:none;
   outline: none;
+  cursor: pointer;
+
+  // prevent background color flash on touch
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+  &.btn--white-bg {
+    background-color: $color-white-transparent;
+    border-radius: .313rem;
+  }
+
+  &:focus {
+    background-color:inherit;
+  }
+
+  // Add after over-riding for touch devices
+  // &:hover {
+  //   background-color: $btn--hover;
+  //   border-radius: 5px;
+  // }
 }
 
-// .c-buttons {
-//   margin-bottom: 48px;
-//   text-align: center;
-// }
-//
-// .c-button {
-//   display: inline-block;
-//   margin: 4px;
-//   padding: 12px 24px;
-//   color: $color--theme;
-//
-//   font-size: $font-size--small;
-//   border: solid 2px $color--theme;
-//   box-shadow: none;
-//   border-radius: none;
-//   -webkit-appearance: none;
-//   -moz-appearance: none;
-//   appearance: none;
+// .btn {
 //   cursor: pointer;
+//   width: 100%;
+//   -webkit-appearance: none;
+//   appearance: none;
+//   border: 0;
+//   background: none;
+//   box-shadow:none;
+//   max-width: $breakpoint-tablet;
+//
+//   &:focus {
+//     outline: none;
+//   }
+//
+//   &:disabled {
+//     opacity: 0.2;
+//     cursor: not-allowed;
+//   }
+//
+//   &.btn--large {
+//     padding: 0.75em;
+//     font-size: 1.25rem;
+//   }
+//
+//   &.btn--submit {
+//     background-color: $secondary-color;
+//     color: white;
+//   }
 // }
-//
-//
+// html.touch *:hover {
+//   pointer-events: none !important;
+// }
