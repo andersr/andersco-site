@@ -16,8 +16,8 @@
 </head>
 <body>
   <% include /partials/_navbar %>
-  <div id="o-wrapper" class="o-wrapper app-container">
-
+  <div id="o-wrapper" class="o-wrapper">
+    <div class="app-container">
   <div class="content-block-container hero-container" id="welcome">
     <div class="hero-content">
      <% include /partials/_welcome %>
@@ -38,8 +38,10 @@
        <% include /partials/_contact %>
     </div>
   </div>
-  <% include /partials/_footer %>
+
  <div id="c-mask" class="mask"></div>
+ </div>
+   <% include /partials/_footer %>
 </div>
 <div class="flash-message" style="display:none;"><span class="message">Test message</span></div>
 <% include /partials/_nav_menu %>

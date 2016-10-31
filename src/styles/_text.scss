@@ -35,9 +35,9 @@ p {
 	margin-top: $p-margin-top;
 	margin-bottom:$p-margin-bottom;
 }
-.small-text, .secondary-text { font-size: 0.667rem; }
+.small-text, .secondary-text { font-size: $font-size--small-text; }
 
-.x-small-text { font-size:0.445rem; }
+.x-small-text { font-size: $font-size--x-small-text; }
 
 // LINKS
 a {
