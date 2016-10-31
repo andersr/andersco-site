@@ -3,6 +3,7 @@ $(function () {
   'use strict'
   var $flashMessage = $('.flash-message')
   var $flashMessageText = $flashMessage.find('.message')
+  var scrollPosition = $(document).scrollTop()
 
   function displayFlashMessage (msg) {
     $flashMessageText.text(msg)
@@ -13,7 +14,7 @@ $(function () {
   // displayFlashMessage(MESSAGES.confirmation)
 
   // var $testBtn = $('#testBtn')
-  // 
+  //
   // $testBtn.click(function (e) {
   //   e.preventDefault()
   //   displayFlashMessage('This is much longer tes test Test message')
@@ -23,7 +24,7 @@ $(function () {
   //
   // console.log('$flashMessageText: ', $flashMessageText)
 
-  // var scrollPosition = $(document).scrollTop()
+
   // var $formInputs = $(".form :input")
   var $contactForm = {
     form: $('#contactForm'),
@@ -65,21 +66,28 @@ $(function () {
     function (i, el) {
       el.on('blur', handleBlur)
       el.on('keyup', handleKeyup)
+      // el.on('keypress', handleKeypress)
   })
 
   function errorClass (name) { return '.' + name + '-error' }
   function inputIsEmpty (el) { return utils.isEmpty($(el).val()) }
   function emailIsInvalid (el) { return !utils.isEmail($(el).val()) }
 
-  function handleKeyup () {
-    if ($contactForm[this.name].wasInvalid) {
-      if((this.name === 'email' && !emailIsInvalid(this)) || !inputIsEmpty(this)) {
-        $(errorClass(this.name)).hide()
+    function handleKeyup () {
+      if ($contactForm[this.name].wasInvalid) {
+        if((this.name === 'email' && !emailIsInvalid(this)) || !inputIsEmpty(this)) {
+          $(errorClass(this.name)).hide()
+        }
       }
     }
-  }
 
-  function handleBlur () {
+  // function handleKeypress (e) {
+  //   // var code = e.keyCode || e.which;
+  //   var key = String.fromCharCode(e.which);
+  //   console.log('code:', key)
+  // }
+
+  function handleBlur (e) {
     if((this.name === 'email' && emailIsInvalid(this)) || inputIsEmpty(this)) {
       $contactForm[this.name].wasInvalid = true
       showErrorMessage(this)
