@@ -5,23 +5,29 @@
   height: $navbar-height;
   @include flex-row();
   justify-content: space-between;
-  padding: .35rem .5rem 0 .5rem;
+  padding: 0 $content-block-padding;
+  // padding-right: $content-block-padding;
 
   .icon--menu {
     margin-top: .25rem;
-
     button {
       padding: 0.15rem 0.15rem 0 0.25rem;
     }
   }
 
+  // allow for clicking 'through' navbar
+  pointer-events: none;
+  .brand-pill, .icon--menu {
+    pointer-events:auto;
+  }
+  .center-block {
+    height: 100%;
+    pointer-events: none;
+  }
+
   @media only screen and (min-width: $breakpoint-tablet) {
     padding: 0.5rem 0.75rem 0 1rem;
   }
-  // .center-block {
-  //   // flex: 1;
-  //   background-color: transparent;
-  // }
 }
 
 
