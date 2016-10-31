@@ -5,15 +5,20 @@
   align-items: center;
   padding: 0 ($app-padding + 1.5rem);
   padding-top: $navbar-height - 1.5rem;
+  padding-bottom: $app-padding + 1.5rem;
+
+  &.last-content-block {
+    min-height: 90vh;
+  }
 
   &.hero-container {
     justify-content: center;
-    padding-bottom: 20vh;
+    padding-bottom: 30vh;
   }
 
   .hero-content {
     p {
-      font-size: $hero-font-size;
+      font-size: $hero-font-size - .1rem;
     }
   }
 
@@ -25,10 +30,18 @@
   }
 
   @media screen and (min-width: $breakpoint-tablet) {
-    .main-content {
+    &.hero-container {
+      padding-bottom: 20vh;
+    }
+    .hero-content {
+      p {
+        font-size: $hero-font-size;
+      }
+    }
 
+    .main-content {
       padding-left: $app-padding + 1rem;
-      padding-right:  $app-padding + 1rem;
+      padding-right: $app-padding + 1rem;
       max-width: $content-max-width;
       h1 {
         text-align: left;
