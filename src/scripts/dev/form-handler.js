@@ -61,13 +61,14 @@ $(function () {
   }
   // Events
   $contactForm.submit.on('click', handleSubmit)
-  $.each(
-    [$contactForm.name.el, $contactForm.email.el, $contactForm.message.el],
-    function (i, el) {
-      el.on('blur', handleBlur)
-      el.on('keyup', handleKeyup)
-      // el.on('keypress', handleKeypress)
-  })
+
+  // $.each(
+  //   [$contactForm.name.el, $contactForm.email.el, $contactForm.message.el],
+  //   function (i, el) {
+  //     el.on('blur', handleBlur)
+  //     el.on('keyup', handleKeyup)
+  //     // el.on('keypress', handleKeypress)
+  // })
 
   function errorClass (name) { return '.' + name + '-error' }
   function inputIsEmpty (el) { return utils.isEmpty($(el).val()) }
@@ -169,14 +170,13 @@ $(function () {
       if (response.messageSent === false) {
         displayFlashMessage(MESSAGES.sendError)
         $contactForm.submit.removeAttr('disabled', 'disabled').text('Send')
-        // $(document).scrollTop(scrollPosition)
       } else if(response.errors.length > 0) {
         displayErrors(response.errors)
+        $contactForm.submit.text('Send')
       } else {
         resetForm(function () {
           $contactForm.submit.attr('disabled', 'disabled').text('Send')
           displayFlashMessage(MESSAGES.confirmation)
-          // $(document).scrollTop(scrollPosition)
         })
       }
     })

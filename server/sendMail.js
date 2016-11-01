@@ -7,7 +7,6 @@ var config = {
     domain: process.env.MAILGUN_DOMAIN
   }
 }
-// console.log('mailgun config: ', config)
 
 var nodemailerMailgun = nodemailer.createTransport(mailgun(config))
 
@@ -16,7 +15,7 @@ module.exports = function sendMail (data, result) {
   nodemailerMailgun.sendMail({
     from: data.email,
     to: process.env.MAILGUN_SEND_TO,
-    subject: 'Message from ' + data.name,
+    subject: '[andersco] Message from ' + data.name,
     text: data.message
   }, function (err, info) {
     if (err) {

@@ -3,7 +3,7 @@ var path = require('path')
 var helmet = require('helmet')
 var express = require('express')
 var bodyParser = require('body-parser')
-var emailValidator = require("email-validator")
+var validateMail = require('./server/validateMail')
 var sendMail = require('./server/sendMail')
 var app = express()
 app.use(helmet())
@@ -31,33 +31,23 @@ app.get('/', function (req, res) {
 
 app.post('/mail', function (req, res) {
   res.setHeader('Content-Type', 'application/json')
-  var data = {
-    email: req.body.email,
-    name: req.body.name,
-    message: req.body.message,
-    honeypot: req.body.honeypot
-  }
   var result = {
-    errors: [],
-    messageSent: false,
     spam: false
   }
-  function isEmpty (str) {
-    return str === ''
-  }
-  if(!isEmpty(data.honeypot)) {
+
+  if(req.body.honeypot !== '') {
     result.spam = true
     res.send(result)
   } else {
-    if(isEmpty(data.name)) {
-      result.errors.push('name')
+
+    data = {
+      email: req.body.email,
+      name: req.body.name,
+      message: req.body.message
     }
-    if(isEmpty(data.message)) {
-      result.errors.push('message')
-    }
-    if(isEmpty(data.email) || !emailValidator.validate(data.email)) {
-      result.errors.push('email')
-    }
+
+    result.errors = validateMail(data)
+
     if(result.errors.length > 0) {
       res.send(result)
     } else {

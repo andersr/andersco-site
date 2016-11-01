@@ -50,7 +50,7 @@ module.exports = {
 			open: false
     },
     nodemon: {
-      script: 'app.js',
+      script: 'server.js',
       ignore: [
         'gulpfile.js',
         'node_modules/',
