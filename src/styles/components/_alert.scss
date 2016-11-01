@@ -2,7 +2,7 @@
 $top-offset: 1rem;
 $offScreen: -2rem;
 
-.flash-message {
+#alert {
   position: fixed;
   top: 0;
   left: 2.5rem;
@@ -13,7 +13,6 @@ $offScreen: -2rem;
 
   animation: fadeInOutFromTop 3s ease;
   transform: translateY(-50px);
-
 
   .message {
     display: block;

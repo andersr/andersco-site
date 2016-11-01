@@ -18,8 +18,7 @@
 
 <body>
     <% include ./partials/_navbar %>
-        <div id="o-wrapper" class="o-wrapper">
-            <div class="app-container">
+        <div class="menu-wrapper">
                 <div class="content-block-container hero-container" id="welcome">
                     <div class="hero-content">
                         <% include ./partials/_welcome %>
@@ -40,20 +39,20 @@
                         <% include ./partials/_contact %>
                     </div>
                 </div>
-                <div id="c-mask" class="mask"></div>
-            </div>
+                <div id="mask"></div>
+
             <% include ./partials/_footer %>
         </div>
-        <div class="flash-message" style="display:none;"><span class="message"></span></div>
+        <div id="alert" style="display:none;"><span class="message"></span></div>
         <% include ./partials/_nav_menu %>
             <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
             <script src="scripts/main.min.js"></script>
             <script>
                 var slideRight = new Menu({
-                    wrapper: '#o-wrapper',
+                    wrapper: '.menu-wrapper',
                     type: 'slide-right',
                     menuOpenerClass: '.c-button',
-                    maskId: '#c-mask'
+                    maskId: '#mask'
                 });
 
                 var slideRightBtn = document.querySelector('#c-button--slide-right');

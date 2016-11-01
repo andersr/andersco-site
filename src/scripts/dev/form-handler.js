@@ -1,8 +1,8 @@
 (function () {
 $(function () {
   'use strict'
-  var $flashMessage = $('.flash-message')
-  var $flashMessageText = $flashMessage.find('.message')
+  var $alert = $('#alert')
+  var $alertMessage = $alert.find('.message')
   var $contactForm = {
     form: $('#contactForm'),
     name: {
@@ -37,8 +37,8 @@ $(function () {
   }
 
   function displayFlashMessage (msg) {
-    $flashMessageText.text(msg)
-    $flashMessage.show()
+    $alertMessage.text(msg)
+    $alert.show()
   }
 
   function errorClass (name) { return '.' + name + '-error' }
