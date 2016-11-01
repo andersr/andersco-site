@@ -13,7 +13,7 @@ ul.grid {
     img {
       width: 100%;
       // max-width: $img-max-width;
-      border: 1px solid $color-gray-8;
+      border: 1px solid $color-gray-7;
     }
     .grid-item--heading {
       @include flex-row();
