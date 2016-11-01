@@ -3,29 +3,6 @@ $(function () {
   'use strict'
   var $flashMessage = $('.flash-message')
   var $flashMessageText = $flashMessage.find('.message')
-  var scrollPosition = $(document).scrollTop()
-
-  function displayFlashMessage (msg) {
-    $flashMessageText.text(msg)
-    $flashMessage.show()
-  }
-
-  // $contactForm.submit.attr('disabled', 'disabled').text('Send')
-  // displayFlashMessage(MESSAGES.confirmation)
-
-  // var $testBtn = $('#testBtn')
-  //
-  // $testBtn.click(function (e) {
-  //   e.preventDefault()
-  //   displayFlashMessage('This is much longer tes test Test message')
-  // })
-
-  // console.log('$flashMessage: ', $flashMessage)
-  //
-  // console.log('$flashMessageText: ', $flashMessageText)
-
-
-  // var $formInputs = $(".form :input")
   var $contactForm = {
     form: $('#contactForm'),
     name: {
@@ -49,60 +26,38 @@ $(function () {
     submit: $('#submitButton'),
     alerts: $('#alerts')
   }
-
   var MESSAGES = {
     errors: {
-      'name': 'Please enter a name',
-      'email': 'Please enter a valid email',
-      'message': 'Please enter a message'
+      'name': 'Please enter a name.',
+      'email': 'Please enter a valid email.',
+      'message': 'Please enter a message.'
     },
     confirmation: 'Thank you for contacting me!',
     sendError: 'Sorry, there was a problem sending this message. Try again?'
   }
-  // Events
-  $contactForm.submit.on('click', handleSubmit)
 
-  // $.each(
-  //   [$contactForm.name.el, $contactForm.email.el, $contactForm.message.el],
-  //   function (i, el) {
-  //     el.on('blur', handleBlur)
-  //     el.on('keyup', handleKeyup)
-  //     // el.on('keypress', handleKeypress)
-  // })
+  function displayFlashMessage (msg) {
+    $flashMessageText.text(msg)
+    $flashMessage.show()
+  }
 
   function errorClass (name) { return '.' + name + '-error' }
   function inputIsEmpty (el) { return utils.isEmpty($(el).val()) }
   function emailIsInvalid (el) { return !utils.isEmail($(el).val()) }
 
-    function handleKeyup () {
-      if ($contactForm[this.name].wasInvalid) {
-        if((this.name === 'email' && !emailIsInvalid(this)) || !inputIsEmpty(this)) {
-          $(errorClass(this.name)).hide()
-        }
+  function handleKeyup () {
+    if ($contactForm[this.name].wasInvalid) {
+      if((this.name === 'email' && !emailIsInvalid(this)) || !inputIsEmpty(this)) {
+        $(errorClass(this.name)).hide()
       }
     }
-
-  // function handleKeypress (e) {
-  //   // var code = e.keyCode || e.which;
-  //   var key = String.fromCharCode(e.which);
-  //   console.log('code:', key)
-  // }
+  }
 
   function handleBlur (e) {
     if((this.name === 'email' && emailIsInvalid(this)) || inputIsEmpty(this)) {
       $contactForm[this.name].wasInvalid = true
       showErrorMessage(this)
     }
-    // console.log('form inputs: ', $formInputs)
-    //
-    // $formInputs.each(function(){
-    //   $(this).is(':focus') //<-- Should return all input elements in that specific form.
-    // });
-    //
-    // // if($formInputs.not(":focus")){
-    // //   $(document).scrollTop(scrollPosition)
-    // // }
-
   }
 
   function showErrorMessage (el) {
@@ -115,16 +70,13 @@ $(function () {
       contentType: 'application/json',
       data: JSON.stringify(data),
       success: function (response) {
-      //  console.log('post data response: ', response)
         handleResponse(response)
       }
     })
     .fail(function () {
-      // console.log('post data error')
-      var response = {
+      handleResponse({
         messageSent: false
-      }
-      handleResponse(response)
+      })
     })
   }
 
@@ -132,10 +84,6 @@ $(function () {
     for(var i = 0; i < errors.length; i++) {
       $contactForm[errors[i]].error.text(MESSAGES.errors[errors[i]]).show()
     }
-  }
-
-  function disableSubmit () {
-    $contactForm.submit.attr('disabled', 'disabled')
   }
 
   function resetForm (cb) {
@@ -181,5 +129,15 @@ $(function () {
       }
     })
   }
+
+  $contactForm.submit.on('click', handleSubmit)
+
+  $.each(
+    [$contactForm.name.el, $contactForm.email.el, $contactForm.message.el],
+    function (i, el) {
+      el.on('blur', handleBlur)
+      el.on('keyup', handleKeyup)
+  })
+
 })
 })()
