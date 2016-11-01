@@ -1,4 +1,4 @@
-var 
+var
   gulp         = require('gulp'),
   config       = require('./_config'),
   browserSync  = require('browser-sync').create()
@@ -6,7 +6,7 @@ var
 
 function browserSyncInit(done) {
 	browserSync.init(config.plugins.browserSync)
-  done();
+  done()
 }
 
-gulp.task('browser-sync:init', browserSyncInit);
+gulp.task('browser-sync:init', browserSyncInit)

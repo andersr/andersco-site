@@ -2,8 +2,6 @@ require('dotenv').config()
 var path = require('path')
 var helmet = require('helmet')
 var express = require('express')
-// var expressValidator = require('express-validator')
-// var session = require('express-session')
 var bodyParser = require('body-parser')
 var emailValidator = require("email-validator")
 var sendMail = require('./server/sendMail')
@@ -13,15 +11,6 @@ app.use(helmet())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false
 }))
-
-// app.use(expressValidator())
-
-// app.use(session({
-//   secret: 'keyboard cat',
-//   resave: false,
-//   saveUninitialized: false,
-//   cookie: { secure: true }
-// }))
 
 var port = process.env.PORT || 3000
 var env = process.env.NODE_ENV
@@ -42,7 +31,6 @@ app.get('/', function (req, res) {
 
 app.post('/mail', function (req, res) {
   res.setHeader('Content-Type', 'application/json')
-  // console.log('post to /mail:', req.body)
   var data = {
     email: req.body.email,
     name: req.body.name,
@@ -81,7 +69,7 @@ app.post('/mail', function (req, res) {
   }
 })
 
-// Wild card redirect to root
+// Wildcard redirect to root
 app.use(function(req, res) {
   res.status(400);
   res.redirect('/');

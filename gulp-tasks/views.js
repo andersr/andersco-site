@@ -1,4 +1,4 @@
-var 
+var
   gulp      = require('gulp'),
   config    = require('./_config'),
   cleanhtml = require('gulp-cleanhtml')
@@ -12,8 +12,6 @@ gulp.task('views:dist', function() {
 })
 
 gulp.task('views:watch', function(done) {
-  gulp.watch(config.paths.views.src, gulp.series('views:dist'));
-  done();
+  gulp.watch(config.paths.views.src, gulp.series('views:dist'))
+  done()
 })
-
-// gulp.task('views', gulp.series('views:dist'));
