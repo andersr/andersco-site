@@ -9,6 +9,7 @@
     "test/css/pointerevents",
     "test/css/remunit",
     "test/css/rgba",
-    "test/css/vhunit"
+    "test/css/vhunit",
+    "test/css/flexbox"
   ]
 }
