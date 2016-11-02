@@ -34,6 +34,8 @@ app.post('/mail', function (req, res) {
   var result = {
     spam: false
   }
+  // result.messageSent = true
+  // res.send(result)
 
   if(req.body.honeypot !== '') {
     result.spam = true
