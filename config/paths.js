@@ -1,4 +1,4 @@
-var paths = {
+module.exports = {
 		dist_dir: 'dist',
 		dist_files: 'dist/**/*.*',
 		views: {
@@ -11,9 +11,11 @@ var paths = {
 		},
 		scripts: {
 			all: 'src/scripts/**/*.js',
-			dev: 'src/scripts/dev/**/*.js',
-			vendor: 'src/scripts/vendor/**/*.js',
-			dist: 'dist/public/scripts'
+			dev: 'src/scripts/02_dev/**/*.js',
+			dist: 'dist/public/scripts',
+			init: 'src/scripts/03_init/**/*.js',
+			jquery: 'src/scripts/00_jquery/**/*.js',
+			vendor: 'src/scripts/01_vendor/**/*.js',
 		},
 		images: {
 			src: ['src/images/**/*.*', '!src/images/favicons'],
@@ -29,33 +31,4 @@ var paths = {
 				target: 'src/views/index.ejs'
 			}
 		}
-	};
-
-module.exports = {
-	paths: paths,
-	plugins: {
-			browserSync: {
-	    proxy: "localhost:3000",
-	    port: 5000,
-	    files: [
-	      paths.dist_files
-	    ],
-	    browser: 'google chrome',
-	    notify: {
-				styles: {
-          top: 'auto',
-        bottom: '0'
-      }
-	  },
-			open: false
-    },
-    nodemon: {
-      script: 'server.js',
-      ignore: [
-        'gulpfile.js',
-        'node_modules/',
-        '/tasks'
-      ]
-    }
 	}
-}

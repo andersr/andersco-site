@@ -1,4 +1,3 @@
-(function () {
 $(function () {
   'use strict'
   var $alert = $('#alert')
@@ -138,6 +137,4 @@ $(function () {
       el.on('blur', handleBlur)
       el.on('keyup', handleKeyup)
   })
-
 })
-})()

@@ -1,7 +1,7 @@
 var
   gulp         = require('gulp'),
   requireDir   = require('require-dir'),
-  taskDir      = "./gulp-tasks",
+  taskDir      = "./tasks",
   tasks        = requireDir(taskDir),
   config       = require(taskDir+'/_config')
 ;
