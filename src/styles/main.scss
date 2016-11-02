@@ -19,13 +19,3 @@
 @import 'components/mask';
 @import 'components/navbar';
 @import 'components/nav_menu';
-
-
-// Clean up
-.secondary-color {
-	color: $secondary-color;
-}
-.meta-content, .secondary-text {
-	color: $meta-content-color;
-}
-.x-small-text { font-size: $font-size--x-small-text; }

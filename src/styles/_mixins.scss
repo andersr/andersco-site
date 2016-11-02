@@ -15,10 +15,20 @@
   padding-bottom: $amount;
 }
 
-// Allow for clicking on links/buttons below an element
+// Allow for clicking 'through' an element
 @mixin clickThrough(){
   pointer-events: none;
   a, button {
     pointer-events:auto;
   }
+}
+
+
+// Move element off screen
+@mixin offScreen() {
+  position: absolute;
+  left: -999em;
+}
+.off-screen {
+  @include offScreen;
 }

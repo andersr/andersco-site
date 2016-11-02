@@ -1,6 +1,6 @@
 //Initialize nav menu
 var slideRight = new Menu({
-  wrapper: '.menu-wrapper',
+  wrapper: '.nav-menu-container',
   type: 'slide-right',
   menuOpenerClass: '.c-button',
   maskId: '#mask'
