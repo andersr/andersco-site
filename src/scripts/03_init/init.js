@@ -15,18 +15,16 @@ slideRightBtn.addEventListener('click', function(e) {
 
 
 $(function() {
+   FastClick.attach(document.body)
+   handleDisableSubmit()
+})
+
+
+/*! Email obfuscator, based on the script 2.1 by Tim Williams, Andrew Moulden http://www.jottings.com/obfuscator/ */
+$(function() {
 'use strict'
 
- FastClick.attach(document.body)
- handleDisableSubmit()
 
-
-/*! Email obfuscator script 2.1 by Tim Williams, Andrew Moulden, converted to jquery, http://www.jottings.com/obfuscator/ */
- var config = {
-   id: '#andersco-mailto',
-   coded: 'ca@XrLnqI.pN',
-   key: 'wmS20BDlarV8QdAMbC1jXqUgHLzhfvRts7KG3ZWcx5EoIOkeP4Tp6FuNYJin9y'
- }
 
  function getEmailAddress (options) {
    var
@@ -56,8 +54,11 @@ $(function() {
    $link.attr('href', mailto).text(linkText)
  }
 
- createObfuscatedEmailLink(config)
-
+ createObfuscatedEmailLink({
+   id: '#andersco-mailto',
+   coded: 'ca@XrLnqI.pN',
+   key: 'wmS20BDlarV8QdAMbC1jXqUgHLzhfvRts7KG3ZWcx5EoIOkeP4Tp6FuNYJin9y'
+ })
 })
 
 //Initialize smoothScroll

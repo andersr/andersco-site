@@ -1,6 +1,5 @@
 var gulp = require('gulp')
 var config = require('./_config')
-// var order = require("gulp-order")
 var concat = require('gulp-concat')
 var uglify  = require('gulp-uglify')
 var sourcemaps = require('gulp-sourcemaps')
@@ -9,21 +8,15 @@ var lintReporter = require('eslint-friendly-formatter')
 
 gulp.task('scripts:dist', function () {
   return gulp.src([
-    config.paths.scripts.jquery,
-    config.paths.scripts.vendor,
-    config.paths.scripts.dev,
-    config.paths.scripts.init
-  ])
-    // .pipe(sourcemaps.init())
-    // .pipe(order([
-    //   config.paths.scripts.jquery,
-    //   config.paths.scripts.vendor,
-    //   config.paths.scripts.dev,
-    //   config.paths.scripts.init
-    // ]))
-    // .pipe(uglify())
+      config.paths.scripts.jquery,
+      config.paths.scripts.vendor,
+      config.paths.scripts.dev,
+      config.paths.scripts.init
+    ])
+    .pipe(sourcemaps.init())
+    .pipe(uglify())
     .pipe(concat('main.min.js'))
-    // .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest(config.paths.scripts.dist))
 })
 
