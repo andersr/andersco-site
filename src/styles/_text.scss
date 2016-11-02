@@ -1,11 +1,11 @@
-// FONT FAMILIES
-html { font-family:  'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif; }
+html {
+	font-family: $base-font-family;
+	 font-size: $base-font-size;
+}
+body {
+	color: $primary-color;
+}
 
-// FONT SIZES
-// Sizes set using http://www.modularscale.com/, rem polyfill provided via modernizr
-$base-font-size: 1.3em;
-// $ratio: 1.618;
-html { font-size: $base-font-size; }
 h1 {
 	font-size: 2.1rem;
 	font-weight: 300;
@@ -20,7 +20,9 @@ h1 {
 h2 {
 	font-size: 1rem;
 	font-weight: 600;
-	//margin-bottom:0.25em;
+	a {
+		color: inherit;
+	}
 	@media all and (min-width: $breakpoint-tablet) {
 		font-size: 1.25rem;
 		margin-bottom:0.5em;
@@ -31,16 +33,16 @@ h3 {
 	margin-bottom: 0;
 }
 p {
-	// font-size: .8rem;
 	margin-top: $p-margin-top;
 	margin-bottom:$p-margin-bottom;
 }
 .small-text, .secondary-text { font-size: $font-size--small-text; }
 
-.x-small-text { font-size: $font-size--x-small-text; }
+
 
 // LINKS
 a {
+	color: $secondary-color;
 	text-decoration: none;
 
 	&:hover {

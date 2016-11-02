@@ -1,0 +1,24 @@
+// FLEX LAYOUT
+@mixin flex-row($vertical-align: center) {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: $vertical-align;
+}
+@mixin flex-main {
+  flex: 1;
+}
+.flex-main-content {
+  @include flex-main;
+}
+
+@mixin bottomPadding($amount: 1rem){
+  padding-bottom: $amount;
+}
+
+// Allow for clicking on links/buttons below an element
+@mixin clickThrough(){
+  pointer-events: none;
+  a, button {
+    pointer-events:auto;
+  }
+}

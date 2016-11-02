@@ -1,12 +1,32 @@
-// LAYOUT
+// Contents
+// Alert
+// Fonts
+// Layout
+// Alert
+// Z-indexes
+
+
+// Fonts
+$base-font-family:  'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
+$base-font-size: 20px;  // 20px
+$p-margin-bottom: 0.5rem;
+$p-margin-top: $p-margin-bottom;
+$brand-font-size: 1.8rem;
+$brand-font-line-height: 1rem;
+$hero-font-size: 1.1rem;
+$h1-font-size: 2.3em;
+$h2-font-size: 1.2em;
+$font-size--small-text: 0.667rem;
+$font-size--x-small-text: 0.445rem;
+
+// Layout
 $app-padding:  0.5rem;
 $content-max-width: 30rem;
 $content-block-padding: 0.5rem;
 $navbar-height: 4rem;
+$breakpoint-tablet: 38.4rem;
 
-$breakpoint-tablet: 768px;
-$breakpoint-desktop: 62.5em;
-
+// ALERT
 $alert-container-left-right-margin: 2.5rem;
 $alert-offscreen: 3.5rem;
 $alert-animate: $alert-offscreen - 2.5rem;
@@ -15,7 +35,8 @@ $alert-font-size: .8rem;
 // IMAGES
 // $img-max-width: 25rem;
 
-// COLOR PALETTE (src: http://www.materialui.co/colors)
+
+// Colors (src: http://www.materialui.co/colors)
 $color-gray-10:#FAFAFA; //lightest
 $color-gray-9:#F5F5F5;
 $color-gray-8:#EEEEEE;
@@ -36,25 +57,6 @@ $link-color: $secondary-color;
 $drop-shadow: rgba(0,0,0,0.2);
 $gray-transparent-bg: rgba(212, 205, 205, 0.3);
 $color-white-transparent: rgba(251, 251, 251, 0.6);
-
-// FONTS
-$p-margin-bottom: 0.5rem;
-$p-margin-top: $p-margin-bottom;
-$brand-font-size: 1.8rem;
-$brand-font-line-height: 1rem;
-$hero-font-size: 1.1rem;
-$h1-font-size: 2.3em;
-$h2-font-size: 1.2em;
-$font-size--small-text: 0.667rem;
-$font-size--x-small-text: 0.445rem;
-// $base-font-family: 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
-// $base-font-size: 1.3em;
-// $base-line-height: 1em;
-// $font-ratio: 1.618;
-// $p-font-size: 1.2em;
-// $p-line-height: 1.3em;
-// $font-size-tablet: 1.4em;
-// $base-font-size-desktop: 1.6em;
 
 // NAV MENU
 $nav-menu-break-point: 320px;

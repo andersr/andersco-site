@@ -2,7 +2,7 @@
   @include flex-row;
   border-top:1px solid $color-gray-7;
   background-color: $color-gray-8;
-  padding:.25rem .75rem;
+  padding: 0 .75rem;
   p, ul {
     font-size: $font-size--small-text;
     color: $meta-content-color;

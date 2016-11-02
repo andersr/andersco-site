@@ -1,0 +1,20 @@
+.brand-pill {
+  border-radius: 50%;
+  background-color: $gray-transparent-bg;
+  padding:.35rem .45rem .75rem .45rem;
+  z-index: $z-index-brand-pill;
+  font-size: $brand-font-size;
+  line-height: $brand-font-line-height;
+  transition: background-color .25s linear;
+  a {
+    color: lighten($secondary-color, 30%);
+    transition: color .25s linear;
+  }
+  &:hover {
+    background-color: darken($gray-transparent-bg, 30%);
+    a {
+        color:$secondary-color;
+        text-decoration: none;
+    }
+  }
+}

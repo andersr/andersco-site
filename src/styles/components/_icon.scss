@@ -1,0 +1,41 @@
+//Icon library: https://materialdesignicons.com/
+
+i {
+	color: $meta-content-color;
+}
+
+.mdi:before {
+  display: initial; // prevent icons from appearing above other content
+}
+
+.icon--text-inline:before {
+ vertical-align: -0.09rem;
+ letter-spacing: -0.250rem;
+}
+
+.text-inline:before {
+ vertical-align: -0.09rem;
+ letter-spacing: -0.250rem;
+}
+.icon--link:hover {
+  text-decoration: none;
+}
+
+.icon--link-with-border {
+  $icon-color: $secondary-color;
+
+  i {
+    border: 1px solid lighten($icon-color, 30%);
+    border-radius: .15rem;
+    padding:0.15rem .25rem;
+    color: lighten($icon-color, 20%);
+  }
+
+  &:hover {
+    text-decoration: none;
+    i {
+      border: 1px solid $icon-color;
+      color: $icon-color;
+    }
+  }
+}

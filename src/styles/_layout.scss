@@ -1,44 +1,15 @@
-// NATURAL BOX MODEL
-// http://www.paulirish.com/2012/box-sizing-border-box-ftw/
-// _____________________________________
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-.app-container {
-  // padding: $app-padding;
-  // @media only screen and (min-width: $breakpoint-tablet) {
-  //   padding: $content-block-padding * 2;
-  // }
-}
-
-// FLEX ROW
-@mixin flex-row($vertical-align: center) {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: $vertical-align;
-}
 
 // Layout
-
-.flex-main-content {
-  flex: 1;
-}
-
-// Layout
-.align--center {
-  text-align: center;
-}
-.float--right {
-  float:right;
-}
-.off-screen {
-  position: absolute;
-  left: -999em;
-}
-.bottom-padding {
-  padding-bottom: 1rem;
-}
+// .align--center {
+//   text-align: center;
+// }
+// .float--right {
+//   float:right;
+// }
+// .off-screen {
+//   position: absolute;
+//   left: -999em;
+// }
+// .bottom-padding {
+//   padding-bottom: 1rem;
+// }
