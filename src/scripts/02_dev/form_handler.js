@@ -36,8 +36,24 @@ $(function () {
   }
 
   function displayFlashMessage (msg) {
+    var showAlertDuration = 2250
+    var animationSpeed = 250
+
+    var hideAlert = function () { $alert.hide() }
+
+    var animateUp = function () {
+      $alert.delay(showAlertDuration).animate({
+        top: "-=90",
+         opacity: '0'
+      }, animationSpeed, hideAlert)
+    }
+
     $alertMessage.text(msg)
     $alert.show()
+     $alert.animate({
+       top: "+=90",
+        opacity: '1'
+     }, animationSpeed, animateUp)
   }
 
   function errorClass (name) { return '.' + name + '-error' }

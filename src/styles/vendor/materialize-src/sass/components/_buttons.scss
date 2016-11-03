@@ -33,10 +33,10 @@
     pointer-events: none;
   }
 
-  &:hover {
-    background-color: $button-disabled-background !important;
-    color: $button-disabled-color !important;
-  }
+  // &:hover {
+  //   background-color: $button-disabled-background !important;
+  //   color: $button-disabled-color !important;
+  // }
 }
 
 // Shared icon styles
