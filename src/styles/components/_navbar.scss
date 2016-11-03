@@ -1,11 +1,24 @@
 .nav-bar {
+  $btn-padding: .75rem;
   position: fixed;
   width: 100%;
   top: 0;
   height: $navbar-height;
   @include flex-row();
   justify-content: space-between;
-  padding:0 $content-block-padding;
   padding-left: $content-block-padding + .15rem;
+  padding-right: $content-block-padding - $btn-padding;
   @include clickThrough;
+
+  .btn--icon {
+    padding: $btn-padding;
+  }
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    padding-left: $content-block-padding + .25rem;
+    padding-right: ($content-block-padding - $btn-padding)+ .75rem;
+    .btn--icon {
+      padding-top: $btn-padding + .25rem;
+    }
+  }
 }

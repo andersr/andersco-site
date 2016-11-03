@@ -1,23 +1,31 @@
-// Contents
-// Alert
-// Fonts
-// Layout
-// Alert
-// Z-indexes
+// ALERT
+$alert-container-left-right-margin: 2.5rem;
+$alert-offscreen: 3.5rem;
+$alert-animate: $alert-offscreen - 2.5rem;
+$alert-font-size: .8rem;
 
+// Colors
+$primary-color: #000000;
+$primary-color-inverted: #ffffff;
+$secondary-color:  #E64A19;
+$meta-content-color: $color-gray-5;
+$accent-color: $color-gray-7;
+$drop-shadow: rgba(0,0,0,0.2);
+$gray-transparent-bg: rgba(212, 205, 205, 0.3);
+$color-white-transparent: rgba(251, 251, 251, 0.6);
 
 // Fonts
-$base-font-family:  'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
-$base-font-size: 20px;  // 20px
+$base-font-family: 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
+$base-font-size: 1.25em;
+$h1-font-size: 2.1rem;
+$h2-font-size: 1rem;
 $p-margin-bottom: 0.5rem;
 $p-margin-top: $p-margin-bottom;
+$font-size--small-text: 0.667rem;
+$font-size--x-small-text: 0.445rem;
 $brand-font-size: 1.8rem;
 $brand-font-line-height: 1rem;
 $hero-font-size: 1.1rem;
-$h1-font-size: 2.3em;
-$h2-font-size: 1.2em;
-$font-size--small-text: 0.667rem;
-$font-size--x-small-text: 0.445rem;
 
 // Layout
 $app-padding:  0.5rem;
@@ -26,48 +34,20 @@ $content-block-padding: 0.5rem;
 $navbar-height: 4rem;
 $breakpoint-tablet: 38.4rem;
 
-// ALERT
-$alert-container-left-right-margin: 2.5rem;
-$alert-offscreen: 3.5rem;
-$alert-animate: $alert-offscreen - 2.5rem;
-$alert-font-size: .8rem;
+// Icons
+$icon-color: $meta-content-color;
 
-// IMAGES
-// $img-max-width: 25rem;
-
-
-// Colors (src: http://www.materialui.co/colors)
-$color-gray-10:#FAFAFA; //lightest
-$color-gray-9:#F5F5F5;
-$color-gray-8:#EEEEEE;
-$color-gray-7:#E0E0E0;
-$color-gray-6:#BDBDBD;
-$color-gray-5:#9E9E9E;
-$color-gray-4:#757575;
-$color-gray-3:#616161;
-$color-gray-2:#424242;
-$color-gray-1:#212121; //darkest
-$primary-color: #000000;
-$secondary-color:  #E64A19;
-$meta-content-color: $color-gray-5;
-$accent-color: $color-gray-7;
-// $error-color: #E64A19;
 // Links
 $link-color: $secondary-color;
-$icon-color:  $meta-content-color;
-$alternate-icon-color: $secondary-color;
-$drop-shadow: rgba(0,0,0,0.2);
-$gray-transparent-bg: rgba(212, 205, 205, 0.3);
-$color-white-transparent: rgba(251, 251, 251, 0.6);
 
-// NAV MENU
+// Nav Menu
 $nav-menu-break-point: 320px;
 $nav-menu-width: 200px;
 $nav-menu-height: 60px;
 $nav_menu_position_top: 20px;
 $nav_menu_position_right: $nav_menu_position_top;
 
-// Z-INDEXES
+// Z-Indexes
 $z-index-brand-pill: 50;
 $z-index-nav-menu-open: 50;
 $z-index-mask: 100;

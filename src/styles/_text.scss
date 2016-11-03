@@ -7,34 +7,41 @@ body {
 }
 
 h1 {
-	font-size: 2.1rem;
+	font-size: $h1-font-size;
 	font-weight: 300;
-	margin-top:0.25em;
-	margin-bottom:0.25em;
+	margin-top:0.25rem;
+	margin-bottom:0.25rem;
 
 	@media all and (min-width: $breakpoint-tablet) {
-    font-size: 2.5rem;
-			margin-bottom:0.5em;
+    font-size: $h1-font-size + .5rem;
+		margin-bottom:0.5em;
  }
 }
 h2 {
-	font-size: 1rem;
+	font-size: $h2-font-size;
 	font-weight: 600;
+	margin-top: 1rem;
+	margin-bottom:0.5rem;
 	a {
 		color: inherit;
 	}
 	@media all and (min-width: $breakpoint-tablet) {
-		font-size: 1.25rem;
-		margin-bottom:0.5em;
+		font-size: $h2-font-size + .25rem;
+		margin-bottom: 0.5em;
  }
 }
-h3 {
-	font-size: 1rem;
-	margin-bottom: 0;
-}
+
 p {
 	margin-top: $p-margin-top;
 	margin-bottom:$p-margin-bottom;
+}
+
+.new-paragraph {
+	margin-top: 1rem;
+}
+
+.smaller {
+	font-size: .9rem;
 }
 .small-text, .secondary-text { font-size: $font-size--small-text; }
 

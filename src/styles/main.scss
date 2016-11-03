@@ -1,7 +1,11 @@
+// VENDOR
+@import 'vendor/normalize';
+@import 'vendor/colors.grayscale';
+@import 'vendor/materialize-src/sass/materialize';
+
+// BASE
 @import 'variables';
 @import 'mixins';
-@import 'vendor/normalize';
-@import 'vendor/materialize-src/sass/materialize';
 @import 'accessibility';
 @import 'text';
 
@@ -11,11 +15,11 @@
 @import 'components/btn';
 @import 'components/content_block';
 @import 'components/footer';
+@import 'components/form';
 @import 'components/hr';
 @import 'components/image';
 @import 'components/icon';
 @import 'components/list';
-@import 'components/grid';
 @import 'components/mask';
 @import 'components/navbar';
 @import 'components/nav_menu';

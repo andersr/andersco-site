@@ -5,7 +5,7 @@
     border-radius: 50%;
     max-width:10em;
     height: auto;
-    margin: 1em 0;
+    margin:0;
   }
 
   @media screen and (min-width: $breakpoint-tablet) {
@@ -13,7 +13,7 @@
     img {
       max-width: 15em;
       float: right;
-      margin: -.5em 0 1.5em 1.5em;
+      margin: 1rem 0 1.5rem 1.5rem;
     }
   }
 }

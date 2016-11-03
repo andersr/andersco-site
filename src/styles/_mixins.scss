@@ -11,9 +11,6 @@
   @include flex-main;
 }
 
-@mixin bottomPadding($amount: 1rem){
-  padding-bottom: $amount;
-}
 
 // Allow for clicking 'through' an element
 @mixin clickThrough(){
@@ -22,7 +19,6 @@
     pointer-events:auto;
   }
 }
-
 
 // Move element off screen
 @mixin offScreen() {
