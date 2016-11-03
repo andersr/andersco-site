@@ -63,3 +63,4 @@ $(function() {
 
 //Initialize smoothScroll
 smoothScroll.init()
+  // slideRight.open()
