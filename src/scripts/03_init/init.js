@@ -19,12 +19,9 @@ $(function() {
    handleDisableSubmit()
 })
 
-
 /*! Email obfuscator, based on the script 2.1 by Tim Williams, Andrew Moulden http://www.jottings.com/obfuscator/ */
 $(function() {
 'use strict'
-
-
 
  function getEmailAddress (options) {
    var

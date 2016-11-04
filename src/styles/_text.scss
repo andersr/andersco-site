@@ -19,7 +19,7 @@ h1 {
 }
 h2 {
 	font-size: $h2-font-size;
-	font-weight: 600;
+	font-weight: 300;
 	margin-top: 1rem;
 	margin-bottom:0.5rem;
 	a {
@@ -42,6 +42,9 @@ p {
 
 .smaller {
 	font-size: .9rem;
+}
+.compact-text {
+  letter-spacing: -0.06rem;
 }
 .small-text, .secondary-text { font-size: $font-size--small-text; }
 
