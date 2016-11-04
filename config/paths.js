@@ -18,12 +18,12 @@ module.exports = {
 			vendor: 'src/scripts/01_vendor/**/*.js',
 		},
 		images: {
-			src: ['src/images/**/*.*', '!src/images/favicons'],
+			src: 'src/images/**/*.*',
 			dist: 'dist/public/images'
 		},
 	  favicons: {
 			files: {
-	      src: 'src/images/favicons/dist/files/*.*',
+	      src: 'src/favicons/dist/files/*.*',
 			  dist: 'dist/public'
 			},
 			markup: {
