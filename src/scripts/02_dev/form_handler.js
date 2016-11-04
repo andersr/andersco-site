@@ -43,7 +43,7 @@ $(function () {
 
     var animateUp = function () {
       $alert.delay(showAlertDuration).animate({
-        top: "-=90",
+        top: '-=90',
          opacity: '0'
       }, animationSpeed, hideAlert)
     }
@@ -51,7 +51,7 @@ $(function () {
     $alertMessage.text(msg)
     $alert.show()
      $alert.animate({
-       top: "+=90",
+       top: '+=90',
         opacity: '1'
      }, animationSpeed, animateUp)
   }
@@ -68,7 +68,7 @@ $(function () {
     }
   }
 
-  function handleBlur (e) {
+  function handleBlur () {
     if((this.name === 'email' && emailIsInvalid(this)) || inputIsEmpty(this)) {
       $contactForm[this.name].wasInvalid = true
       showErrorMessage(this)
