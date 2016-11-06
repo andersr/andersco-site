@@ -60,6 +60,3 @@ $(function() {
 
 //Initialize smoothScroll
 smoothScroll.init()
-
-// Initialize flexbox polyfill: https://github.com/jonathantneal/flexibility
-//flexibility(document.documentElement);
