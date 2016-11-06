@@ -11,9 +11,8 @@ i {
 .icon--text-inline {
 	  color: $secondary-color;
     &:before {
-   vertical-align: -0.09rem;
-   letter-spacing: -0.250rem;
-  }
+     vertical-align: -0.09rem;
+    }
 }
 
 .icon--link:hover {

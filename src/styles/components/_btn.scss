@@ -12,9 +12,11 @@
     border-radius: .313rem;
   }
 
-  &:focus {
-    background-color:inherit;
+  // prevent background color on IE
+  &:hover {
+    background: none;
   }
+
 }
 
 .btn--submit {

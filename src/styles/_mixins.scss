@@ -17,6 +17,7 @@
   pointer-events: none;
   a, button {
     pointer-events:auto;
+    position: relative; // IE
   }
 }
 

@@ -60,4 +60,6 @@ $(function() {
 
 //Initialize smoothScroll
 smoothScroll.init()
-  // slideRight.open()
+
+// Initialize flexbox polyfill: https://github.com/jonathantneal/flexibility
+//flexibility(document.documentElement);

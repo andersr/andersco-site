@@ -491,13 +491,14 @@
 
 			// Prevent default link behavior
 			event.preventDefault();
+			console.log('document.body: ', document.body)
 
 			// Set the anchored element
 			anchor = document.body;
 
 			// Save or create the ID as a data attribute and remove it (prevents scroll jump)
 			var id = anchor.id ? anchor.id : 'back-to-top';
-			anchor.setAttribute( 'data-scroll-id', id );
+			anchor.setAttribute( 'data-scroll-id', 'id' );
 			anchor.id = '';
 
 			// If no hash change event will happen, fire manually
