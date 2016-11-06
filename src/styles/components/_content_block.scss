@@ -42,7 +42,7 @@
           }
         }
         .hero-content {
-          width: 60%; // IE
+          width: $hero-content-width;
         }
         &.narrow-content-block {
             .main-content {

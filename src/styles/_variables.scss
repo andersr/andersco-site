@@ -30,6 +30,7 @@ $hero-font-size: 1.1rem;
 // Layout
 $app-padding:  0.5rem;
 $content-max-width: 30rem;
+$hero-content-width: $content-max-width - 7rem;
 $content-block-padding: 0.5rem;
 $navbar-height: 4rem;
 $breakpoint-tablet: 38.4rem;
