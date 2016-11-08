@@ -71,9 +71,12 @@
         margin-bottom: 0;
       }
     }
-    .list-item--options {
+    .list-item--icons {
       a {
         padding-right: .25rem;
+				&:hover {
+					text-decoration: none;
+				}
       }
     }
     p {
