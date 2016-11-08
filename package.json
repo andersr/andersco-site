@@ -14,8 +14,7 @@
   "scripts": {
     "start": "node server.js",
     "deploy-staging": "git push staging master",
-    "deploy-prod": "git push production master",
-    "modernize": "modernizr -c ./config/modernizr-config.json"
+    "deploy-prod": "git push production master"
   },
   "keywords": [],
   "author": "Anders Ramsay <anders@anders.co> (http://anders.co)",
