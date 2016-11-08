@@ -19,7 +19,6 @@ gulp.task('styles:dist', function () {
     .pipe(gulp.dest(config.paths.styles.dist))
 })
 
-
 gulp.task('styles:watch', function (done) {
   gulp.watch(config.paths.styles.src, gulp.series('styles:dist'))
   done()
