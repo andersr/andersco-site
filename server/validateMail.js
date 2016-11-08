@@ -1,11 +1,8 @@
-var emailValidator = require("email-validator")
-
-function isEmpty (str) {
-  return str === ''
-}
+const emailValidator = require('email-validator')
+const isEmpty = str => str === ''
 
 module.exports = function validateMail (data) {
-  var errors = []
+  const errors = []
   if(isEmpty(data.name)) {
     errors.push('name')
   }

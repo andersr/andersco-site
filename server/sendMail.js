@@ -1,17 +1,17 @@
-var nodemailer = require('nodemailer')
-var mailgun = require('nodemailer-mailgun-transport')
-var MAILGUN_QUEUED = 'queued'
-var config = {
+const nodemailer = require('nodemailer')
+const mailgun = require('nodemailer-mailgun-transport')
+const MAILGUN_QUEUED = 'queued'
+const config = {
   auth: {
     api_key: process.env.MAILGUN_API,
     domain: process.env.MAILGUN_DOMAIN
   }
 }
 
-var nodemailerMailgun = nodemailer.createTransport(mailgun(config))
+const nodemailerMailgun = nodemailer.createTransport(mailgun(config))
 
 module.exports = function sendMail (data, result) {
-  var messageSent = false
+  let messageSent = false
   nodemailerMailgun.sendMail({
     from: data.email,
     to: process.env.MAILGUN_SEND_TO,
