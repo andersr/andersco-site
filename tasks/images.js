@@ -1,7 +1,7 @@
-var gulp = require('gulp')
-var config = require('./_config')
+const gulp = require('gulp')
+const config = require('./_config')
 
-gulp.task('images:dist', function() {
+gulp.task('images:dist', function () {
   return gulp
     .src(config.paths.images.src)
     .pipe(gulp.dest(config.paths.images.dist))

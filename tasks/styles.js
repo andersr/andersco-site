@@ -1,14 +1,12 @@
-var
-  gulp            = require('gulp'),
-  config          = require('./_config'),
-  sourcemaps      = require('gulp-sourcemaps'),
-  rename          = require('gulp-rename'),
-  autoprefixer = require('gulp-autoprefixer'),
-  sass            = require('gulp-sass'),
-  cleanCSS        = require('gulp-clean-css')
-;
+const gulp = require('gulp')
+const config = require('./_config')
+const sourcemaps = require('gulp-sourcemaps')
+const rename = require('gulp-rename')
+const autoprefixer = require('gulp-autoprefixer')
+const sass = require('gulp-sass')
+const cleanCSS = require('gulp-clean-css')
 
-gulp.task('styles:dist', function() {
+gulp.task('styles:dist', function () {
   return gulp
     .src(config.paths.styles.src)
     .pipe(sourcemaps.write())
@@ -22,7 +20,7 @@ gulp.task('styles:dist', function() {
 })
 
 
-gulp.task('styles:watch', function(done) {
+gulp.task('styles:watch', function (done) {
   gulp.watch(config.paths.styles.src, gulp.series('styles:dist'))
   done()
 })

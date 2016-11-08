@@ -1,11 +1,9 @@
-var
-  gulp         = require('gulp'),
-  config       = require('./_config'),
-  nodemon      = require('gulp-nodemon');
-;
+const gulp = require('gulp')
+const config = require('./_config')
+const nodemon = require('gulp-nodemon')
 
 gulp.task('server', function (cb) {
-  var called = false
+  let called = false
   return nodemon(config.plugins.nodemon)
   .on('start', function () {
     if (!called) {
