@@ -13,10 +13,10 @@
   .btn--icon {
     padding: $btn-padding;
   }
-
+  // .5rem - .75
   @media screen and (min-width: $breakpoint-tablet) {
     padding-left: $content-block-padding + .25rem;
-    padding-right: ($content-block-padding - $btn-padding)+ .75rem;
+    padding-right: ($content-block-padding - $btn-padding) + .25rem;
     .btn--icon {
       padding-top: $btn-padding + .25rem;
     }
