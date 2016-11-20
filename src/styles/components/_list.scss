@@ -10,6 +10,7 @@
 
 @mixin list--inline($spacing:0.5em) {
 	list-style-type: none;
+  // padding:0;
   li {
     display: inline;
 		margin-right: $spacing;
@@ -29,8 +30,9 @@
 .list--inline--divider {
 	$spacing: 0.8rem;
 	list-style-type: none;
+  margin:0;
 	li {
-		  display: inline;
+		  display: inline-block;
 			margin-right: $spacing / 2;
 
 			&::after {
