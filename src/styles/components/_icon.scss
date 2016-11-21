@@ -23,9 +23,15 @@ i {
     }
 }
 
-.icon--link:hover {
-  text-decoration: none;
+.icon--links {
+  a:hover {
+    text-decoration: none;
+    i {
+      	color: darken($icon-color, 20%);
+    }
+  }
 }
+
 
 .icon--link-with-border {
   i {
