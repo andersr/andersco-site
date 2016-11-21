@@ -1,8 +1,26 @@
 @mixin list--no-bullets {
 	list-style: none;
 	margin:0;
-	padding-left: 1em;
-	text-indent: -1em;
+  $li-padding-bottom: .5rem;
+  $li-line-height: 1.2;
+
+  li {
+    padding-bottom: $li-padding-bottom;
+    line-height: $li-line-height;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  @media all and (min-width: $breakpoint-tablet) {
+
+    li {
+      padding-bottom: $li-padding-bottom + .25rem;
+      line-height: $li-line-height + .2;
+    }
+ }
+
 }
 .list--no-bullets {
 	@include list--no-bullets
@@ -10,7 +28,6 @@
 
 @mixin list--inline($spacing:0.5em) {
 	list-style-type: none;
-  // padding:0;
   li {
     display: inline;
 		margin-right: $spacing;
