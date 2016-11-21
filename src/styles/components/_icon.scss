@@ -1,5 +1,13 @@
 //Icon library: https://materialdesignicons.com/
 
+.icon--large {
+	i {
+    &:before {
+      font-size: $icon-lg;
+    }
+	}
+}
+
 i {
 	color: $icon-color;
 }
