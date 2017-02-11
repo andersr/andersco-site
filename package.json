@@ -20,6 +20,7 @@
   "author": "Anders Ramsay <anders@anders.co> (http://anders.co)",
   "license": "MIT",
   "devDependencies": {
+    "babel-eslint": "^7.1.1",
     "browser-sync": "^2.17.5",
     "del": "^2.2.1",
     "eslint": "^3.9.1",
