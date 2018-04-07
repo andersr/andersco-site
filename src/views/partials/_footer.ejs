@@ -1,9 +1,14 @@
 <footer class="footer">
   <div class="flex-main-content">
-    <p><ul class="list--inline--divider">
-       <% include ./_menu_links.ejs %>
-      </ul></p>
-    <p class="copyright">&copy; <%= locals.currentYear %> Anders Ramsay Consulting LLC</p>
+    <p>
+      <ul class="list--inline--divider">
+        <% include ./_menu_links.ejs %>
+      </ul>
+    </p>
+    <p class="copyright">&copy;
+      <%= locals.currentYear %> Anders Ramsay</p>
   </div>
-  <a data-scroll class="icon--link-with-border" href="#"><i class="mdi mdi-chevron-double-up"></i></a>
+  <a data-scroll class="icon--link-with-border" href="#">
+    <i class="mdi mdi-chevron-double-up"></i>
+  </a>
 </footer>

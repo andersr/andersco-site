@@ -12,7 +12,8 @@ const env = process.env.NODE_ENV
 app.use(helmet())
 
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false
+app.use(bodyParser.urlencoded({
+  extended: false
 }))
 
 if (env === 'staging') {
@@ -35,7 +36,7 @@ app.post('/mail', function (req, res) {
     spam: false
   }
 
-  if(req.body.honeypot !== '') {
+  if (req.body.honeypot !== '') {
     result.spam = true
     res.send(result)
   } else {
@@ -45,8 +46,7 @@ app.post('/mail', function (req, res) {
       message: req.body.message
     }
     result.errors = validateMail(data)
-
-    if(result.errors.length > 0) {
+    if (result.errors.length > 0) {
       res.send(result)
     } else {
       sendMail(data, messageSent => {

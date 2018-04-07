@@ -35,7 +35,7 @@ $(function () {
     sendError: 'Sorry, there was a problem sending this message. Try again?'
   }
 
-  function displayFlashMessage (msg) {
+  function displayFlashMessage(msg) {
     var showAlertDuration = 2250
     var animationSpeed = 250
 
@@ -44,64 +44,76 @@ $(function () {
     var animateUp = function () {
       $alert.delay(showAlertDuration).animate({
         top: '-=90',
-         opacity: '0'
+        opacity: '0'
       }, animationSpeed, hideAlert)
     }
 
     $alertMessage.text(msg)
     $alert.show()
-     $alert.animate({
-       top: '+=90',
-        opacity: '1'
-     }, animationSpeed, animateUp)
+    $alert.animate({
+      top: '+=90',
+      opacity: '1'
+    }, animationSpeed, animateUp)
   }
 
-  function errorClass (name) { return '.' + name + '-error' }
-  function inputIsEmpty (el) { return utils.isEmpty($(el).val()) }
-  function emailIsInvalid (el) { return !utils.isEmail($(el).val()) }
+  function errorClass(name) { return '.' + name + '-error' }
+  function inputIsEmpty(el) { return utils.isEmpty($(el).val()) }
+  function emailIsInvalid(el) { return !utils.isEmail($(el).val()) }
 
-  function handleKeyup () {
+  function handleKeyup() {
     if ($contactForm[this.name].wasInvalid) {
-      if((this.name === 'email' && !emailIsInvalid(this)) || !inputIsEmpty(this)) {
+      if ((this.name === 'email' && !emailIsInvalid(this)) || !inputIsEmpty(this)) {
         $(errorClass(this.name)).hide()
       }
     }
   }
 
-  function handleBlur () {
-    if((this.name === 'email' && emailIsInvalid(this)) || inputIsEmpty(this)) {
+  function handleBlur() {
+    if ((this.name === 'email' && emailIsInvalid(this)) || inputIsEmpty(this)) {
       $contactForm[this.name].wasInvalid = true
       showErrorMessage(this)
     }
   }
 
-  function showErrorMessage (el) {
+  function showErrorMessage(el) {
     $(errorClass(el.name)).text(MESSAGES.errors[el.name]).show()
   }
 
-  function postData (data, options, handleResponse) {
+  function postData(data, options, handleResponse) {
     $.post({
       url: options.url,
       contentType: 'application/json',
       data: JSON.stringify(data),
       success: function (response) {
+        // console.log('response: ', response);
         handleResponse(response)
-      }
+      },
+      // fail: function (response) {
+      //   console.log('FAIL: ', response);
+      // },
     })
-    .fail(function () {
-      handleResponse({
-        messageSent: false
+      // .done(function () {
+      //   console.log("success");
+
+      // })
+      .fail(function () {
+        handleResponse({
+          messageSent: false
+        })
       })
-    })
+    // .always(function () {
+    //   console.log("finished");
+
+    // })
   }
 
-  function displayErrors (errors) {
-    for(var i = 0; i < errors.length; i++) {
+  function displayErrors(errors) {
+    for (var i = 0; i < errors.length; i++) {
       $contactForm[errors[i]].error.text(MESSAGES.errors[errors[i]]).show()
     }
   }
 
-  function resetForm (cb) {
+  function resetForm(cb) {
     $.each([
       $contactForm.name,
       $contactForm.email,
@@ -110,13 +122,13 @@ $(function () {
     ],
       function (i, element) {
         element.el.val('')
-        if(element.wasInvalid) {
+        if (element.wasInvalid) {
           element.wasInvalid = false
         }
-    })
+      })
     cb()
   }
-  function handleSubmit (e) {
+  function handleSubmit(e) {
     e.preventDefault()
     $contactForm.submit.attr('disabled', 'disabled').text('Sending...')
 
@@ -130,10 +142,11 @@ $(function () {
       url: '/mail'
     }
     postData(data, options, function (response) {
+      // console.log('response: ', response);
       if (response.messageSent === false) {
         displayFlashMessage(MESSAGES.sendError)
         $contactForm.submit.removeAttr('disabled', 'disabled').text('Send')
-      } else if(response.errors.length > 0) {
+      } else if (response.errors.length > 0) {
         displayErrors(response.errors)
         $contactForm.submit.text('Send')
       } else {
@@ -152,5 +165,5 @@ $(function () {
     function (i, el) {
       el.on('blur', handleBlur)
       el.on('keyup', handleKeyup)
-  })
+    })
 })
