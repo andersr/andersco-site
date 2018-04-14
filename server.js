@@ -21,7 +21,7 @@ if (env === 'staging') {
   const basicAuth = require('basic-auth-connect')
   app.use(basicAuth(process.env.NPM_CONFIG_BASIC_AUTH_USER, process.env.NPM_CONFIG_BASIC_AUTH_PWD))
 } else {
-  app.use(enforce.HTTPS())
+  app.use(enforce.HTTPS({ trustProtoHeader: true }))
 }
 
 app.set('views', path.join(__dirname, '/dist/views'))
