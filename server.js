@@ -21,16 +21,16 @@ if (env === 'staging') {
   app.use(basicAuth(process.env.NPM_CONFIG_BASIC_AUTH_USER, process.env.NPM_CONFIG_BASIC_AUTH_PWD))
 }
 
-if (env !== 'development') {
-  app.use(function (req, res, next) {
-    if (!req.secure) {
-      var secureUrl = 'https://' + req.headers['host'] + req.url;
-      res.writeHead(301, { "Location": secureUrl });
-      res.end();
-    }
-    next();
-  });
-}
+// if (env !== 'development') {
+//   app.use(function (req, res, next) {
+//     if (!req.secure) {
+//       var secureUrl = 'https://' + req.headers['host'] + req.url;
+//       res.writeHead(301, { "Location": secureUrl });
+//       res.end();
+//     }
+//     next();
+//   });
+// }
 
 app.set('views', path.join(__dirname, '/dist/views'))
 app.set('view engine', 'ejs')
