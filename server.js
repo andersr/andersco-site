@@ -8,7 +8,6 @@ const sendMail = require('./server/sendMail')
 const app = express()
 const port = process.env.PORT || 3000
 const env = process.env.NODE_ENV
-var enforce = require('express-sslify')
 
 app.use(helmet())
 
@@ -20,8 +19,17 @@ app.use(bodyParser.urlencoded({
 if (env === 'staging') {
   const basicAuth = require('basic-auth-connect')
   app.use(basicAuth(process.env.NPM_CONFIG_BASIC_AUTH_USER, process.env.NPM_CONFIG_BASIC_AUTH_PWD))
-} else {
-  app.use(enforce.HTTPS({ trustProtoHeader: true }))
+}
+
+if (env !== 'development') {
+  app.use(function (req, res, next) {
+    if (!req.secure) {
+      var secureUrl = 'https://' + req.headers['host'] + req.url;
+      res.writeHead(301, { "Location": secureUrl });
+      res.end();
+    }
+    next();
+  });
 }
 
 app.set('views', path.join(__dirname, '/dist/views'))
