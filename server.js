@@ -36,7 +36,7 @@ app.set('views', path.join(__dirname, '/dist/views'))
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/dist/public'))
 
-app.get("/resume", (req, res) => res.redirect("https://docs.google.com/document/d/1jlQVh23fBsBGWiz3FSTAFDyMmYFH8AsXjfXcbHC9e8o/"));
+app.get("/resume", (req, res) => res.redirect("https://drive.google.com/file/d/1X_dbyuY2lR1jneX1hAfgWrF0eFemFFGG/view?usp=sharing"));
 app.get('/', function (req, res) {
   res.locals.currentYear = new Date().getFullYear()
   res.render('index')
