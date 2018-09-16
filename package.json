@@ -8,7 +8,9 @@
     "url": "https://github.com/andersr/andersco-site"
   },
   "engines": {
-    "node": "^9.11.1"
+    "node": "^9.11.1",
+    "npm": "5.6.x",
+    "yarn": "1.9.4"
   },
   "main": "main.js",
   "scripts": {
