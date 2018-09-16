@@ -28,7 +28,7 @@ app.use(express.static(__dirname + '/dist/public'))
 app.get("/resume", (req, res) => res.redirect("https://drive.google.com/file/d/1X_dbyuY2lR1jneX1hAfgWrF0eFemFFGG/view?usp=sharing"));
 app.get('/', function (req, res) {
   res.locals.currentYear = new Date().getFullYear()
-  if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "staging") {
+  if (process.env.NODE_ENV === "production") {
     if (req.secure) {
       res.render('index')
     } else {
