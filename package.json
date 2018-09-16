@@ -8,17 +8,20 @@
     "url": "https://github.com/andersr/andersco-site"
   },
   "engines": {
-    "node": "^9.11.1"
+    "node": "11.1.0",
+    "npm": "6.5.0",
+    "yarn": "1.12.3"
   },
   "main": "main.js",
   "scripts": {
-    "start": "NODE_ENV=development node server.js",
+    "start": "NODE_ENV=production node server.js",
     "deploy-staging": "git push staging master",
     "deploy-prod": "git push production master",
-    "gulp": "gulp"
+    "gulp": "gulp",
+    "deploy:surge": "surge --domain https://andersco-staging.surge.sh --project /Users/andersjramsay/dev/andersco-site/dist"
   },
   "keywords": [],
-  "author": "Anders Ramsay <anders@anders.co> (http://anders.co)",
+  "author": "Anders Ramsay <anders@anders.co> (https://anders.co)",
   "license": "MIT",
   "devDependencies": {
     "babel-eslint": "^9.0.0",
