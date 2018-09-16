@@ -30,7 +30,6 @@ app.get('/', function (req, res) {
   res.locals.currentYear = new Date().getFullYear()
   if (env === "production" && !req.secure) {
     res.redirect('https://' + req.headers.host + req.url);
-    next();
   }
   res.render('index')
 })
