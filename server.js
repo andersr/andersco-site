@@ -25,12 +25,17 @@ app.set('views', path.join(__dirname, '/dist/views'))
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/dist/public'))
 
+app.use(function (req, res, next) {
+  if (env === "production" && !req.secure) {
+    res.redirect('https://' + req.headers.host + req.url);
+  } else {
+    next();
+  }
+});
+
 app.get("/resume", (req, res) => res.redirect("https://drive.google.com/file/d/1X_dbyuY2lR1jneX1hAfgWrF0eFemFFGG/view?usp=sharing"));
 app.get('/', function (req, res) {
   res.locals.currentYear = new Date().getFullYear()
-  if (env === "production" && !req.secure) {
-    res.redirect('https://' + req.headers.host + req.url);
-  }
   res.render('index')
 })
 
@@ -62,10 +67,10 @@ app.post('/mail', function (req, res) {
 })
 
 // Wildcard redirect to root
-// app.use(function (req, res) {
-//   res.status(400)
-//   res.redirect('/')
-// })
+app.use(function (req, res) {
+  res.status(400)
+  res.redirect('/')
+})
 
 app.listen(port, function () {
   if (env !== 'production') {
