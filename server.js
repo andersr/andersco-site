@@ -21,22 +21,6 @@ if (env === 'staging') {
   app.use(basicAuth(process.env.NPM_CONFIG_BASIC_AUTH_USER, process.env.NPM_CONFIG_BASIC_AUTH_PWD))
 }
 
-const hostHandler = (req, res, next) => {
-  const requestedHost = req.get("Host");
-  if (requestedHost === "anders.co" || requestedHost === "www.anders.co") {
-    res.redirect(301, 'https://foo/' + req.url);
-    return;
-  }
-  // if (process.env.NODE_ENV === "production") {
-  //   const requestedHost = req.get("Host");
-  //   if (requestedHost === "anders.co" || requestedHost === "www.anders.co") {
-  //     res.redirect(301, 'https://www.anders.co' + req.url);
-  //     return;
-  //   }
-  // }
-  next();
-}
-
 app.set('views', path.join(__dirname, '/dist/views'))
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/dist/public'))
@@ -44,7 +28,7 @@ app.use(express.static(__dirname + '/dist/public'))
 app.get("/resume", (req, res) => res.redirect("https://drive.google.com/file/d/1X_dbyuY2lR1jneX1hAfgWrF0eFemFFGG/view?usp=sharing"));
 app.get('/', function (req, res) {
   res.locals.currentYear = new Date().getFullYear()
-  if (process.env.NODE_ENV === "production") {
+  if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "staging") {
     if (req.secure) {
       res.render('index')
     } else {
