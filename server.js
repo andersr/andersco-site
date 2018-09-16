@@ -21,16 +21,21 @@ if (env === 'staging') {
   app.use(basicAuth(process.env.NPM_CONFIG_BASIC_AUTH_USER, process.env.NPM_CONFIG_BASIC_AUTH_PWD))
 }
 
-// if (env !== 'development') {
-//   app.use(function (req, res, next) {
-//     if (!req.secure) {
-//       var secureUrl = 'https://' + req.headers['host'] + req.url;
-//       res.writeHead(301, { "Location": secureUrl });
-//       res.end();
-//     }
-//     next();
-//   });
-// }
+const hostHandler = (req, res, next) => {
+  const requestedHost = req.get("Host");
+  if (requestedHost === "anders.co" || requestedHost === "www.anders.co") {
+    res.redirect(301, 'https://foo/' + req.url);
+    return;
+  }
+  // if (process.env.NODE_ENV === "production") {
+  //   const requestedHost = req.get("Host");
+  //   if (requestedHost === "anders.co" || requestedHost === "www.anders.co") {
+  //     res.redirect(301, 'https://www.anders.co' + req.url);
+  //     return;
+  //   }
+  // }
+  next();
+}
 
 app.set('views', path.join(__dirname, '/dist/views'))
 app.set('view engine', 'ejs')
@@ -39,10 +44,20 @@ app.use(express.static(__dirname + '/dist/public'))
 app.get("/resume", (req, res) => res.redirect("https://drive.google.com/file/d/1X_dbyuY2lR1jneX1hAfgWrF0eFemFFGG/view?usp=sharing"));
 app.get('/', function (req, res) {
   res.locals.currentYear = new Date().getFullYear()
-  res.render('index')
+  if (process.env.NODE_ENV === "production") {
+    if (req.secure) {
+      res.render('index')
+    } else {
+      // request was via http, so redirect to https
+      res.redirect('https://' + req.headers.host + req.url);
+    }
+  } else {
+
+    res.render('index')
+  }
 })
 
-app.post('/mail', function (req, res) {
+app.post('/mail', hostHandler, function (req, res) {
   res.setHeader('Content-Type', 'application/json')
   const result = {
     spam: false
@@ -70,10 +85,10 @@ app.post('/mail', function (req, res) {
 })
 
 // Wildcard redirect to root
-app.use(function (req, res) {
-  res.status(400)
-  res.redirect('/')
-})
+// app.use(function (req, res) {
+//   res.status(400)
+//   res.redirect('/')
+// })
 
 app.listen(port, function () {
   if (env !== 'production') {
