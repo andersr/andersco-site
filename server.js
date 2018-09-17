@@ -9,6 +9,15 @@ const app = express()
 const port = process.env.PORT || 3000
 const env = process.env.NODE_ENV
 
+app.use(function (req, res, next) {
+  if ((env === "staging" || env === "production") && !req.secure) {
+    var secureUrl = "https://" + req.headers['host'] + req.url;
+    res.writeHead(301, { "Location": secureUrl });
+    res.end();
+  }
+  next();
+});
+
 app.use(helmet())
 
 app.use(bodyParser.json())
@@ -25,13 +34,6 @@ app.set('views', path.join(__dirname, '/dist/views'))
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/dist/public'))
 
-// app.use(function (req, res, next) {
-//   if (env === "production" && !req.secure) {
-//     res.redirect('https://' + req.headers.host + req.url);
-//   } else {
-//     next();
-//   }
-// });
 
 app.get("/resume", (req, res) => res.redirect("https://drive.google.com/file/d/1X_dbyuY2lR1jneX1hAfgWrF0eFemFFGG/view?usp=sharing"));
 app.get('/', function (req, res) {
