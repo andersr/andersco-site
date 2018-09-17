@@ -69,10 +69,10 @@ app.post('/mail', function (req, res) {
 })
 
 // Wildcard redirect to root
-app.use(function (req, res) {
-  res.status(400)
-  res.redirect('/')
-})
+// app.use(function (req, res) {
+//   res.status(400)
+//   res.redirect('/')
+// })
 
 app.listen(port, function () {
   if (env !== 'production') {
