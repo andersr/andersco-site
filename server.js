@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000
 const env = process.env.NODE_ENV
 
 app.use(function (req, res, next) {
-  if ((env === "staging" || env === "production") && !req.secure) {
+  if (env === "production" && !req.secure) {
     var secureUrl = "https://" + req.headers['host'] + req.url;
     res.writeHead(301, { "Location": secureUrl });
     res.end();
