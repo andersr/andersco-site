@@ -17,7 +17,7 @@
     "start": "NODE_ENV=production node server.js",
     "deploy-staging": "git push staging master",
     "deploy-prod": "git push production master",
-    "gulp": "gulp",
+    "dev": "NODE_ENV=development gulp",
     "deploy:surge": "surge --domain https://andersco-staging.surge.sh --project /Users/andersjramsay/dev/andersco-site/dist"
   },
   "keywords": [],
