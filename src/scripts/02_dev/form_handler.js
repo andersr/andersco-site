@@ -35,6 +35,17 @@ $(function () {
     sendError: 'Sorry, there was a problem sending this message. Try again?'
   }
 
+  var utils = {
+    isEmpty: function (str) {
+      return str.trim().length === 0
+    },
+    isEmail: function (email) {
+      var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/
+      return regex.test(email)
+    }
+  }
+
+
   function displayFlashMessage(msg) {
     var showAlertDuration = 2250
     var animationSpeed = 250
