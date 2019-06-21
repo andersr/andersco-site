@@ -9,6 +9,15 @@ const app = express()
 const port = process.env.PORT || 3000
 const env = process.env.NODE_ENV
 
+function requireHTTPS(req, res, next) {
+  // The 'x-forwarded-proto' check is for Heroku
+  if (!req.secure && req.get('x-forwarded-proto') !== 'https' && process.env.NODE_ENV !== "development") {
+    return res.redirect('https://' + req.get('host') + req.url);
+  }
+  next();
+}
+
+app.use(requireHTTPS);
 app.use(helmet())
 
 app.use(bodyParser.json())
@@ -21,20 +30,10 @@ if (env === 'staging') {
   app.use(basicAuth(process.env.NPM_CONFIG_BASIC_AUTH_USER, process.env.NPM_CONFIG_BASIC_AUTH_PWD))
 }
 
-// if (env !== 'development') {
-//   app.use(function (req, res, next) {
-//     if (!req.secure) {
-//       var secureUrl = 'https://' + req.headers['host'] + req.url;
-//       res.writeHead(301, { "Location": secureUrl });
-//       res.end();
-//     }
-//     next();
-//   });
-// }
-
 app.set('views', path.join(__dirname, '/dist/views'))
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/dist/public'))
+
 
 app.get("/resume", (req, res) => res.redirect("https://drive.google.com/file/d/1X_dbyuY2lR1jneX1hAfgWrF0eFemFFGG/view?usp=sharing"));
 app.get('/', function (req, res) {

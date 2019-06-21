@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 function handleDisableSubmit() {
     var total_required_fields = 0
     var $submitBtn = $('.handle-disable-submit input[type="submit"], .handle-disable-submit button[type="submit"]')
