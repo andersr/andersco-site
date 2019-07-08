@@ -14,11 +14,9 @@
   },
   "main": "main.js",
   "scripts": {
-    "start": "NODE_ENV=production node server.js",
-    "deploy-staging": "git push staging master",
-    "deploy-prod": "git push production master",
-    "dev": "NODE_ENV=development gulp",
-    "deploy:surge": "surge --domain https://andersco-staging.surge.sh --project /Users/andersjramsay/dev/andersco-site/dist"
+    "deploy:staging": "git push staging master",
+    "deploy:prod": "git push production master",
+    "dev": "NODE_ENV=development gulp"
   },
   "keywords": [],
   "author": "Anders Ramsay <anders@anders.co> (https://anders.co)",
