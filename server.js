@@ -11,13 +11,13 @@ const env = process.env.NODE_ENV
 
 function requireHTTPS(req, res, next) {
   // The 'x-forwarded-proto' check is for Heroku
-  if (!req.secure && req.get('x-forwarded-proto') !== 'https' && process.env.NODE_ENV !== "development") {
-    return res.redirect('https://' + req.get('host') + req.url);
+  if (!req.secure && req.get('x-forwarded-proto') !== 'https' && process.env.NODE_ENV !== 'development') {
+    return res.redirect('https://' + req.get('host') + req.url)
   }
-  next();
+  next()
 }
 
-app.use(requireHTTPS);
+app.use(requireHTTPS)
 app.use(helmet())
 
 app.use(bodyParser.json())
@@ -35,7 +35,7 @@ app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/dist/public'))
 
 
-app.get("/resume", (req, res) => res.redirect("https://drive.google.com/file/d/1X_dbyuY2lR1jneX1hAfgWrF0eFemFFGG/view?usp=sharing"));
+app.get('/resume', (req, res) => res.redirect('https://drive.google.com/open?id=1X_dbyuY2lR1jneX1hAfgWrF0eFemFFGG'))
 app.get('/', function (req, res) {
   res.locals.currentYear = new Date().getFullYear()
   res.render('index')
