@@ -46,7 +46,7 @@
     "gulp-using": "^0.1.1",
     "jshint": "^2.9.6",
     "jshint-stylish": "^2.2.1",
-    "nodemon": "^1.18.4",
+    "nodemon": "^2.0.2",
     "require-dir": "^1.0.0"
   },
   "dependencies": {
