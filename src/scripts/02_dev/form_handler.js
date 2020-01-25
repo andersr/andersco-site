@@ -96,26 +96,14 @@ $(function () {
       contentType: 'application/json',
       data: JSON.stringify(data),
       success: function (response) {
-        // console.log('response: ', response);
         handleResponse(response)
       },
-      // fail: function (response) {
-      //   console.log('FAIL: ', response);
-      // },
     })
-      // .done(function () {
-      //   console.log("success");
-
-      // })
-      .fail(function () {
+    .fail(function () {
         handleResponse({
           messageSent: false
         })
       })
-    // .always(function () {
-    //   console.log("finished");
-
-    // })
   }
 
   function displayErrors(errors) {
