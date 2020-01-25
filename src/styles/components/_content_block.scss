@@ -28,6 +28,7 @@
         padding-bottom: 15vh;
       }
       .hero-content {
+        padding-left: 4vw; // fix mobile slightly off-center
         width: 100%; // IE
         p {
           font-size: $hero-font-size - .1rem;
@@ -42,6 +43,7 @@
           }
         }
         .hero-content {
+          padding-left: 0;
           width: $hero-content-width;
         }
         &.narrow-content-block {
