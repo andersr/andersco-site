@@ -141,6 +141,11 @@ $(function () {
   }
   function handleSubmit(e) {
     e.preventDefault()
+
+    if($contactForm.honeypot.el.val() !== ''){
+      return
+    }
+
     $contactForm.submit.attr('disabled', 'disabled').text('Sending...')
 
     var data = {
@@ -153,7 +158,7 @@ $(function () {
       url: '/mail'
     }
     postData(data, options, function (response) {
-      // console.log('response: ', response);
+
       if (response.messageSent === false) {
         displayFlashMessage(MESSAGES.sendError)
         $contactForm.submit.removeAttr('disabled', 'disabled').text('Send')
