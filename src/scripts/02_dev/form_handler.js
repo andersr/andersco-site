@@ -96,26 +96,14 @@ $(function () {
       contentType: 'application/json',
       data: JSON.stringify(data),
       success: function (response) {
-        // console.log('response: ', response);
         handleResponse(response)
       },
-      // fail: function (response) {
-      //   console.log('FAIL: ', response);
-      // },
     })
-      // .done(function () {
-      //   console.log("success");
-
-      // })
-      .fail(function () {
+    .fail(function () {
         handleResponse({
           messageSent: false
         })
       })
-    // .always(function () {
-    //   console.log("finished");
-
-    // })
   }
 
   function displayErrors(errors) {
@@ -141,6 +129,11 @@ $(function () {
   }
   function handleSubmit(e) {
     e.preventDefault()
+
+    if($contactForm.honeypot.el.val() !== ''){
+      return
+    }
+
     $contactForm.submit.attr('disabled', 'disabled').text('Sending...')
 
     var data = {
@@ -153,7 +146,7 @@ $(function () {
       url: '/mail'
     }
     postData(data, options, function (response) {
-      // console.log('response: ', response);
+
       if (response.messageSent === false) {
         displayFlashMessage(MESSAGES.sendError)
         $contactForm.submit.removeAttr('disabled', 'disabled').text('Send')
