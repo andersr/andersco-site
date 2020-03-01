@@ -35,7 +35,7 @@ app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/dist/public'))
 
 
-app.get('/resume', (req, res) => res.redirect('https://drive.google.com/open?id=1X_dbyuY2lR1jneX1hAfgWrF0eFemFFGG'))
+// app.get('/resume', (req, res) => res.redirect('https://drive.google.com/open?id=1X_dbyuY2lR1jneX1hAfgWrF0eFemFFGG'))
 app.get('/', function (req, res) {
   res.locals.currentYear = new Date().getFullYear()
   res.render('index')
@@ -56,6 +56,7 @@ app.post('/mail', function (req, res) {
       name: req.body.name,
       message: req.body.message
     }
+    console.log('data: ', data)
     result.errors = validateMail(data)
     if (result.errors.length > 0) {
       res.send(result)
