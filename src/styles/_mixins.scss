@@ -26,6 +26,8 @@
   position: absolute;
   left: -999em;
 }
-.off-screen {
+
+// actually, a honeypot class
+.form-input {
   @include offScreen;
 }

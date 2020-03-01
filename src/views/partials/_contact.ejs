@@ -7,10 +7,6 @@
     </noscript>
 </p>
 <form class="form handle-disable-submit" method="POST" id="contactForm">
-    <div class="off-screen">
-        <input id="mainEmail" type="email">
-        <label for="mainEmail">Leave this field blank</label>
-    </div>
     <div class="row">
         <div class="input-field input-field--first">
             <label for="name">Name</label>
@@ -19,6 +15,10 @@
         </div>
     </div>
     <div class="row">
+        <div style="position: absolute;
+        left: -999em;">
+            <input id="mainEmail" type="email" value="bla">
+        </div>
         <div class="input-field">
             <label for="email">Email</label>
             <input id="email" name="email" type="email" class="required_field" tabindex="2">

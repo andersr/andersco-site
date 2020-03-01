@@ -130,9 +130,9 @@ $(function () {
   function handleSubmit(e) {
     e.preventDefault()
 
-    if($contactForm.honeypot.el.val() !== ''){
-      return
-    }
+    // if($contactForm.honeypot.el.val() !== ''){
+    //   return
+    // }
 
     $contactForm.submit.attr('disabled', 'disabled').text('Sending...')
 
@@ -145,9 +145,8 @@ $(function () {
     var options = {
       url: '/mail'
     }
-    postData(data, options, function (response) {
-
-      if (response.messageSent === false) {
+    postData(data, options, function (response) {    
+      if (response.spam || response.messageSent === false) {
         displayFlashMessage(MESSAGES.sendError)
         $contactForm.submit.removeAttr('disabled', 'disabled').text('Send')
       } else if (response.errors.length > 0) {
