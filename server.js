@@ -56,7 +56,7 @@ app.post('/mail', function (req, res) {
       name: req.body.name,
       message: req.body.message
     }
-    console.log('data: ', data)
+    
     result.errors = validateMail(data)
     if (result.errors.length > 0) {
       res.send(result)
