@@ -15,7 +15,7 @@ module.exports = function sendMail(data, result) {
   nodemailerMailgun.sendMail({
     from: data.email,
     to: process.env.MAILGUN_SEND_TO,
-    subject: '[andersco] Message from ' + data.name,
+    subject: '[andersco new] Message from ' + data.name,
     text: data.message
   }, function (err, info) {
     if (err) {
