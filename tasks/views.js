@@ -1,11 +1,11 @@
 const gulp = require('gulp')
 const config = require('./_config')
-const cleanhtml = require('gulp-cleanhtml')
+const htmlmin = require('gulp-html-minifier')
 
 gulp.task('views:dist', function () {
   return gulp
     .src(config.paths.views.src)
-    .pipe(cleanhtml())
+    .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest(config.paths.views.dist))
 })
 
