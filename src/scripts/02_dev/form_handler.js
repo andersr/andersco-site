@@ -32,7 +32,8 @@ $(function () {
       'message': 'Please enter a message.'
     },
     confirmation: 'Thank you for contacting me!',
-    sendError: 'Sorry, there was a problem sending this message. Try again?'
+    sendError: 'Sorry, there was a problem sending this message. Try again?',
+    tooShort: 'Hmmm, that seems too short to be an actual message.  Try again?'
   }
 
   var utils = {
@@ -145,8 +146,11 @@ $(function () {
     var options = {
       url: '/mail'
     }
-    postData(data, options, function (response) {    
-      if (response.spam || response.messageSent === false) {
+    postData(data, options, function (response) {
+      if (response.tooShort) {
+        displayFlashMessage(MESSAGES.tooShort)
+        $contactForm.submit.removeAttr('disabled', 'disabled').text('Send')
+      } else if (response.spam || response.messageSent === false) {
         displayFlashMessage(MESSAGES.sendError)
         $contactForm.submit.removeAttr('disabled', 'disabled').text('Send')
       } else if (response.errors.length > 0) {
