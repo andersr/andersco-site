@@ -44,11 +44,17 @@ app.get('/', function (req, res) {
 app.post('/mail', function (req, res) {
   res.setHeader('Content-Type', 'application/json')
   const result = {
-    spam: false
+    spam: false,
+    tooShort: false,
   }
+
+  const words = req.body.message.split(' ')
 
   if (req.body.honeypot !== '') {
     result.spam = true
+    res.send(result)
+  } else if(words.length < 3){
+    result.tooShort = true
     res.send(result)
   } else {
     const data = {
