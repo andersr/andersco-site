@@ -48,12 +48,14 @@ app.post('/mail', function (req, res) {
     tooShort: false,
   }
 
-  const words = req.body.message.split(' ')
+  const noLineBreaks = req.body.message.replace(/(\r\n|\n|\r)/gm, ' ')
+  const noExtraSpaces = noLineBreaks.replace(/\s+/g,' ')
+  const words = noExtraSpaces.split(' ')
 
   if (req.body.honeypot !== '') {
     result.spam = true
     res.send(result)
-  } else if(words.length < 3){
+  } else if(words.length < 5){
     result.tooShort = true
     res.send(result)
   } else {
