@@ -50,7 +50,7 @@
     "require-dir": "^1.0.0"
   },
   "dependencies": {
-    "ajv": "^6.5.3",
+    "ajv": "^6.12.3",
     "basic-auth-connect": "^1.0.0",
     "body-parser": "^1.18.3",
     "dotenv": "^8.2.0",
